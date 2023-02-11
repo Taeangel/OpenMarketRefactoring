@@ -127,9 +127,8 @@
 				86CF2EC0299752AF00F34529 /* AppDelegate.swift */,
 				86CF2EC2299752AF00F34529 /* SceneDelegate.swift */,
 				86CF2EC4299752AF00F34529 /* ViewController.swift */,
-				86CF2EC9299752B100F34529 /* Assets.xcassets */,
-				86CF2ECB299752B100F34529 /* LaunchScreen.storyboard */,
 				86CF2ECE299752B100F34529 /* Info.plist */,
+				86CF2EF3299759F200F34529 /* Resource */,
 			);
 			path = OpenMarketUIkit;
 			sourceTree = "<group>";
@@ -149,6 +148,15 @@
 				86CF2EE3299752B100F34529 /* OpenMarketUIkitUITestsLaunchTests.swift */,
 			);
 			path = OpenMarketUIkitUITests;
+			sourceTree = "<group>";
+		};
+		86CF2EF3299759F200F34529 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				86CF2EC9299752B100F34529 /* Assets.xcassets */,
+				86CF2ECB299752B100F34529 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		DE26AC2335A551CD64FE0130 /* Pods */ = {
