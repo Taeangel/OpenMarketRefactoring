@@ -17,6 +17,7 @@
 		86CF2ED8299752B100F34529 /* OpenMarketUIkitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2ED7299752B100F34529 /* OpenMarketUIkitTests.swift */; };
 		86CF2EE2299752B100F34529 /* OpenMarketUIkitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2EE1299752B100F34529 /* OpenMarketUIkitUITests.swift */; };
 		86CF2EE4299752B100F34529 /* OpenMarketUIkitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2EE3299752B100F34529 /* OpenMarketUIkitUITestsLaunchTests.swift */; };
+		86CF2EF629975BEA00F34529 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2EF529975BEA00F34529 /* Coordinator.swift */; };
 		8A8033C231105C3686B8FD94 /* Pods_OpenMarketUIkit_OpenMarketUIkitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06ED2871AE7DE76E5ADC4BD5 /* Pods_OpenMarketUIkit_OpenMarketUIkitUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		86CF2EDD299752B100F34529 /* OpenMarketUIkitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenMarketUIkitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2EE1299752B100F34529 /* OpenMarketUIkitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketUIkitUITests.swift; sourceTree = "<group>"; };
 		86CF2EE3299752B100F34529 /* OpenMarketUIkitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketUIkitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		86CF2EF529975BEA00F34529 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		935B239B2D11DF73586896CB /* Pods_OpenMarketUIkitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenMarketUIkitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF2D1A01E8EEA50ECF6FCDCF /* Pods-OpenMarketUIkitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarketUIkitTests.release.xcconfig"; path = "Target Support Files/Pods-OpenMarketUIkitTests/Pods-OpenMarketUIkitTests.release.xcconfig"; sourceTree = "<group>"; };
 		BDBA9B004B311FCC4D684349 /* Pods-OpenMarketUIkit-OpenMarketUIkitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarketUIkit-OpenMarketUIkitUITests.debug.xcconfig"; path = "Target Support Files/Pods-OpenMarketUIkit-OpenMarketUIkitUITests/Pods-OpenMarketUIkit-OpenMarketUIkitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				86CF2EC0299752AF00F34529 /* AppDelegate.swift */,
 				86CF2EC2299752AF00F34529 /* SceneDelegate.swift */,
 				86CF2EC4299752AF00F34529 /* ViewController.swift */,
+				86CF2EF429975BD800F34529 /* Coordinator */,
 				86CF2ECE299752B100F34529 /* Info.plist */,
 				86CF2EF3299759F200F34529 /* Resource */,
 			);
@@ -157,6 +160,14 @@
 				86CF2ECB299752B100F34529 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		86CF2EF429975BD800F34529 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				86CF2EF529975BEA00F34529 /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		DE26AC2335A551CD64FE0130 /* Pods */ = {
@@ -410,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86CF2EF629975BEA00F34529 /* Coordinator.swift in Sources */,
 				86CF2EC5299752AF00F34529 /* ViewController.swift in Sources */,
 				86CF2EC1299752AF00F34529 /* AppDelegate.swift in Sources */,
 				86CF2EC3299752AF00F34529 /* SceneDelegate.swift in Sources */,
