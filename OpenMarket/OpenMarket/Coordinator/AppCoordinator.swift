@@ -12,11 +12,26 @@ class AppCoordinator: Coordinator {
   func start() {
 
     guard let navigationController = navigationController else { return }
-
-    let mainCoordinator = MainViewCoordinator(navigationController: navigationController)
     
-    childCoordinators.append(mainCoordinator)
-    mainCoordinator.parentCoordinator = self
-    mainCoordinator.start()
+    let tabBarView = UITabBarController()
+    
+    let firstTabViewCoordinator = FirstTabViewCoordinator(navigationController: navigationController)
+    let secondTabViewCoordinator = SecondTabViewCoordinator(navigationController: navigationController)
+    
+    childCoordinators.append(firstTabViewCoordinator)
+    childCoordinators.append(secondTabViewCoordinator)
+    
+    firstTabViewCoordinator.parentCoordinator = self
+    secondTabViewCoordinator.parentCoordinator = self
+    
+    let firstTabView = firstTabViewCoordinator.start()
+    let secondTabView = secondTabViewCoordinator.start()
+    
+    firstTabView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 0)
+    secondTabView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 1)
+    
+    tabBarView.setViewControllers([firstTabView, secondTabView], animated: true)
+    
+    self.navigationController?.pushViewController(tabBarView, animated: true)
   }
 }

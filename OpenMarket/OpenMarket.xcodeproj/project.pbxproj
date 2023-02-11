@@ -12,10 +12,8 @@
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
 		86CF2F54299775D700F34529 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F52299775D700F34529 /* LaunchScreen.storyboard */; };
-		86CF2F5D299777FC00F34529 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F5B299777FC00F34529 /* MainViewController.swift */; };
 		86CF2F5E299777FC00F34529 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F5C299777FC00F34529 /* Coordinator.swift */; };
 		86F048E329979C6800212238 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048E229979C6800212238 /* AppCoordinator.swift */; };
-		86F048E529979CF300212238 /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048E429979CF300212238 /* MainViewCoordinator.swift */; };
 		86F048EE29979E5B00212238 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048ED29979E5B00212238 /* FirstTabViewController.swift */; };
 		86F048F029979E6600212238 /* FirstTabViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048EF29979E6600212238 /* FirstTabViewCoordinator.swift */; };
 		86F048F229979E7100212238 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048F129979E7100212238 /* SecondTabViewController.swift */; };
@@ -29,10 +27,8 @@
 		86CF2F50299775D700F34529 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86CF2F53299775D700F34529 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86CF2F55299775D700F34529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		86CF2F5B299777FC00F34529 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		86CF2F5C299777FC00F34529 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		86F048E229979C6800212238 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		86F048E429979CF300212238 /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
 		86F048ED29979E5B00212238 /* FirstTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
 		86F048EF29979E6600212238 /* FirstTabViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewCoordinator.swift; sourceTree = "<group>"; };
 		86F048F129979E7100212238 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
@@ -86,8 +82,9 @@
 			children = (
 				86CF2F47299775D500F34529 /* AppDelegate.swift */,
 				86CF2F49299775D500F34529 /* SceneDelegate.swift */,
+				86F048EB29979E3800212238 /* FirstTabView */,
+				86F048EC29979E4B00212238 /* SecondTabView */,
 				86F048E129979C4C00212238 /* Coordinator */,
-				86F048E629979DA300212238 /* MainView */,
 				86F048E029979C2100212238 /* Resource */,
 				86CF2F55299775D700F34529 /* Info.plist */,
 			);
@@ -110,17 +107,6 @@
 				86F048E229979C6800212238 /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		86F048E629979DA300212238 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				86CF2F5B299777FC00F34529 /* MainViewController.swift */,
-				86F048E429979CF300212238 /* MainViewCoordinator.swift */,
-				86F048EC29979E4B00212238 /* SecondTabView */,
-				86F048EB29979E3800212238 /* FirstTabView */,
-			);
-			path = MainView;
 			sourceTree = "<group>";
 		};
 		86F048EB29979E3800212238 /* FirstTabView */ = {
@@ -269,10 +255,8 @@
 				86F048E329979C6800212238 /* AppCoordinator.swift in Sources */,
 				86F048F229979E7100212238 /* SecondTabViewController.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
-				86F048E529979CF300212238 /* MainViewCoordinator.swift in Sources */,
 				86F048EE29979E5B00212238 /* FirstTabViewController.swift in Sources */,
 				86F048F029979E6600212238 /* FirstTabViewCoordinator.swift in Sources */,
-				86CF2F5D299777FC00F34529 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
