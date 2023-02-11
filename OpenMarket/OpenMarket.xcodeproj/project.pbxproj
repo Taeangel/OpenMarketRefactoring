@@ -105,6 +105,8 @@
 			children = (
 				86CF2F5C299777FC00F34529 /* Coordinator.swift */,
 				86F048E229979C6800212238 /* AppCoordinator.swift */,
+				86F048EF29979E6600212238 /* FirstTabViewCoordinator.swift */,
+				86F048F329979E7D00212238 /* SecondTabViewCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -113,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				86F048ED29979E5B00212238 /* FirstTabViewController.swift */,
-				86F048EF29979E6600212238 /* FirstTabViewCoordinator.swift */,
 			);
 			path = FirstTabView;
 			sourceTree = "<group>";
@@ -122,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				86F048F129979E7100212238 /* SecondTabViewController.swift */,
-				86F048F329979E7D00212238 /* SecondTabViewCoordinator.swift */,
 			);
 			path = SecondTabView;
 			sourceTree = "<group>";
