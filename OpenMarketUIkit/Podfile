@@ -15,6 +15,7 @@ target 'OpenMarketUIkit' do
   target 'OpenMarketUIkitUITests' do
     # Pods for testing
   end
-  
-
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxRelay'
 end
