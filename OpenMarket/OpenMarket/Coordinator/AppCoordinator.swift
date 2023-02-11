@@ -13,9 +13,10 @@ class AppCoordinator: Coordinator {
 
     guard let navigationController = navigationController else { return }
 
-    let firstCoordinator = MainViewCoordinator(navigationController: navigationController)
-    childCoordinators.append(firstCoordinator)
-    firstCoordinator.parentCoordinator = self
-    firstCoordinator.start()
+    let mainCoordinator = MainViewCoordinator(navigationController: navigationController)
+    
+    childCoordinators.append(mainCoordinator)
+    mainCoordinator.parentCoordinator = self
+    mainCoordinator.start()
   }
 }
