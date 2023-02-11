@@ -1,8 +1,9 @@
-//
-//  Coordinator.swift
-//  OpenMarketUIkit
-//
-//  Created by song on 2023/02/11.
-//
+import UIKit
 
-import Foundation
+protocol Coordinator: AnyObject {
+  var childCoordinators: [Coordinator] { get set }
+  var navigationController: UINavigationController { get set }
+  
+  func start()
+}
+
