@@ -10,21 +10,21 @@
 		82F8D5D3357ACF7925244FCF /* Pods_OpenMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7917300378E2CA7742B7FF5 /* Pods_OpenMarket.framework */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
-		86CF2F4C299775D500F34529 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F4B299775D500F34529 /* ViewController.swift */; };
-		86CF2F4F299775D500F34529 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F4D299775D500F34529 /* Main.storyboard */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
 		86CF2F54299775D700F34529 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F52299775D700F34529 /* LaunchScreen.storyboard */; };
+		86CF2F5D299777FC00F34529 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F5B299777FC00F34529 /* MainViewController.swift */; };
+		86CF2F5E299777FC00F34529 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F5C299777FC00F34529 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86CF2F4B299775D500F34529 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		86CF2F4E299775D500F34529 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86CF2F50299775D700F34529 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86CF2F53299775D700F34529 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86CF2F55299775D700F34529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86CF2F5B299777FC00F34529 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		86CF2F5C299777FC00F34529 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A08207DD68DA2037F77C6733 /* Pods-OpenMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarket.release.xcconfig"; path = "Target Support Files/Pods-OpenMarket/Pods-OpenMarket.release.xcconfig"; sourceTree = "<group>"; };
 		BF6885029F041638596A7E9B /* Pods-OpenMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarket.debug.xcconfig"; path = "Target Support Files/Pods-OpenMarket/Pods-OpenMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		E7917300378E2CA7742B7FF5 /* Pods_OpenMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,7 +48,6 @@
 				BF6885029F041638596A7E9B /* Pods-OpenMarket.debug.xcconfig */,
 				A08207DD68DA2037F77C6733 /* Pods-OpenMarket.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,8 +74,8 @@
 			children = (
 				86CF2F47299775D500F34529 /* AppDelegate.swift */,
 				86CF2F49299775D500F34529 /* SceneDelegate.swift */,
-				86CF2F4B299775D500F34529 /* ViewController.swift */,
-				86CF2F4D299775D500F34529 /* Main.storyboard */,
+				86CF2F5C299777FC00F34529 /* Coordinator.swift */,
+				86CF2F5B299777FC00F34529 /* MainViewController.swift */,
 				86CF2F50299775D700F34529 /* Assets.xcassets */,
 				86CF2F52299775D700F34529 /* LaunchScreen.storyboard */,
 				86CF2F55299775D700F34529 /* Info.plist */,
@@ -154,7 +153,6 @@
 			files = (
 				86CF2F54299775D700F34529 /* LaunchScreen.storyboard in Resources */,
 				86CF2F51299775D700F34529 /* Assets.xcassets in Resources */,
-				86CF2F4F299775D500F34529 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,23 +205,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86CF2F4C299775D500F34529 /* ViewController.swift in Sources */,
 				86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */,
+				86CF2F5E299777FC00F34529 /* Coordinator.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
+				86CF2F5D299777FC00F34529 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		86CF2F4D299775D500F34529 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				86CF2F4E299775D500F34529 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		86CF2F52299775D700F34529 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,7 +353,6 @@
 				INFOPLIST_FILE = OpenMarket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -391,7 +381,6 @@
 				INFOPLIST_FILE = OpenMarket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
