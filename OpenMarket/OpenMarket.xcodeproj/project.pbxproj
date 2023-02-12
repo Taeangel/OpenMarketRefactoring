@@ -82,9 +82,10 @@
 			children = (
 				86CF2F47299775D500F34529 /* AppDelegate.swift */,
 				86CF2F49299775D500F34529 /* SceneDelegate.swift */,
-				86F048EB29979E3800212238 /* FirstTabView */,
-				86F048EC29979E4B00212238 /* SecondTabView */,
 				86F048E129979C4C00212238 /* Coordinator */,
+				86F048F52997BB0900212238 /* Presenter */,
+				86F048F62997BB3400212238 /* Domain */,
+				86F048F82997BB4800212238 /* Data */,
 				86F048E029979C2100212238 /* Resource */,
 				86CF2F55299775D700F34529 /* Info.plist */,
 			);
@@ -125,6 +126,29 @@
 				86F048F129979E7100212238 /* SecondTabViewController.swift */,
 			);
 			path = SecondTabView;
+			sourceTree = "<group>";
+		};
+		86F048F52997BB0900212238 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				86F048EB29979E3800212238 /* FirstTabView */,
+				86F048EC29979E4B00212238 /* SecondTabView */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		86F048F62997BB3400212238 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		86F048F82997BB4800212238 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9C806E6C5440982CCB7A446D /* Frameworks */ = {
