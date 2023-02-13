@@ -18,6 +18,17 @@
 		86F048F029979E6600212238 /* FirstTabViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048EF29979E6600212238 /* FirstTabViewCoordinator.swift */; };
 		86F048F229979E7100212238 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048F129979E7100212238 /* SecondTabViewController.swift */; };
 		86F048F429979E7D00212238 /* SecondTabViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F048F329979E7D00212238 /* SecondTabViewCoordinator.swift */; };
+		86F04902299A1C8700212238 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04901299A1C8700212238 /* RequestManager.swift */; };
+		86F04905299A1CD000212238 /* MultipartForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04904299A1CD000212238 /* MultipartForm.swift */; };
+		86F04908299A1D2100212238 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04907299A1D2100212238 /* Secret.swift */; };
+		86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04909299A1EA400212238 /* HTTPMethod.swift */; };
+		86F0490C299A1EB600212238 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0490B299A1EB600212238 /* NetworkError.swift */; };
+		86F0490E299A1EC800212238 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0490D299A1EC800212238 /* ContentType.swift */; };
+		86F04915299A25F800212238 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04914299A25F800212238 /* Currency.swift */; };
+		86F04917299A260A00212238 /* PoductListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04916299A260A00212238 /* PoductListEntity.swift */; };
+		86F04919299A262C00212238 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04918299A262C00212238 /* ProductEntity.swift */; };
+		86F0491B299A263700212238 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0491A299A263700212238 /* Product.swift */; };
+		86FA8504299A299D00AEBB80 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FA8503299A299C00AEBB80 /* ApiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +44,17 @@
 		86F048EF29979E6600212238 /* FirstTabViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewCoordinator.swift; sourceTree = "<group>"; };
 		86F048F129979E7100212238 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
 		86F048F329979E7D00212238 /* SecondTabViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewCoordinator.swift; sourceTree = "<group>"; };
+		86F04901299A1C8700212238 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		86F04904299A1CD000212238 /* MultipartForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartForm.swift; sourceTree = "<group>"; };
+		86F04907299A1D2100212238 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		86F04909299A1EA400212238 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		86F0490B299A1EB600212238 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		86F0490D299A1EC800212238 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
+		86F04914299A25F800212238 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		86F04916299A260A00212238 /* PoductListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoductListEntity.swift; sourceTree = "<group>"; };
+		86F04918299A262C00212238 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
+		86F0491A299A263700212238 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		86FA8503299A299C00AEBB80 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		A08207DD68DA2037F77C6733 /* Pods-OpenMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarket.release.xcconfig"; path = "Target Support Files/Pods-OpenMarket/Pods-OpenMarket.release.xcconfig"; sourceTree = "<group>"; };
 		BF6885029F041638596A7E9B /* Pods-OpenMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarket.debug.xcconfig"; path = "Target Support Files/Pods-OpenMarket/Pods-OpenMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		E7917300378E2CA7742B7FF5 /* Pods_OpenMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +108,7 @@
 				86F048F52997BB0900212238 /* Presenter */,
 				86F048F62997BB3400212238 /* Domain */,
 				86F048F82997BB4800212238 /* Data */,
+				86FA8505299A3B9400AEBB80 /* Infrastructure */,
 				86F048E029979C2100212238 /* Resource */,
 				86CF2F55299775D700F34529 /* Info.plist */,
 			);
@@ -140,6 +163,9 @@
 		86F048F62997BB3400212238 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				86F04911299A255200212238 /* RepositoryInterface */,
+				86F04910299A254E00212238 /* UseCase */,
+				86F0490F299A254600212238 /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -147,8 +173,103 @@
 		86F048F82997BB4800212238 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				86FA8506299A3C2F00AEBB80 /* Network */,
+				86F04913299A257100212238 /* Storages */,
+				86F04912299A256B00212238 /* Repository */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		86F04903299A1CB800212238 /* MultipartForm */ = {
+			isa = PBXGroup;
+			children = (
+				86F04904299A1CD000212238 /* MultipartForm.swift */,
+			);
+			path = MultipartForm;
+			sourceTree = "<group>";
+		};
+		86F04906299A1D0700212238 /* OpenMarketPassword */ = {
+			isa = PBXGroup;
+			children = (
+				86F04907299A1D2100212238 /* Secret.swift */,
+			);
+			path = OpenMarketPassword;
+			sourceTree = "<group>";
+		};
+		86F0490F299A254600212238 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				86F04914299A25F800212238 /* Currency.swift */,
+				86F04916299A260A00212238 /* PoductListEntity.swift */,
+				86F04918299A262C00212238 /* ProductEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		86F04910299A254E00212238 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		86F04911299A255200212238 /* RepositoryInterface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepositoryInterface;
+			sourceTree = "<group>";
+		};
+		86F04912299A256B00212238 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		86F04913299A257100212238 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		86FA8505299A3B9400AEBB80 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				86FA8507299A3C4600AEBB80 /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		86FA8506299A3C2F00AEBB80 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				86FA8503299A299C00AEBB80 /* ApiManager.swift */,
+				86FA8508299A3C6300AEBB80 /* DTO */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		86FA8507299A3C4600AEBB80 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				86F04903299A1CB800212238 /* MultipartForm */,
+				86F04906299A1D0700212238 /* OpenMarketPassword */,
+				86F04901299A1C8700212238 /* RequestManager.swift */,
+				86F04909299A1EA400212238 /* HTTPMethod.swift */,
+				86F0490D299A1EC800212238 /* ContentType.swift */,
+				86F0490B299A1EB600212238 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		86FA8508299A3C6300AEBB80 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				86F0491A299A263700212238 /* Product.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		9C806E6C5440982CCB7A446D /* Frameworks */ = {
@@ -275,10 +396,21 @@
 			files = (
 				86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */,
 				86F048F429979E7D00212238 /* SecondTabViewCoordinator.swift in Sources */,
+				86F04905299A1CD000212238 /* MultipartForm.swift in Sources */,
+				86F04919299A262C00212238 /* ProductEntity.swift in Sources */,
+				86F04902299A1C8700212238 /* RequestManager.swift in Sources */,
+				86F04908299A1D2100212238 /* Secret.swift in Sources */,
 				86CF2F5E299777FC00F34529 /* Coordinator.swift in Sources */,
+				86F04915299A25F800212238 /* Currency.swift in Sources */,
+				86FA8504299A299D00AEBB80 /* ApiManager.swift in Sources */,
 				86F048E329979C6800212238 /* AppCoordinator.swift in Sources */,
 				86F048F229979E7100212238 /* SecondTabViewController.swift in Sources */,
+				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
+				86F0491B299A263700212238 /* Product.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
+				86F0490C299A1EB600212238 /* NetworkError.swift in Sources */,
+				86F04917299A260A00212238 /* PoductListEntity.swift in Sources */,
+				86F0490E299A1EC800212238 /* ContentType.swift in Sources */,
 				86F048EE29979E5B00212238 /* FirstTabViewController.swift in Sources */,
 				86F048F029979E6600212238 /* FirstTabViewCoordinator.swift in Sources */,
 			);
