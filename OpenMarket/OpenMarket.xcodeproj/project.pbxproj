@@ -81,25 +81,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		867C88D3299A5C4800572EDC /* Repository */ = {
+		867C88DE299A5E5000572EDC /* RepositoryInterface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepositoryInterface;
+			sourceTree = "<group>";
+		};
+		867C88E1299A5E8B00572EDC /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		867C88D4299A5C5600572EDC /* Storages */ = {
+		867C88E2299A5E9300572EDC /* Storages */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Storages;
-			sourceTree = "<group>";
-		};
-		867C88D5299A5C5E00572EDC /* RepositoryInterface */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RepositoryInterface;
 			sourceTree = "<group>";
 		};
 		86CF2F3B299775D500F34529 = {
@@ -184,7 +184,7 @@
 		86F048F62997BB3400212238 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				867C88D5299A5C5E00572EDC /* RepositoryInterface */,
+				867C88DE299A5E5000572EDC /* RepositoryInterface */,
 				86F04910299A254E00212238 /* UseCase */,
 				86F0490F299A254600212238 /* Entities */,
 			);
@@ -194,8 +194,8 @@
 		86F048F82997BB4800212238 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				867C88D4299A5C5600572EDC /* Storages */,
-				867C88D3299A5C4800572EDC /* Repository */,
+				867C88E2299A5E9300572EDC /* Storages */,
+				867C88E1299A5E8B00572EDC /* Repository */,
 				86FA8506299A3C2F00AEBB80 /* Network */,
 			);
 			path = Data;
