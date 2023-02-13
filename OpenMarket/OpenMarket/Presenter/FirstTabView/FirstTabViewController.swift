@@ -16,12 +16,6 @@ class FirstTabViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .blue
-    ApiManager(session: URLSession.shared).requestPublisher(.getProductList())
-      .map { $0.count }
-      .subscribe { data in
-          print(data)
-      }
-      .disposed(by: dis)
-    
+
   }
 }

@@ -11,12 +11,12 @@ enum OpenMarketRequestManager {
   
   case getProductList(page_no: Int = 1, items_per_page: Int = 20)
   case getProduct(_ id: Int)
-  case postProduct(params: ProductEncodeModel, images: [Data])
+  case postProduct(params: ProductRequestDTO, images: [Data])
   case getMyProductList(page_no: Int = 1, items_per_page: Int = 10, search_value: String = "red")
   case getSearchProductList(page_no: Int = 1, items_per_page: Int = 10, search_value: String = "")
   case productDeletionURISearch(id: Int)
   case deleteProduct(endpoint: String)
-  case modifyProduct(id: Int, product: ProductEncodeModel)
+  case modifyProduct(id: Int, product: ProductRequestDTO)
   
   private var BaseURLString: String {
     return "https://openmarket.yagom-academy.kr"

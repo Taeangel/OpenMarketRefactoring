@@ -27,7 +27,7 @@
 		86F04915299A25F800212238 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04914299A25F800212238 /* Currency.swift */; };
 		86F04917299A260A00212238 /* PoductListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04916299A260A00212238 /* PoductListEntity.swift */; };
 		86F04919299A262C00212238 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F04918299A262C00212238 /* ProductEntity.swift */; };
-		86F0491B299A263700212238 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0491A299A263700212238 /* Product.swift */; };
+		86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0491A299A263700212238 /* ProductRequestDTO.swift */; };
 		86FA8504299A299D00AEBB80 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FA8503299A299C00AEBB80 /* ApiManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		86F04914299A25F800212238 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		86F04916299A260A00212238 /* PoductListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoductListEntity.swift; sourceTree = "<group>"; };
 		86F04918299A262C00212238 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
-		86F0491A299A263700212238 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		86F0491A299A263700212238 /* ProductRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRequestDTO.swift; sourceTree = "<group>"; };
 		86FA8503299A299C00AEBB80 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		A08207DD68DA2037F77C6733 /* Pods-OpenMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarket.release.xcconfig"; path = "Target Support Files/Pods-OpenMarket/Pods-OpenMarket.release.xcconfig"; sourceTree = "<group>"; };
 		BF6885029F041638596A7E9B /* Pods-OpenMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenMarket.debug.xcconfig"; path = "Target Support Files/Pods-OpenMarket/Pods-OpenMarket.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +79,27 @@
 				A08207DD68DA2037F77C6733 /* Pods-OpenMarket.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		867C88D3299A5C4800572EDC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		867C88D4299A5C5600572EDC /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		867C88D5299A5C5E00572EDC /* RepositoryInterface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepositoryInterface;
 			sourceTree = "<group>";
 		};
 		86CF2F3B299775D500F34529 = {
@@ -163,7 +184,7 @@
 		86F048F62997BB3400212238 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				86F04911299A255200212238 /* RepositoryInterface */,
+				867C88D5299A5C5E00572EDC /* RepositoryInterface */,
 				86F04910299A254E00212238 /* UseCase */,
 				86F0490F299A254600212238 /* Entities */,
 			);
@@ -173,9 +194,9 @@
 		86F048F82997BB4800212238 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				867C88D4299A5C5600572EDC /* Storages */,
+				867C88D3299A5C4800572EDC /* Repository */,
 				86FA8506299A3C2F00AEBB80 /* Network */,
-				86F04913299A257100212238 /* Storages */,
-				86F04912299A256B00212238 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -213,27 +234,6 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
-		86F04911299A255200212238 /* RepositoryInterface */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RepositoryInterface;
-			sourceTree = "<group>";
-		};
-		86F04912299A256B00212238 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		86F04913299A257100212238 /* Storages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storages;
-			sourceTree = "<group>";
-		};
 		86FA8505299A3B9400AEBB80 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,7 +267,7 @@
 		86FA8508299A3C6300AEBB80 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				86F0491A299A263700212238 /* Product.swift */,
+				86F0491A299A263700212238 /* ProductRequestDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -406,7 +406,7 @@
 				86F048E329979C6800212238 /* AppCoordinator.swift in Sources */,
 				86F048F229979E7100212238 /* SecondTabViewController.swift in Sources */,
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
-				86F0491B299A263700212238 /* Product.swift in Sources */,
+				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
 				86F0490C299A1EB600212238 /* NetworkError.swift in Sources */,
 				86F04917299A260A00212238 /* PoductListEntity.swift in Sources */,
