@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductListModel: Codable {
+struct ProductListEntity: Codable {
   let pageNo, itemsPerPage, totalCount, offset: Int?
   let limit, lastPage: Int?
   let hasNext, hasPrev: Bool?
