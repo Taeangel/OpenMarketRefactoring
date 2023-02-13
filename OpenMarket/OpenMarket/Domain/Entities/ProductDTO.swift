@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductEntity: Codable {
+struct ProductDTO: Codable {
   let id, vendorID: Int?
   let name, productDescription: String?
   let thumbnail: String?
