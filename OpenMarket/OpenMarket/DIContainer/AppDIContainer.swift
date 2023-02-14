@@ -18,4 +18,12 @@ final class AppDIContainer: AppDIContainerable {
   init() {
     self.openMarketStorage = .init(openMarketApiManager: apiManager)
   }
+  
+  func makeOpenMarketDIContainer() -> OpenMarketDIContainer {
+    return OpenMarketDIContainer(
+      dependencies: OpenMarketDIContainer.Dependencies(
+        openMarketStorage: openMarketStorage
+      )
+    )
+  }
 }

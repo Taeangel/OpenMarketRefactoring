@@ -5,8 +5,11 @@ class AppCoordinator: Coordinator {
   weak var parentCoordinator: Coordinator?
   var childCoordinators: [Coordinator] = []
 
-  init(navigationController: UINavigationController) {
+  private let appDIContainer: AppDIContainer
+  
+  init(navigationController: UINavigationController, appDIContainer: AppDIContainer) {
     self.navigationController = navigationController
+    self.appDIContainer = appDIContainer
   }
 
   func start() {
@@ -15,8 +18,10 @@ class AppCoordinator: Coordinator {
     
     let tabBarView = UITabBarController()
     
-    let productListViewCoordinator = ProductListViewCoordinator(navigationController: navigationController)
-    let productRegisterViewCoordinator = ProductRegisterViewCoordinator(navigationController: navigationController)
+    let openMarketDIContainer = appDIContainer.makeOpenMarketDIContainer()
+    
+    let productListViewCoordinator = openMarketDIContainer.makeProductListViewCoordinator(navigationController: navigationController)
+    let productRegisterViewCoordinator = openMarketDIContainer.makeProductRegisterViewCoordinator(navigationController: navigationController)
     
     childCoordinators.append(productListViewCoordinator)
     childCoordinators.append(productRegisterViewCoordinator)
