@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstTabViewCoordinator: Coordinator {
+class ProductListViewCoordinator: Coordinator {
   weak var navigationController: UINavigationController?
   weak var parentCoordinator: Coordinator?
   var childCoordinators: [Coordinator] = []
@@ -17,9 +17,9 @@ class FirstTabViewCoordinator: Coordinator {
   }
   
   func start() -> UIViewController {
-    let firstTabViewController = FirstTabViewController()
-    firstTabViewController.coodinator = self
-    return firstTabViewController
+    let productListViewController = ProductListViewController()
+    productListViewController.coodinator = self
+    return productListViewController
   }
   
 }

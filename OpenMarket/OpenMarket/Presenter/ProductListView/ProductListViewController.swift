@@ -9,8 +9,8 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class FirstTabViewController: UIViewController {
-  weak var coodinator: FirstTabViewCoordinator?
+class ProductListViewController: UIViewController {
+  weak var coodinator: ProductListViewCoordinator?
   
   private var disposeBag = DisposeBag()
   override func viewDidLoad() {

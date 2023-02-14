@@ -15,22 +15,22 @@ class AppCoordinator: Coordinator {
     
     let tabBarView = UITabBarController()
     
-    let firstTabViewCoordinator = FirstTabViewCoordinator(navigationController: navigationController)
-    let secondTabViewCoordinator = SecondTabViewCoordinator(navigationController: navigationController)
+    let productListViewCoordinator = ProductListViewCoordinator(navigationController: navigationController)
+    let productRegisterViewCoordinator = ProductRegisterViewCoordinator(navigationController: navigationController)
     
-    childCoordinators.append(firstTabViewCoordinator)
-    childCoordinators.append(secondTabViewCoordinator)
+    childCoordinators.append(productListViewCoordinator)
+    childCoordinators.append(productRegisterViewCoordinator)
     
-    firstTabViewCoordinator.parentCoordinator = self
-    secondTabViewCoordinator.parentCoordinator = self
+    productListViewCoordinator.parentCoordinator = self
+    productRegisterViewCoordinator.parentCoordinator = self
     
-    let firstTabView = firstTabViewCoordinator.start()
-    let secondTabView = secondTabViewCoordinator.start()
+    let productListView = productListViewCoordinator.start()
+    let productRegisterView = productRegisterViewCoordinator.start()
     
-    firstTabView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 0)
-    secondTabView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 1)
+    productListView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 0)
+    productRegisterView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 1)
     
-    tabBarView.setViewControllers([firstTabView, secondTabView], animated: true)
+    tabBarView.setViewControllers([productListView, productRegisterView], animated: true)
     
     self.navigationController?.pushViewController(tabBarView, animated: true)
   }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondTabViewCoordinator: Coordinator {
+class ProductRegisterViewCoordinator: Coordinator {
   weak var navigationController: UINavigationController?
   weak var parentCoordinator: Coordinator?
   var childCoordinators: [Coordinator] = []
@@ -17,7 +17,7 @@ class SecondTabViewCoordinator: Coordinator {
   }
 
   func start() -> UIViewController {
-    let secondTabViewController = SecondTabViewController()
+    let secondTabViewController = ProductRegisterViewController()
     secondTabViewController.coordinator = self
     return secondTabViewController
   }

@@ -7,8 +7,8 @@
 
 import UIKit
 
-class SecondTabViewController: UIViewController {
-  weak var coordinator: SecondTabViewCoordinator?
+class ProductRegisterViewController: UIViewController {
+  weak var coordinator: ProductRegisterViewCoordinator?
   
   override func viewDidLoad() {
     super.viewDidLoad()
