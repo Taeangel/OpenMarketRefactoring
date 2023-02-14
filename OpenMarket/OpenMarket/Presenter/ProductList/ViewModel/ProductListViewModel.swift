@@ -11,13 +11,13 @@ import RxRelay
 
 protocol ProductListViewModelable {
   func bind()
-  var productListObservable: BehaviorRelay<[Product]> { get set }
+  var productListObservable: BehaviorRelay<[ProductEntity]> { get set }
 }
 
 final class ProductListViewModel: ProductListViewModelable {
   private let disposeBag: DisposeBag
   private let fetchUseCase: FetchUseCaseable
-  var productListObservable: BehaviorRelay<[Product]>
+  var productListObservable: BehaviorRelay<[ProductEntity]>
   
   init(fetchUseCase: FetchUseCaseable) {
     self.fetchUseCase = fetchUseCase

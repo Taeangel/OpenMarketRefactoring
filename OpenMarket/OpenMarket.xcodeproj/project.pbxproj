@@ -21,6 +21,7 @@
 		867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88FD299B58DD00572EDC /* RegisterUseCase.swift */; };
 		867C8902299B608E00572EDC /* ProductRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */; };
 		867C8907299B934D00572EDC /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8906299B934D00572EDC /* ListCell.swift */; };
+		867C8909299BBA4B00572EDC /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8908299BBA4B00572EDC /* ProductEntity.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		867C88FD299B58DD00572EDC /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRegisterViewModel.swift; sourceTree = "<group>"; };
 		867C8906299B934D00572EDC /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		867C8908299BBA4B00572EDC /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -305,7 +307,7 @@
 		86F0490F299A254600212238 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				86F0491A299A263700212238 /* ProductRequestDTO.swift */,
+				867C8908299BBA4B00572EDC /* ProductEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				86F04916299A260A00212238 /* PoductListDTO.swift */,
+				86F0491A299A263700212238 /* ProductRequestDTO.swift */,
 				86F04918299A262C00212238 /* ProductDTO.swift */,
 			);
 			path = DTO;
@@ -487,6 +490,7 @@
 				86F04919299A262C00212238 /* ProductDTO.swift in Sources */,
 				867C88FA299B57DE00572EDC /* RegisterRepository.swift in Sources */,
 				867C88EF299B2A0B00572EDC /* AppDIContainer.swift in Sources */,
+				867C8909299BBA4B00572EDC /* ProductEntity.swift in Sources */,
 				86F04902299A1C8700212238 /* RequestManager.swift in Sources */,
 				867C88FC299B589F00572EDC /* RegisterRepositoriable.swift in Sources */,
 				86F04908299A1D2100212238 /* Secret.swift in Sources */,

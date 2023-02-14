@@ -17,21 +17,6 @@ struct ProductDTO: Codable {
   let images: [ProductImage]
   let vendors: Vendors?
   
-  var moneySign: String {
-    if currency == "USD" {
-      return "$"
-    } else {
-      return "₩"
-    }
-  }
-  
-  var unrappingId: Int {
-    guard let id = id else {
-      return 0
-    }
-    return id
-  }
-  
   enum CodingKeys: String, CodingKey {
     case id
     case vendorID = "vendor_id"
