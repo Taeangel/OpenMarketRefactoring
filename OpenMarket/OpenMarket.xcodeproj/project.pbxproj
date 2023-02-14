@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		82F8D5D3357ACF7925244FCF /* Pods_OpenMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7917300378E2CA7742B7FF5 /* Pods_OpenMarket.framework */; };
-		867C88E4299A5EC900572EDC /* OpenMarketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E3299A5EC900572EDC /* OpenMarketRepository.swift */; };
-		867C88E6299A5ED400572EDC /* OpenMarketStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E5299A5ED400572EDC /* OpenMarketStorage.swift */; };
-		867C88E8299A5EEB00572EDC /* OpenMarketRepositorible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E7299A5EEB00572EDC /* OpenMarketRepositorible.swift */; };
-		867C88EC299B278700572EDC /* OpenMarketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88EB299B278700572EDC /* OpenMarketUseCase.swift */; };
+		867C88E4299A5EC900572EDC /* FetchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E3299A5EC900572EDC /* FetchRepository.swift */; };
+		867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E5299A5ED400572EDC /* FetchStorage.swift */; };
+		867C88E8299A5EEB00572EDC /* FetchRepositorible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */; };
+		867C88EC299B278700572EDC /* FetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88EB299B278700572EDC /* FetchUseCase.swift */; };
 		867C88EF299B2A0B00572EDC /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88EE299B2A0B00572EDC /* AppDIContainer.swift */; };
 		867C88F2299B42CF00572EDC /* OpenMarketMarketDIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88F1299B42CF00572EDC /* OpenMarketMarketDIC.swift */; };
+		867C88F6299B550400572EDC /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88F5299B550400572EDC /* ProductListViewModel.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -38,12 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		867C88E3299A5EC900572EDC /* OpenMarketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenMarketRepository.swift; path = OpenMarket/Data/Repository/OpenMarketRepository.swift; sourceTree = SOURCE_ROOT; };
-		867C88E5299A5ED400572EDC /* OpenMarketStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenMarketStorage.swift; path = OpenMarket/Data/Storages/OpenMarketStorage.swift; sourceTree = SOURCE_ROOT; };
-		867C88E7299A5EEB00572EDC /* OpenMarketRepositorible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketRepositorible.swift; sourceTree = "<group>"; };
-		867C88EB299B278700572EDC /* OpenMarketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketUseCase.swift; sourceTree = "<group>"; };
+		867C88E3299A5EC900572EDC /* FetchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchRepository.swift; path = OpenMarket/Data/Repository/FetchRepository.swift; sourceTree = SOURCE_ROOT; };
+		867C88E5299A5ED400572EDC /* FetchStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchStorage.swift; path = OpenMarket/Data/Storages/FetchStorage.swift; sourceTree = SOURCE_ROOT; };
+		867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepositorible.swift; sourceTree = "<group>"; };
+		867C88EB299B278700572EDC /* FetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUseCase.swift; sourceTree = "<group>"; };
 		867C88EE299B2A0B00572EDC /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		867C88F1299B42CF00572EDC /* OpenMarketMarketDIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketMarketDIC.swift; sourceTree = "<group>"; };
+		867C88F5299B550400572EDC /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +98,7 @@
 		867C88DE299A5E5000572EDC /* RepositoryInterface */ = {
 			isa = PBXGroup;
 			children = (
-				867C88E7299A5EEB00572EDC /* OpenMarketRepositorible.swift */,
+				867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */,
 			);
 			path = RepositoryInterface;
 			sourceTree = "<group>";
@@ -104,7 +106,7 @@
 		867C88E9299A603300572EDC /* Storages */ = {
 			isa = PBXGroup;
 			children = (
-				867C88E5299A5ED400572EDC /* OpenMarketStorage.swift */,
+				867C88E5299A5ED400572EDC /* FetchStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -112,7 +114,7 @@
 		867C88EA299A604300572EDC /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				867C88E3299A5EC900572EDC /* OpenMarketRepository.swift */,
+				867C88E3299A5EC900572EDC /* FetchRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -132,6 +134,22 @@
 				867C88F1299B42CF00572EDC /* OpenMarketMarketDIC.swift */,
 			);
 			path = OpenMarketDIContaniner;
+			sourceTree = "<group>";
+		};
+		867C88F3299B54E800572EDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86F048ED29979E5B00212238 /* ProductListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		867C88F4299B54EF00572EDC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				867C88F5299B550400572EDC /* ProductListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		86CF2F3B299775D500F34529 = {
@@ -189,12 +207,13 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		86F048EB29979E3800212238 /* ProductListView */ = {
+		86F048EB29979E3800212238 /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
-				86F048ED29979E5B00212238 /* ProductListViewController.swift */,
+				867C88F4299B54EF00572EDC /* ViewModel */,
+				867C88F3299B54E800572EDC /* View */,
 			);
-			path = ProductListView;
+			path = ProductList;
 			sourceTree = "<group>";
 		};
 		86F048EC29979E4B00212238 /* ProductRegisterView */ = {
@@ -208,7 +227,7 @@
 		86F048F52997BB0900212238 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				86F048EB29979E3800212238 /* ProductListView */,
+				86F048EB29979E3800212238 /* ProductList */,
 				86F048EC29979E4B00212238 /* ProductRegisterView */,
 			);
 			path = Presenter;
@@ -261,7 +280,7 @@
 		86F04910299A254E00212238 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				867C88EB299B278700572EDC /* OpenMarketUseCase.swift */,
+				867C88EB299B278700572EDC /* FetchUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -442,17 +461,18 @@
 				86F048E329979C6800212238 /* AppCoordinator.swift in Sources */,
 				86F048F229979E7100212238 /* ProductRegisterViewController.swift in Sources */,
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
-				867C88E6299A5ED400572EDC /* OpenMarketStorage.swift in Sources */,
+				867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */,
 				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
 				86F0490C299A1EB600212238 /* NetworkError.swift in Sources */,
 				86F04917299A260A00212238 /* PoductListDTO.swift in Sources */,
-				867C88EC299B278700572EDC /* OpenMarketUseCase.swift in Sources */,
+				867C88EC299B278700572EDC /* FetchUseCase.swift in Sources */,
+				867C88F6299B550400572EDC /* ProductListViewModel.swift in Sources */,
 				86F0490E299A1EC800212238 /* ContentType.swift in Sources */,
 				86F048EE29979E5B00212238 /* ProductListViewController.swift in Sources */,
 				86F048F029979E6600212238 /* ProductListViewCoordinator.swift in Sources */,
-				867C88E4299A5EC900572EDC /* OpenMarketRepository.swift in Sources */,
-				867C88E8299A5EEB00572EDC /* OpenMarketRepositorible.swift in Sources */,
+				867C88E4299A5EC900572EDC /* FetchRepository.swift in Sources */,
+				867C88E8299A5EEB00572EDC /* FetchRepositorible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import UIKit
 final class OpenMarketDIContainer {
   
   struct Dependencies {
-    let openMarketStorage: OpenMarketStorage
+    let fetchStorage: FetchStorage
   }
   
   private let dependencies: Dependencies
@@ -24,11 +24,24 @@ final class OpenMarketDIContainer {
 extension OpenMarketDIContainer {
   
   // MARK: - ProductList
+  
+  func makeProductListViewCoordinator(
+    navigationController: UINavigationController
+  ) -> ProductListViewCoordinator {
+    return ProductListViewCoordinator(navigationController: navigationController)
+  }
+  
   func makeProductListViewController() -> ProductListViewController {
     return ProductListViewController()
   }
   
   // MARK: - ProductRegisterView
+  
+  func makeProductRegisterViewCoordinator(
+    navigationController: UINavigationController
+  ) -> ProductRegisterViewCoordinator {
+    return ProductRegisterViewCoordinator(navigationController: navigationController)
+  }
   
   func makeProductRegisterViewController() -> ProductRegisterViewController {
     return ProductRegisterViewController()
@@ -36,27 +49,13 @@ extension OpenMarketDIContainer {
    
   // MARK: - Repository
   
-  private func makeOpenMarketRepository() -> OpenMarketRepositorible {
-    return OpenMarketRepository(openMarketStorageable: dependencies.openMarketStorage)
+  private func makeOpenMarketRepository() -> FetchRepositorible {
+    return FetchRepository(openMarketStorageable: dependencies.fetchStorage)
   }
   
   // MARK: - UseCase
   
-  func makeOpenMarketUseCase() -> OpenMarketUseCaseable {
-    return OpenMarketUseCase(openMarketRepository: makeOpenMarketRepository())
-  }
-  
-  // MARK: - Coordiantor
-   
-  func makeProductListViewCoordinator(
-    navigationController: UINavigationController
-  ) -> ProductListViewCoordinator {
-    return ProductListViewCoordinator(navigationController: navigationController)
-  }
-  
-  func makeProductRegisterViewCoordinator(
-    navigationController: UINavigationController
-  ) -> ProductRegisterViewCoordinator {
-    return ProductRegisterViewCoordinator(navigationController: navigationController)
+  func makeOpenMarketUseCase() -> FetchUseCaseable {
+    return FetchUseCase(openMarketRepository: makeOpenMarketRepository())
   }
 }

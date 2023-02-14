@@ -7,13 +7,9 @@
 
 import Foundation
 
-protocol AppDIContainerable {
-  
-}
-
-final class AppDIContainer: AppDIContainerable {
+final class AppDIContainer {
   private let apiManager = ApiManager(session: URLSession.shared)
-  private let openMarketStorage: OpenMarketStorage
+  private let openMarketStorage: FetchStorage
 
   init() {
     self.openMarketStorage = .init(openMarketApiManager: apiManager)
@@ -22,7 +18,7 @@ final class AppDIContainer: AppDIContainerable {
   func makeOpenMarketDIContainer() -> OpenMarketDIContainer {
     return OpenMarketDIContainer(
       dependencies: OpenMarketDIContainer.Dependencies(
-        openMarketStorage: openMarketStorage
+        fetchStorage: openMarketStorage
       )
     )
   }

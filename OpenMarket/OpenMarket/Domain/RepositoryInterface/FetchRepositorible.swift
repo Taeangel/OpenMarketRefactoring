@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol OpenMarketRepositorible {
+protocol FetchRepositorible {
   func fetchProductList() -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
 }

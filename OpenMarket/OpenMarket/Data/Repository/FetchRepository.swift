@@ -8,15 +8,15 @@
 import Foundation
 import RxSwift
 
-final class OpenMarketRepository {
-  private let openMarketStorageable: OpenMarketStorageable
+final class FetchRepository {
+  private let openMarketStorageable: FetchStorageable
   
-  init(openMarketStorageable: OpenMarketStorageable) {
+  init(openMarketStorageable: FetchStorageable) {
     self.openMarketStorageable = openMarketStorageable
   }
 }
 
-extension OpenMarketRepository: OpenMarketRepositorible {
+extension FetchRepository: FetchRepositorible {
   func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
     openMarketStorageable.fetchProductList()
   }

@@ -8,20 +8,20 @@
 import Foundation
 import RxSwift
 
-protocol OpenMarketUseCaseable {
+protocol FetchUseCaseable {
   func fetchProductList() -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
 }
 
-final class OpenMarketUseCase {
-  private let openMarketRepository: OpenMarketRepositorible
+final class FetchUseCase {
+  private let openMarketRepository: FetchRepositorible
   
-  init(openMarketRepository: OpenMarketRepositorible) {
+  init(openMarketRepository: FetchRepositorible) {
     self.openMarketRepository = openMarketRepository
   }
 }
 
-extension OpenMarketUseCase: OpenMarketUseCaseable {
+extension FetchUseCase: FetchUseCaseable {
   func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
     openMarketRepository.fetchProductList()
   }

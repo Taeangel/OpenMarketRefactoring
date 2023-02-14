@@ -8,12 +8,12 @@
 import Foundation
 import RxSwift
 
-protocol OpenMarketStorageable: AnyObject {
+protocol FetchStorageable: AnyObject {
   func fetchProductList() -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
 }
 
-final class OpenMarketStorage {
+final class FetchStorage {
   private let openMarketApiManager: ApiManager
   
   init(openMarketApiManager: ApiManager) {
@@ -21,7 +21,7 @@ final class OpenMarketStorage {
   }
 }
 
-extension OpenMarketStorage: OpenMarketStorageable {
+extension FetchStorage: FetchStorageable {
   func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
     return openMarketApiManager.requestObservable(.getProductList())
       .compactMap { try? JSONDecoder().decode(PoductListDTO.self, from: $0) }

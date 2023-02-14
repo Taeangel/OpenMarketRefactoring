@@ -21,5 +21,4 @@ class ProductListViewCoordinator: Coordinator {
     productListViewController.coodinator = self
     return productListViewController
   }
-  
 }
