@@ -34,5 +34,4 @@ extension FetchUseCase: FetchUseCaseable {
   func fetchMyProductList() -> Observable<PoductListDTO> {
     fetchRepository.fetchMyProductList()
   }
-  
 }

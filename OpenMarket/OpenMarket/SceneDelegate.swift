@@ -16,7 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.rootViewController = rootNaivgationController
     window?.makeKeyAndVisible()
     
-    appCoorinator = AppCoordinator(navigationController: rootNaivgationController, appDIContainer: AppDIContainer())
+    appCoorinator = AppCoordinator(
+      navigationController: rootNaivgationController,
+      appDIContainer: AppDIContainer()
+    )
     appCoorinator?.start()
   }
 }

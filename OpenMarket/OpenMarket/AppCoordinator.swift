@@ -20,8 +20,12 @@ class AppCoordinator: Coordinator {
     
     let openMarketDIContainer = appDIContainer.makeOpenMarketDIContainer()
     
-    let productListViewCoordinator = openMarketDIContainer.makeProductListViewCoordinator(navigationController: navigationController)
-    let productRegisterViewCoordinator = openMarketDIContainer.makeProductRegisterViewCoordinator(navigationController: navigationController)
+    let productListViewCoordinator = openMarketDIContainer.makeProductListViewCoordinator(
+      navigationController: navigationController
+    )
+    let productRegisterViewCoordinator = openMarketDIContainer.makeProductRegisterViewCoordinator(
+      navigationController: navigationController
+    )
     
     childCoordinators.append(productListViewCoordinator)
     childCoordinators.append(productRegisterViewCoordinator)
@@ -32,8 +36,16 @@ class AppCoordinator: Coordinator {
     let productListView = productListViewCoordinator.start()
     let productRegisterView = productRegisterViewCoordinator.start()
     
-    productListView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 0)
-    productRegisterView.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "heart"), tag: 1)
+    productListView.tabBarItem = UITabBarItem(
+      title: nil,
+      image: UIImage(systemName: "heart"),
+      tag: 0
+    )
+    productRegisterView.tabBarItem = UITabBarItem(
+      title: nil,
+      image: UIImage(systemName: "heart"),
+      tag: 1
+    )
     
     tabBarView.setViewControllers([productListView, productRegisterView], animated: true)
     
