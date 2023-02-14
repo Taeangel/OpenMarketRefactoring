@@ -22,9 +22,9 @@ class ProductRegisterViewCoordinator: Coordinator {
     self.openMarketDIContainer = openMarketDIContainer
   }
 
-  func start() -> UIViewController {
-    let secondTabViewController = openMarketDIContainer.makeProductRegisterViewController()
-    secondTabViewController.coordinator = self
-    return secondTabViewController
+  func makeProductRegisterViewController() -> UIViewController {
+    let productRegisterViewController = openMarketDIContainer.makeProductRegisterViewController()
+    productRegisterViewController.coordinator = self
+    return productRegisterViewController
   }
 }

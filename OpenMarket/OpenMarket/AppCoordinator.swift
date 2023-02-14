@@ -33,8 +33,8 @@ class AppCoordinator: Coordinator {
     productListViewCoordinator.parentCoordinator = self
     productRegisterViewCoordinator.parentCoordinator = self
     
-    let productListView = productListViewCoordinator.start()
-    let productRegisterView = productRegisterViewCoordinator.start()
+    let productListView = productListViewCoordinator.makeProductListViewController()
+    let productRegisterView = productRegisterViewCoordinator.makeProductRegisterViewController()
     
     productListView.tabBarItem = UITabBarItem(
       title: nil,

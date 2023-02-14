@@ -22,7 +22,7 @@ class ProductListViewCoordinator: Coordinator {
     self.openMarketDIContainer = openMarketDIContainer
   }
   
-  func start() -> UIViewController {
+  func makeProductListViewController() -> UIViewController {
     let productListViewController = openMarketDIContainer.makeProductListViewController()
     productListViewController.coodinator = self
     return productListViewController
