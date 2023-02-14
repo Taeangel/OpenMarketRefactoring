@@ -12,12 +12,18 @@ class ProductRegisterViewCoordinator: Coordinator {
   weak var parentCoordinator: Coordinator?
   var childCoordinators: [Coordinator] = []
   
-  init(navigationController: UINavigationController) {
+  private let openMarketDIContainer: OpenMarketDIContainer
+  
+  init(
+    navigationController: UINavigationController,
+    openMarketDIContainer: OpenMarketDIContainer
+  ) {
     self.navigationController = navigationController
+    self.openMarketDIContainer = openMarketDIContainer
   }
 
   func start() -> UIViewController {
-    let secondTabViewController = ProductRegisterViewController()
+    let secondTabViewController = openMarketDIContainer.makeProductRegisterViewController()
     secondTabViewController.coordinator = self
     return secondTabViewController
   }

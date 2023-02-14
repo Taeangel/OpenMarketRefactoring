@@ -12,12 +12,18 @@ class ProductListViewCoordinator: Coordinator {
   weak var parentCoordinator: Coordinator?
   var childCoordinators: [Coordinator] = []
   
-  init(navigationController: UINavigationController) {
+  private let openMarketDIContainer: OpenMarketDIContainer
+  
+  init(
+    navigationController: UINavigationController,
+    openMarketDIContainer: OpenMarketDIContainer
+  ) {
     self.navigationController = navigationController
+    self.openMarketDIContainer = openMarketDIContainer
   }
   
   func start() -> UIViewController {
-    let productListViewController = ProductListViewController()
+    let productListViewController = openMarketDIContainer.makeProductListViewController()
     productListViewController.coodinator = self
     return productListViewController
   }

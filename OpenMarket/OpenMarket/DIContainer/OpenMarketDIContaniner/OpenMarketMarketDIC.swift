@@ -24,47 +24,58 @@ final class OpenMarketDIContainer {
 
 extension OpenMarketDIContainer {
   
-  // MARK: - ProductList
+  // MARK: - ProductListRiblet
   
   func makeProductListViewCoordinator(
     navigationController: UINavigationController
   ) -> ProductListViewCoordinator {
-    return ProductListViewCoordinator(navigationController: navigationController)
+    return ProductListViewCoordinator(
+      navigationController: navigationController,
+      openMarketDIContainer: self
+    )
   }
-  
-  func makeProductListViewController() -> ProductListViewController {
-    return ProductListViewController()
-  }
-  
-  // MARK: - ProductRegisterView
-  
-  func makeProductRegisterViewCoordinator(
-    navigationController: UINavigationController
-  ) -> ProductRegisterViewCoordinator {
-    return ProductRegisterViewCoordinator(navigationController: navigationController)
-  }
-  
-  func makeProductRegisterViewController() -> ProductRegisterViewController {
-    return ProductRegisterViewController()
-  }
-   
-  // MARK: - Repository
   
   private func makeFetchRepository() -> FetchRepositorible {
     return FetchRepository(openMarketStorageable: dependencies.fetchStorage)
   }
   
-  private func makeRegisterRepository() -> RegisterRepositoriable {
-    return RegisterRepository(registerStorageable: dependencies.registerStorage)
-  }
-  
-  // MARK: - UseCase
-  
-  func makeOpenMarketUseCase() -> FetchUseCaseable {
+  private func makefetchUseCase() -> FetchUseCaseable {
     return FetchUseCase(fetchRepository: makeFetchRepository())
   }
   
-  func makeRegisterUseCase() -> RegisterUseCase {
+  private func makeProductLostViewModel() -> ProductListViewModel {
+    return ProductListViewModel(fetchUseCase: makefetchUseCase())
+  }
+  
+  func makeProductListViewController() -> ProductListViewController {
+    return ProductListViewController(viewModel: makeProductLostViewModel())
+  }
+  
+  // MARK: - ProductRegisterRiblet
+  
+  func makeProductRegisterViewCoordinator(
+    navigationController: UINavigationController
+  ) -> ProductRegisterViewCoordinator {
+    return ProductRegisterViewCoordinator(
+      navigationController: navigationController,
+      openMarketDIContainer: self
+    )
+  }
+  
+  private func makeRegisterRepository() -> RegisterRepositoriable {
+    return RegisterRepository(registerStorageable: dependencies.registerStorage)
+  }
+
+  private func makeRegisterUseCase() -> RegisterUseCase {
     return RegisterUseCase(registerRepository: makeRegisterRepository())
   }
+  
+  private func makeProductRegisterViewModel() -> ProductRegisterViewModelable {
+    return ProductRegisterViewModel(registerUseCase: makeRegisterUseCase())
+  }
+  
+  func makeProductRegisterViewController() -> ProductRegisterViewController {
+    return ProductRegisterViewController(viewModel: makeProductRegisterViewModel())
+  }
+
 }

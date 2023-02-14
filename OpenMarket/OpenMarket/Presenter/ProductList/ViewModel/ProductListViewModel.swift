@@ -7,6 +7,14 @@
 
 import Foundation
 
-final class ProductListViewModel {
+protocol ProductListViewModelable {
   
+}
+
+final class ProductListViewModel: ProductListViewModelable {
+  private let fetchUseCase: FetchUseCaseable
+  
+  init(fetchUseCase: FetchUseCaseable) {
+    self.fetchUseCase = fetchUseCase
+  }
 }

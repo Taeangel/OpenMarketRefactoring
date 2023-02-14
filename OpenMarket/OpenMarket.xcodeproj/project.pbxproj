@@ -19,6 +19,7 @@
 		867C88FA299B57DE00572EDC /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88F9299B57DE00572EDC /* RegisterRepository.swift */; };
 		867C88FC299B589F00572EDC /* RegisterRepositoriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */; };
 		867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88FD299B58DD00572EDC /* RegisterUseCase.swift */; };
+		867C8902299B608E00572EDC /* ProductRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		867C88F9299B57DE00572EDC /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoriable.swift; sourceTree = "<group>"; };
 		867C88FD299B58DD00572EDC /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRegisterViewModel.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		867C88FF299B607C00572EDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86F048F129979E7100212238 /* ProductRegisterViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		867C8900299B607E00572EDC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		86CF2F3B299775D500F34529 = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +249,8 @@
 		86F048EC29979E4B00212238 /* ProductRegisterView */ = {
 			isa = PBXGroup;
 			children = (
-				86F048F129979E7100212238 /* ProductRegisterViewController.swift */,
+				867C8900299B607E00572EDC /* ViewModel */,
+				867C88FF299B607C00572EDC /* View */,
 			);
 			path = ProductRegisterView;
 			sourceTree = "<group>";
@@ -481,6 +500,7 @@
 				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
 				86F0490C299A1EB600212238 /* NetworkError.swift in Sources */,
+				867C8902299B608E00572EDC /* ProductRegisterViewModel.swift in Sources */,
 				86F04917299A260A00212238 /* PoductListDTO.swift in Sources */,
 				867C88EC299B278700572EDC /* FetchUseCase.swift in Sources */,
 				867C88F6299B550400572EDC /* ProductListViewModel.swift in Sources */,
