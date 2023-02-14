@@ -11,6 +11,7 @@
 		867C88E4299A5EC900572EDC /* OpenMarketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E3299A5EC900572EDC /* OpenMarketRepository.swift */; };
 		867C88E6299A5ED400572EDC /* OpenMarketStorages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E5299A5ED400572EDC /* OpenMarketStorages.swift */; };
 		867C88E8299A5EEB00572EDC /* OpenMarketRepositorible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E7299A5EEB00572EDC /* OpenMarketRepositorible.swift */; };
+		867C88EC299B278700572EDC /* OpenMarketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88EB299B278700572EDC /* OpenMarketUseCase.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		867C88E3299A5EC900572EDC /* OpenMarketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenMarketRepository.swift; path = OpenMarket/Data/Repository/OpenMarketRepository.swift; sourceTree = SOURCE_ROOT; };
 		867C88E5299A5ED400572EDC /* OpenMarketStorages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenMarketStorages.swift; path = OpenMarket/Data/Storages/OpenMarketStorages.swift; sourceTree = SOURCE_ROOT; };
 		867C88E7299A5EEB00572EDC /* OpenMarketRepositorible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketRepositorible.swift; sourceTree = "<group>"; };
+		867C88EB299B278700572EDC /* OpenMarketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketUseCase.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,9 +231,7 @@
 		86F0490F299A254600212238 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				86F04914299A25F800212238 /* Currency.swift */,
-				86F04916299A260A00212238 /* PoductListDTO.swift */,
-				86F04918299A262C00212238 /* ProductDTO.swift */,
+				86F0491A299A263700212238 /* ProductRequestDTO.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -239,6 +239,7 @@
 		86F04910299A254E00212238 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				867C88EB299B278700572EDC /* OpenMarketUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -266,6 +267,7 @@
 				86F04903299A1CB800212238 /* MultipartForm */,
 				86F04906299A1D0700212238 /* OpenMarketPassword */,
 				86F04901299A1C8700212238 /* RequestManager.swift */,
+				86F04914299A25F800212238 /* Currency.swift */,
 				86F04909299A1EA400212238 /* HTTPMethod.swift */,
 				86F0490D299A1EC800212238 /* ContentType.swift */,
 				86F0490B299A1EB600212238 /* NetworkError.swift */,
@@ -276,7 +278,8 @@
 		86FA8508299A3C6300AEBB80 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				86F0491A299A263700212238 /* ProductRequestDTO.swift */,
+				86F04916299A260A00212238 /* PoductListDTO.swift */,
+				86F04918299A262C00212238 /* ProductDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
 				86F0490C299A1EB600212238 /* NetworkError.swift in Sources */,
 				86F04917299A260A00212238 /* PoductListDTO.swift in Sources */,
+				867C88EC299B278700572EDC /* OpenMarketUseCase.swift in Sources */,
 				86F0490E299A1EC800212238 /* ContentType.swift in Sources */,
 				86F048EE29979E5B00212238 /* FirstTabViewController.swift in Sources */,
 				86F048F029979E6600212238 /* FirstTabViewCoordinator.swift in Sources */,
