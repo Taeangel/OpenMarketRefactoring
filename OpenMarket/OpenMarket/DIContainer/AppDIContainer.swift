@@ -9,16 +9,19 @@ import Foundation
 
 final class AppDIContainer {
   private let apiManager = ApiManager(session: URLSession.shared)
-  private let openMarketStorage: FetchStorage
+  private let fetchStorage: FetchStorage
+  private let registerStorage: RegisterStorage
 
   init() {
-    self.openMarketStorage = .init(openMarketApiManager: apiManager)
+    self.fetchStorage = .init(openMarketApiManager: apiManager)
+    self.registerStorage = .init(openMarketApiManager: apiManager)
   }
   
   func makeOpenMarketDIContainer() -> OpenMarketDIContainer {
     return OpenMarketDIContainer(
       dependencies: OpenMarketDIContainer.Dependencies(
-        fetchStorage: openMarketStorage
+        fetchStorage: fetchStorage,
+        registerStorage: registerStorage
       )
     )
   }

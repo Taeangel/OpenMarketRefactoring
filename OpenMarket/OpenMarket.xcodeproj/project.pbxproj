@@ -15,6 +15,10 @@
 		867C88EF299B2A0B00572EDC /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88EE299B2A0B00572EDC /* AppDIContainer.swift */; };
 		867C88F2299B42CF00572EDC /* OpenMarketMarketDIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88F1299B42CF00572EDC /* OpenMarketMarketDIC.swift */; };
 		867C88F6299B550400572EDC /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88F5299B550400572EDC /* ProductListViewModel.swift */; };
+		867C88F8299B564200572EDC /* RegisterStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88F7299B564200572EDC /* RegisterStorage.swift */; };
+		867C88FA299B57DE00572EDC /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88F9299B57DE00572EDC /* RegisterRepository.swift */; };
+		867C88FC299B589F00572EDC /* RegisterRepositoriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */; };
+		867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88FD299B58DD00572EDC /* RegisterUseCase.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -46,6 +50,10 @@
 		867C88EE299B2A0B00572EDC /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		867C88F1299B42CF00572EDC /* OpenMarketMarketDIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMarketMarketDIC.swift; sourceTree = "<group>"; };
 		867C88F5299B550400572EDC /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		867C88F7299B564200572EDC /* RegisterStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterStorage.swift; sourceTree = "<group>"; };
+		867C88F9299B57DE00572EDC /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
+		867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoriable.swift; sourceTree = "<group>"; };
+		867C88FD299B58DD00572EDC /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */,
+				867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */,
 			);
 			path = RepositoryInterface;
 			sourceTree = "<group>";
@@ -107,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				867C88E5299A5ED400572EDC /* FetchStorage.swift */,
+				867C88F7299B564200572EDC /* RegisterStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -115,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				867C88E3299A5EC900572EDC /* FetchRepository.swift */,
+				867C88F9299B57DE00572EDC /* RegisterRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -180,6 +191,7 @@
 				86F048E129979C4C00212238 /* Coordinator */,
 				86F048F52997BB0900212238 /* Presenter */,
 				86F048F62997BB3400212238 /* Domain */,
+				867C88DE299A5E5000572EDC /* RepositoryInterface */,
 				86F048F82997BB4800212238 /* Data */,
 				86FA8505299A3B9400AEBB80 /* Infrastructure */,
 				86F048E029979C2100212238 /* Resource */,
@@ -236,7 +248,6 @@
 		86F048F62997BB3400212238 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				867C88DE299A5E5000572EDC /* RepositoryInterface */,
 				86F04910299A254E00212238 /* UseCase */,
 				86F0490F299A254600212238 /* Entities */,
 			);
@@ -281,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				867C88EB299B278700572EDC /* FetchUseCase.swift */,
+				867C88FD299B58DD00572EDC /* RegisterUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -451,17 +463,21 @@
 				86F048F429979E7D00212238 /* ProductRegisterViewCoordinator.swift in Sources */,
 				86F04905299A1CD000212238 /* MultipartForm.swift in Sources */,
 				86F04919299A262C00212238 /* ProductDTO.swift in Sources */,
+				867C88FA299B57DE00572EDC /* RegisterRepository.swift in Sources */,
 				867C88EF299B2A0B00572EDC /* AppDIContainer.swift in Sources */,
 				86F04902299A1C8700212238 /* RequestManager.swift in Sources */,
+				867C88FC299B589F00572EDC /* RegisterRepositoriable.swift in Sources */,
 				86F04908299A1D2100212238 /* Secret.swift in Sources */,
 				867C88F2299B42CF00572EDC /* OpenMarketMarketDIC.swift in Sources */,
 				86CF2F5E299777FC00F34529 /* Coordinator.swift in Sources */,
 				86F04915299A25F800212238 /* Currency.swift in Sources */,
 				86FA8504299A299D00AEBB80 /* ApiManager.swift in Sources */,
+				867C88F8299B564200572EDC /* RegisterStorage.swift in Sources */,
 				86F048E329979C6800212238 /* AppCoordinator.swift in Sources */,
 				86F048F229979E7100212238 /* ProductRegisterViewController.swift in Sources */,
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
 				867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */,
+				867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */,
 				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
 				86F0490C299A1EB600212238 /* NetworkError.swift in Sources */,

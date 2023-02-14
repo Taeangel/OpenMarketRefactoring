@@ -14,19 +14,19 @@ protocol FetchUseCaseable {
 }
 
 final class FetchUseCase {
-  private let openMarketRepository: FetchRepositorible
+  private let fetchRepository: FetchRepositorible
   
-  init(openMarketRepository: FetchRepositorible) {
-    self.openMarketRepository = openMarketRepository
+  init(fetchRepository: FetchRepositorible) {
+    self.fetchRepository = fetchRepository
   }
 }
 
 extension FetchUseCase: FetchUseCaseable {
   func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
-    openMarketRepository.fetchProductList()
+    fetchRepository.fetchProductList()
   }
   
   func fetchProduct(_ id: Int) -> RxSwift.Observable<ProductDTO> {
-    openMarketRepository.fetchProduct(id)
+    fetchRepository.fetchProduct(id)
   }
 }

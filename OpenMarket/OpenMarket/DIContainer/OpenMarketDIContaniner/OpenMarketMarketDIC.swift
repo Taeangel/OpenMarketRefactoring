@@ -12,6 +12,7 @@ final class OpenMarketDIContainer {
   
   struct Dependencies {
     let fetchStorage: FetchStorage
+    let registerStorage: RegisterStorage
   }
   
   private let dependencies: Dependencies
@@ -49,13 +50,21 @@ extension OpenMarketDIContainer {
    
   // MARK: - Repository
   
-  private func makeOpenMarketRepository() -> FetchRepositorible {
+  private func makeFetchRepository() -> FetchRepositorible {
     return FetchRepository(openMarketStorageable: dependencies.fetchStorage)
+  }
+  
+  private func makeRegisterRepository() -> RegisterRepositoriable {
+    return RegisterRepository(registerStorageable: dependencies.registerStorage)
   }
   
   // MARK: - UseCase
   
   func makeOpenMarketUseCase() -> FetchUseCaseable {
-    return FetchUseCase(openMarketRepository: makeOpenMarketRepository())
+    return FetchUseCase(fetchRepository: makeFetchRepository())
+  }
+  
+  func makeRegisterUseCase() -> RegisterUseCase {
+    return RegisterUseCase(registerRepository: makeRegisterRepository())
   }
 }
