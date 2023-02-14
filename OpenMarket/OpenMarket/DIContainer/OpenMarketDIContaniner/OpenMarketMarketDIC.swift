@@ -77,5 +77,4 @@ extension OpenMarketDIContainer {
   func makeProductRegisterViewController() -> ProductRegisterViewController {
     return ProductRegisterViewController(viewModel: makeProductRegisterViewModel())
   }
-
 }

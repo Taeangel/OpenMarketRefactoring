@@ -11,4 +11,5 @@ import RxSwift
 protocol FetchRepositorible {
   func fetchProductList() -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
+  func fetchMyProductList() -> Observable<PoductListDTO>
 }

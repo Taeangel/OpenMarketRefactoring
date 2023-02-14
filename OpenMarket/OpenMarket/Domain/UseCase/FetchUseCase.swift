@@ -11,6 +11,7 @@ import RxSwift
 protocol FetchUseCaseable {
   func fetchProductList() -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
+  func fetchMyProductList() -> Observable<PoductListDTO>
 }
 
 final class FetchUseCase {
@@ -29,4 +30,9 @@ extension FetchUseCase: FetchUseCaseable {
   func fetchProduct(_ id: Int) -> RxSwift.Observable<ProductDTO> {
     fetchRepository.fetchProduct(id)
   }
+  
+  func fetchMyProductList() -> Observable<PoductListDTO> {
+    fetchRepository.fetchMyProductList()
+  }
+  
 }

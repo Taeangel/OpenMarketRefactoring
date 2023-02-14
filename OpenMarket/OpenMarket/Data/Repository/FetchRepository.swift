@@ -18,10 +18,14 @@ final class FetchRepository {
 
 extension FetchRepository: FetchRepositorible {
   func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
-    openMarketStorageable.fetchProductList()
+    return openMarketStorageable.fetchProductList()
   }
   
   func fetchProduct(_ id: Int) -> RxSwift.Observable<ProductDTO> {
-    openMarketStorageable.fetchProduct(id)
+    return openMarketStorageable.fetchProduct(id)
+  }
+  
+  func fetchMyProductList() -> Observable<PoductListDTO> {
+    return openMarketStorageable.fetchMyProductList()
   }
 }

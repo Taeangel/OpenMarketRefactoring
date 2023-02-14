@@ -11,6 +11,7 @@ import RxSwift
 protocol FetchStorageable: AnyObject {
   func fetchProductList() -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
+  func fetchMyProductList() -> Observable<PoductListDTO>
 }
 
 final class FetchStorage {
@@ -22,6 +23,11 @@ final class FetchStorage {
 }
 
 extension FetchStorage: FetchStorageable {
+  func fetchMyProductList() -> RxSwift.Observable<PoductListDTO> {
+    return openMarketApiManager.requestObservable(.getMyProductList())
+      .compactMap { try? JSONDecoder().decode(PoductListDTO.self, from: $0) }
+  }
+  
   func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
     return openMarketApiManager.requestObservable(.getProductList())
       .compactMap { try? JSONDecoder().decode(PoductListDTO.self, from: $0) }
