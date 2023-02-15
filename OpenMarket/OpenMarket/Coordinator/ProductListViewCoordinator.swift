@@ -10,7 +10,7 @@ import UIKit
 class ProductListViewCoordinator: Coordinator {
   weak var navigationController: UINavigationController?
   weak var parentCoordinator: Coordinator?
-  var childCoordinators: [Coordinator] = []
+  var childCoordinators: [Coordinator]
   
   private let openMarketDIContainer: OpenMarketDIContainer
   
@@ -18,6 +18,7 @@ class ProductListViewCoordinator: Coordinator {
     navigationController: UINavigationController,
     openMarketDIContainer: OpenMarketDIContainer
   ) {
+    self.childCoordinators = .init()
     self.navigationController = navigationController
     self.openMarketDIContainer = openMarketDIContainer
   }

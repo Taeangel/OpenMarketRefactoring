@@ -9,19 +9,19 @@ import UIKit
 
 class ListCell: UICollectionViewCell {
   static var identifier: String {
-      return String(describing: self)
+    return String(describing: self)
   }
   
   var productname: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.backgroundColor = .purple
     return label
   }()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     configure()
+    setupLayout()
   }
   
   required init?(coder: NSCoder) {
@@ -37,5 +37,14 @@ class ListCell: UICollectionViewCell {
       productname.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
       productname.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
     ])
+  }
+  
+  func setupLayout() {
+    layer.shadowColor = UIColor.black.cgColor
+    layer.shadowOpacity = 0.5
+    layer.shadowRadius = 10
+    contentView.layer.cornerRadius = 20
+    contentView.layer.masksToBounds = true
+    contentView.backgroundColor = .systemPink
   }
 }

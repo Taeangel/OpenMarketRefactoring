@@ -8,12 +8,13 @@
 import Foundation
 
 final class AppDIContainer {
-  private let apiManager = ApiManager(session: URLSession.shared)
+  private let apiManager: ApiManager
   private let fetchStorage: FetchStorage
   private let registerStorage: RegisterStorage
   private let editStorage: EditStorage
 
   init() {
+    self.apiManager = .init(session: URLSession.shared)
     self.fetchStorage = .init(openMarketApiManager: apiManager)
     self.registerStorage = .init(openMarketApiManager: apiManager)
     self.editStorage = .init(openMarketApiManager: apiManager)

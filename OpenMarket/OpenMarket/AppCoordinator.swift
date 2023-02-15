@@ -3,11 +3,15 @@ import UIKit
 class AppCoordinator: Coordinator {
   weak var navigationController: UINavigationController?
   weak var parentCoordinator: Coordinator?
-  var childCoordinators: [Coordinator] = []
+  var childCoordinators: [Coordinator]
 
   private let appDIContainer: AppDIContainer
   
-  init(navigationController: UINavigationController, appDIContainer: AppDIContainer) {
+  init(
+    navigationController: UINavigationController,
+    appDIContainer: AppDIContainer
+  ) {
+    self.childCoordinators = .init()
     self.navigationController = navigationController
     self.appDIContainer = appDIContainer
   }

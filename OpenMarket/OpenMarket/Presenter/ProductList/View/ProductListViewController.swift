@@ -47,16 +47,16 @@ class ProductListViewController: UIViewController {
   }
 
   func setup() {
-    view.backgroundColor = .systemBackground
+    view.backgroundColor = .systemGray6
     view.addSubview(collectionView)
-    
     NSLayoutConstraint.activate([
-      collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      collectionView.topAnchor.constraint(equalTo: view.topAnchor),
       collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-      collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+      collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
     ])
   }
+  
 }
 
 // MARK: - private
@@ -71,7 +71,7 @@ extension ProductListViewController {
         heightDimension: .absolute(height)
       )
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
-      
+      item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
       let groupSize = NSCollectionLayoutSize(
         widthDimension: .fractionalWidth(1.0),
         heightDimension: .absolute(height)
