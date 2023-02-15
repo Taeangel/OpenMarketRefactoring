@@ -28,4 +28,16 @@ class ProductListViewCoordinator: Coordinator {
     productListViewController.coodinator = self
     return productListViewController
   }
+  
+  func showProductViewController(_ product: ProductEntity) {
+    guard let navigationController = navigationController else { return }
+    let productViewCoordinator =
+    openMarketDIContainer.makeProductViewCoordinator(navigationController: navigationController)
+    
+    childCoordinators.append(productViewCoordinator)
+    productViewCoordinator.parentCoordinator = self
+    
+    productViewCoordinator.start(product)
+  }
+  
 }

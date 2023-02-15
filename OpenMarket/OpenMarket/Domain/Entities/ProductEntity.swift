@@ -13,7 +13,6 @@ struct ProductEntity: Codable, Identifiable, Equatable {
   let thumbnail: String?
   let currency: String?
   let price, bargainPrice, discountedPrice, stock: Int?
-  let createdAt, issuedAt: String?
   
   var thumbnailURL: URL {
     guard let tumbnailString = thumbnail, let url = URL(string: tumbnailString) else {
@@ -63,7 +62,5 @@ struct ProductEntity: Codable, Identifiable, Equatable {
     case bargainPrice = "bargain_price"
     case discountedPrice = "discounted_price"
     case stock
-    case createdAt = "created_at"
-    case issuedAt = "issued_at"
   }
 }

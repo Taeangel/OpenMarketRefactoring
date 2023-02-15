@@ -44,6 +44,12 @@ class ProductListViewController: UIViewController {
           cell.bind(item)
         }
         .disposed(by: disposeBag)
+    
+    collectionView.rx.modelSelected(ProductEntity.self)
+      .subscribe(onNext: { [weak self] product in
+        self?.coodinator?.showProductViewController(product)
+      })
+      .disposed(by: disposeBag)
   }
   
   func setup() {
@@ -56,7 +62,6 @@ class ProductListViewController: UIViewController {
       collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
     ])
   }
-  
 }
 
 // MARK: - CollectionViewLayout
