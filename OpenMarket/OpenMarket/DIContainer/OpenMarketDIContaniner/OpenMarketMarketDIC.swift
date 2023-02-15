@@ -13,6 +13,7 @@ final class OpenMarketDIContainer {
   struct Dependencies {
     let fetchStorage: FetchStorage
     let registerStorage: RegisterStorage
+    let editStorage: EditStorage
   }
   
   private let dependencies: Dependencies
@@ -24,7 +25,7 @@ final class OpenMarketDIContainer {
 
 extension OpenMarketDIContainer {
   
-  // MARK: - ProductListRiblet
+  // MARK: - ProductList
   
   func makeProductListViewCoordinator(
     navigationController: UINavigationController
@@ -35,14 +36,6 @@ extension OpenMarketDIContainer {
     )
   }
   
-  private func makeFetchRepository() -> FetchRepositorible {
-    return FetchRepository(openMarketStorageable: dependencies.fetchStorage)
-  }
-  
-  private func makefetchUseCase() -> FetchUseCaseable {
-    return FetchUseCase(fetchRepository: makeFetchRepository())
-  }
-  
   private func makeProductLostViewModel() -> ProductListViewModel {
     return ProductListViewModel(fetchUseCase: makefetchUseCase())
   }
@@ -51,7 +44,7 @@ extension OpenMarketDIContainer {
     return ProductListViewController(viewModel: makeProductLostViewModel())
   }
   
-  // MARK: - ProductRegisterRiblet
+  // MARK: - ProductRegister
   
   func makeProductRegisterViewCoordinator(
     navigationController: UINavigationController
@@ -62,19 +55,39 @@ extension OpenMarketDIContainer {
     )
   }
   
-  private func makeRegisterRepository() -> RegisterRepositoriable {
-    return RegisterRepository(registerStorageable: dependencies.registerStorage)
-  }
-
-  private func makeRegisterUseCase() -> RegisterUseCase {
-    return RegisterUseCase(registerRepository: makeRegisterRepository())
-  }
-  
   private func makeProductRegisterViewModel() -> ProductRegisterViewModelable {
     return ProductRegisterViewModel(registerUseCase: makeRegisterUseCase())
   }
   
   func makeProductRegisterViewController() -> ProductRegisterViewController {
     return ProductRegisterViewController(viewModel: makeProductRegisterViewModel())
+  }
+  
+  
+  // MARK: - Repository
+  private func makeRegisterRepository() -> RegisterRepositoriable {
+    return RegisterRepository(registerStorageable: dependencies.registerStorage)
+  }
+  
+  private func makeFetchRepository() -> FetchRepositorible {
+    return FetchRepository(fetchStorageable: dependencies.fetchStorage)
+  }
+  
+  private func makeEditRepository() -> EditRepositoriable {
+    return EditRepository(editStorageable: dependencies.editStorage)
+  }
+  
+  // MARK: - UseCase
+  
+  private func makeRegisterUseCase() -> RegisterUseCase {
+    return RegisterUseCase(registerRepository: makeRegisterRepository())
+  }
+  
+  private func makefetchUseCase() -> FetchUseCaseable {
+    return FetchUseCase(fetchRepository: makeFetchRepository())
+  }
+  
+  private func makeEditUseCase() -> EditUseCaseable {
+    return EditUseCase(editRepository: makeEditRepository())
   }
 }

@@ -9,23 +9,23 @@ import Foundation
 import RxSwift
 
 final class FetchRepository {
-  private let openMarketStorageable: FetchStorageable
+  private let fetchStorageable: FetchStorageable
   
-  init(openMarketStorageable: FetchStorageable) {
-    self.openMarketStorageable = openMarketStorageable
+  init(fetchStorageable: FetchStorageable) {
+    self.fetchStorageable = fetchStorageable
   }
 }
 
 extension FetchRepository: FetchRepositorible {
   func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
-    return openMarketStorageable.fetchProductList()
+    return fetchStorageable.fetchProductList()
   }
   
   func fetchProduct(_ id: Int) -> RxSwift.Observable<ProductDTO> {
-    return openMarketStorageable.fetchProduct(id)
+    return fetchStorageable.fetchProduct(id)
   }
   
   func fetchMyProductList() -> Observable<PoductListDTO> {
-    return openMarketStorageable.fetchMyProductList()
+    return fetchStorageable.fetchMyProductList()
   }
 }

@@ -22,6 +22,10 @@
 		867C8902299B608E00572EDC /* ProductRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */; };
 		867C8907299B934D00572EDC /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8906299B934D00572EDC /* ListCell.swift */; };
 		867C8909299BBA4B00572EDC /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8908299BBA4B00572EDC /* ProductEntity.swift */; };
+		867C890B299BBACF00572EDC /* EditStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C890A299BBACF00572EDC /* EditStorage.swift */; };
+		867C890D299CA74600572EDC /* EditRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C890C299CA74600572EDC /* EditRepository.swift */; };
+		867C890F299CA77F00572EDC /* EditRepositoriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C890E299CA77F00572EDC /* EditRepositoriable.swift */; };
+		867C8911299CA8A300572EDC /* EditUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8910299CA8A300572EDC /* EditUseCase.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -60,6 +64,10 @@
 		867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRegisterViewModel.swift; sourceTree = "<group>"; };
 		867C8906299B934D00572EDC /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		867C8908299BBA4B00572EDC /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
+		867C890A299BBACF00572EDC /* EditStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStorage.swift; sourceTree = "<group>"; };
+		867C890C299CA74600572EDC /* EditRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepository.swift; sourceTree = "<group>"; };
+		867C890E299CA77F00572EDC /* EditRepositoriable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepositoriable.swift; sourceTree = "<group>"; };
+		867C8910299CA8A300572EDC /* EditUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUseCase.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +122,7 @@
 			children = (
 				867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */,
 				867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */,
+				867C890E299CA77F00572EDC /* EditRepositoriable.swift */,
 			);
 			path = RepositoryInterface;
 			sourceTree = "<group>";
@@ -123,6 +132,7 @@
 			children = (
 				867C88E5299A5ED400572EDC /* FetchStorage.swift */,
 				867C88F7299B564200572EDC /* RegisterStorage.swift */,
+				867C890A299BBACF00572EDC /* EditStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -132,6 +142,7 @@
 			children = (
 				867C88E3299A5EC900572EDC /* FetchRepository.swift */,
 				867C88F9299B57DE00572EDC /* RegisterRepository.swift */,
+				867C890C299CA74600572EDC /* EditRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -316,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				867C88EB299B278700572EDC /* FetchUseCase.swift */,
+				867C8910299CA8A300572EDC /* EditUseCase.swift */,
 				867C88FD299B58DD00572EDC /* RegisterUseCase.swift */,
 			);
 			path = UseCase;
@@ -490,6 +502,7 @@
 				86F04919299A262C00212238 /* ProductDTO.swift in Sources */,
 				867C88FA299B57DE00572EDC /* RegisterRepository.swift in Sources */,
 				867C88EF299B2A0B00572EDC /* AppDIContainer.swift in Sources */,
+				867C890D299CA74600572EDC /* EditRepository.swift in Sources */,
 				867C8909299BBA4B00572EDC /* ProductEntity.swift in Sources */,
 				86F04902299A1C8700212238 /* RequestManager.swift in Sources */,
 				867C88FC299B589F00572EDC /* RegisterRepositoriable.swift in Sources */,
@@ -497,6 +510,7 @@
 				867C88F2299B42CF00572EDC /* OpenMarketMarketDIC.swift in Sources */,
 				86CF2F5E299777FC00F34529 /* Coordinator.swift in Sources */,
 				86F04915299A25F800212238 /* Currency.swift in Sources */,
+				867C8911299CA8A300572EDC /* EditUseCase.swift in Sources */,
 				86FA8504299A299D00AEBB80 /* ApiManager.swift in Sources */,
 				867C88F8299B564200572EDC /* RegisterStorage.swift in Sources */,
 				86F048E329979C6800212238 /* AppCoordinator.swift in Sources */,
@@ -504,6 +518,7 @@
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
 				867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */,
 				867C8907299B934D00572EDC /* ListCell.swift in Sources */,
+				867C890F299CA77F00572EDC /* EditRepositoriable.swift in Sources */,
 				867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */,
 				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
@@ -515,6 +530,7 @@
 				86F0490E299A1EC800212238 /* ContentType.swift in Sources */,
 				86F048EE29979E5B00212238 /* ProductListViewController.swift in Sources */,
 				86F048F029979E6600212238 /* ProductListViewCoordinator.swift in Sources */,
+				867C890B299BBACF00572EDC /* EditStorage.swift in Sources */,
 				867C88E4299A5EC900572EDC /* FetchRepository.swift in Sources */,
 				867C88E8299A5EEB00572EDC /* FetchRepositorible.swift in Sources */,
 			);
