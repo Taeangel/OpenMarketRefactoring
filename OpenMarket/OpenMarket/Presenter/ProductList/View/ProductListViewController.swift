@@ -23,10 +23,10 @@ class ProductListViewController: UIViewController {
   lazy var collectionView: UICollectionView = {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureProductListLayout())
     collectionView.translatesAutoresizingMaskIntoConstraints = false
-    collectionView.register(ListCell.self, forCellWithReuseIdentifier: ListCell.identifier)
+    collectionView.register(ProductListCell.self, forCellWithReuseIdentifier: ProductListCell.identifier)
     return collectionView
   }()
-    
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
@@ -40,12 +40,12 @@ class ProductListViewController: UIViewController {
   func bind() {
     viewModel.productListObservable
       .bind(to: collectionView.rx.items(
-        cellIdentifier: ListCell.identifier, cellType: ListCell.self)) { index, item, cell in
-        cell.productname.text = item.name
-      }
-      .disposed(by: disposeBag)
+        cellIdentifier: ProductListCell.identifier, cellType: ProductListCell.self)) { index, item, cell in
+          cell.productname.text = item.name
+        }
+        .disposed(by: disposeBag)
   }
-
+  
   func setup() {
     view.backgroundColor = .systemGray6
     view.addSubview(collectionView)

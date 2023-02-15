@@ -1,5 +1,5 @@
 //
-//  ProductListCollectionViewCell.swift
+//  ProductListCell.swift
 //  OpenMarket
 //
 //  Created by song on 2023/02/14.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListCell: UICollectionViewCell {
+class ProductListCell: UICollectionViewCell {
   static var identifier: String {
     return String(describing: self)
   }

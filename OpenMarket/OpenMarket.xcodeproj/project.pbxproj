@@ -20,7 +20,7 @@
 		867C88FC299B589F00572EDC /* RegisterRepositoriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */; };
 		867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88FD299B58DD00572EDC /* RegisterUseCase.swift */; };
 		867C8902299B608E00572EDC /* ProductRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */; };
-		867C8907299B934D00572EDC /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8906299B934D00572EDC /* ListCell.swift */; };
+		867C8907299B934D00572EDC /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8906299B934D00572EDC /* ProductListCell.swift */; };
 		867C8909299BBA4B00572EDC /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8908299BBA4B00572EDC /* ProductEntity.swift */; };
 		867C890B299BBACF00572EDC /* EditStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C890A299BBACF00572EDC /* EditStorage.swift */; };
 		867C890D299CA74600572EDC /* EditRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C890C299CA74600572EDC /* EditRepository.swift */; };
@@ -62,7 +62,7 @@
 		867C88FB299B589F00572EDC /* RegisterRepositoriable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoriable.swift; sourceTree = "<group>"; };
 		867C88FD299B58DD00572EDC /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		867C8901299B608E00572EDC /* ProductRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRegisterViewModel.swift; sourceTree = "<group>"; };
-		867C8906299B934D00572EDC /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		867C8906299B934D00572EDC /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		867C8908299BBA4B00572EDC /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
 		867C890A299BBACF00572EDC /* EditStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStorage.swift; sourceTree = "<group>"; };
 		867C890C299CA74600572EDC /* EditRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepository.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				86F048ED29979E5B00212238 /* ProductListViewController.swift */,
-				867C8906299B934D00572EDC /* ListCell.swift */,
+				867C8906299B934D00572EDC /* ProductListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -517,7 +517,7 @@
 				86F048F229979E7100212238 /* ProductRegisterViewController.swift in Sources */,
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
 				867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */,
-				867C8907299B934D00572EDC /* ListCell.swift in Sources */,
+				867C8907299B934D00572EDC /* ProductListCell.swift in Sources */,
 				867C890F299CA77F00572EDC /* EditRepositoriable.swift in Sources */,
 				867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */,
 				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,
