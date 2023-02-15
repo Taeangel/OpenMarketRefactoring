@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol FetchUseCaseable {
-  func fetchProductList() -> Observable<PoductListDTO>
+  func fetchProductList(pageNum: Int) -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
   func fetchMyProductList() -> Observable<PoductListDTO>
 }
@@ -23,8 +23,8 @@ final class FetchUseCase {
 }
 
 extension FetchUseCase: FetchUseCaseable {
-  func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
-    fetchRepository.fetchProductList()
+  func fetchProductList(pageNum: Int) -> RxSwift.Observable<PoductListDTO> {
+    fetchRepository.fetchProductList(pageNum: pageNum)
   }
   
   func fetchProduct(_ id: Int) -> RxSwift.Observable<ProductDTO> {

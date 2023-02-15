@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol FetchStorageable: AnyObject {
-  func fetchProductList() -> Observable<PoductListDTO>
+  func fetchProductList(pageNum: Int) -> Observable<PoductListDTO>
   func fetchProduct(_ id: Int) -> Observable<ProductDTO>
   func fetchMyProductList() -> Observable<PoductListDTO>
 }
@@ -23,18 +23,19 @@ final class FetchStorage {
 }
 
 extension FetchStorage: FetchStorageable {
-  func fetchMyProductList() -> RxSwift.Observable<PoductListDTO> {
-    return openMarketApiManager.requestObservable(.getMyProductList())
-      .compactMap { try? JSONDecoder().decode(PoductListDTO.self, from: $0) }
-  }
-  
-  func fetchProductList() -> RxSwift.Observable<PoductListDTO> {
-    return openMarketApiManager.requestObservable(.getProductList())
+
+  func fetchProductList(pageNum: Int) -> RxSwift.Observable<PoductListDTO> {
+    return openMarketApiManager.requestObservable(.getProductList(page_no: pageNum))
       .compactMap { try? JSONDecoder().decode(PoductListDTO.self, from: $0) }
   }
   
   func fetchProduct(_ id: Int) -> RxSwift.Observable<ProductDTO> {
     return openMarketApiManager.requestObservable(.getProduct(id))
       .compactMap { try? JSONDecoder().decode(ProductDTO.self, from: $0) }
+  }
+  
+  func fetchMyProductList() -> RxSwift.Observable<PoductListDTO> {
+    return openMarketApiManager.requestObservable(.getMyProductList())
+      .compactMap { try? JSONDecoder().decode(PoductListDTO.self, from: $0) }
   }
 }

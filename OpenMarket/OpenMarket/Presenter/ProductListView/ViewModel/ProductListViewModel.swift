@@ -28,7 +28,7 @@ final class ProductListViewModel: ProductListViewModelable {
   }
   
   func bind() {
-    fetchUseCase.fetchProductList()
+    fetchUseCase.fetchProductList(pageNum: 3)
       .compactMap { $0.product }
       .bind(to: productListObservable)
       .disposed(by: disposeBag)
