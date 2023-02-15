@@ -31,14 +31,21 @@ class AppCoordinator: Coordinator {
       navigationController: navigationController
     )
     
+    let productEditViewCoordinator = openMarketDIContainer.makeProductEditViewCoordinator(
+      navigationController: navigationController
+    )
+    
     childCoordinators.append(productListViewCoordinator)
     childCoordinators.append(productRegisterViewCoordinator)
+    childCoordinators.append(productEditViewCoordinator)
     
     productListViewCoordinator.parentCoordinator = self
     productRegisterViewCoordinator.parentCoordinator = self
+    productEditViewCoordinator.parentCoordinator = self
     
     let productListView = productListViewCoordinator.makeProductListViewController()
     let productRegisterView = productRegisterViewCoordinator.makeProductRegisterViewController()
+    let productEditView = productEditViewCoordinator.makeProductEditViewController()
     
     productListView.tabBarItem = UITabBarItem(
       title: nil,
@@ -51,7 +58,13 @@ class AppCoordinator: Coordinator {
       tag: 1
     )
     
-    tabBarView.setViewControllers([productListView, productRegisterView], animated: true)
+    productEditView.tabBarItem = UITabBarItem(
+      title: nil,
+      image: UIImage(systemName: "heart.fill"),
+      tag: 2
+    )
+    
+    tabBarView.setViewControllers([productListView, productRegisterView, productEditView], animated: true)
     
     self.navigationController?.pushViewController(tabBarView, animated: true)
   }

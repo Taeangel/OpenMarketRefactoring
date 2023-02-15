@@ -63,6 +63,25 @@ extension OpenMarketDIContainer {
     return ProductRegisterViewController(viewModel: makeProductRegisterViewModel())
   }
   
+  // MARK: - ProductEdit
+ 
+  func makeProductEditViewCoordinator(
+    navigationController: UINavigationController
+  ) -> ProductEditViewCoordinator {
+    return ProductEditViewCoordinator(
+      navigationController: navigationController,
+      openMarketDIContainer: self
+    )
+  }
+ 
+  func makeProductEditViewController() -> ProductEditViewController {
+    return ProductEditViewController(viewModel: makeProductEditViewModel())
+  }
+  
+  private func makeProductEditViewModel() -> ProductEditViewModelable {
+    return ProductEditViewModel(fetchUseCase: makefetchUseCase(), editUseCase: makeEditUseCase())
+  }
+  
   // MARK: - Product
   
   func makeProductViewCoordinator(

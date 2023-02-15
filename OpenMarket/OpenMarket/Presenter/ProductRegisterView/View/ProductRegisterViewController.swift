@@ -11,7 +11,7 @@ class ProductRegisterViewController: UIViewController {
   weak var coordinator: ProductRegisterViewCoordinator?
   private let viewModel: ProductRegisterViewModelable
   
-  init( viewModel: ProductRegisterViewModelable) {
+  init(viewModel: ProductRegisterViewModelable) {
     self.viewModel = viewModel
     super .init(nibName: nil, bundle: nil)
   }
@@ -22,7 +22,8 @@ class ProductRegisterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    view.backgroundColor = .systemBackground
+    
   }
   
   
