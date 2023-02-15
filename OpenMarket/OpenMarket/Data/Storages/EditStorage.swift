@@ -21,7 +21,7 @@ final class EditStorage {
   init(openMarketApiManager: ApiManager) {
     self.openMarketApiManager = openMarketApiManager
   }
-
+  
 }
 
 extension EditStorage: EditStorageable {
@@ -32,7 +32,7 @@ extension EditStorage: EditStorageable {
   }
   
   func deleteProduct(id: Int) -> Observable<Void> {
-  return openMarketApiManager.requestObservable(.productDeletionURISearch(id: id))
+    return openMarketApiManager.requestObservable(.productDeletionURISearch(id: id))
       .compactMap {  String(data: $0, encoding: .utf8) }
       .flatMap { self.openMarketApiManager.requestObservable(.deleteProduct(endpoint: $0)) }
       .map { _ in }

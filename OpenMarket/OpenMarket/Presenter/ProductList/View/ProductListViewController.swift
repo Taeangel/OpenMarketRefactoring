@@ -41,13 +41,13 @@ class ProductListViewController: UIViewController {
     viewModel.productListObservable
       .bind(to: collectionView.rx.items(
         cellIdentifier: ProductListCell.identifier, cellType: ProductListCell.self)) { index, item, cell in
-          cell.productname.text = item.name
+          cell.bind(item)
         }
         .disposed(by: disposeBag)
   }
   
   func setup() {
-    view.backgroundColor = .systemGray6
+    view.backgroundColor = .white
     view.addSubview(collectionView)
     NSLayoutConstraint.activate([
       collectionView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -59,7 +59,7 @@ class ProductListViewController: UIViewController {
   
 }
 
-// MARK: - private
+// MARK: - CollectionViewLayout
 extension ProductListViewController {
   private func configureProductListLayout() -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout { _, env in

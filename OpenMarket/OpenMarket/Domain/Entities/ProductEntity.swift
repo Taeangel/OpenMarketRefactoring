@@ -9,7 +9,7 @@ import Foundation
 
 struct ProductEntity: Codable, Identifiable, Equatable {
   let id, vendorID: Int?
-  let vendorName, name, pageDescription: String?
+  let vendorName, name, description: String?
   let thumbnail: String?
   let currency: String?
   let price, bargainPrice, discountedPrice, stock: Int?
@@ -22,7 +22,17 @@ struct ProductEntity: Codable, Identifiable, Equatable {
     return url
   }
   
-  var moneySign: String {
+  var nameString: String {
+    guard let name = name else { return ""}
+    return name
+  }
+  
+  var descriptionString: String {
+    guard let description = description else { return ""}
+    return description
+  }
+  
+  private var moneySign: String {
     if currency == "USD" {
       return "$"
     } else {
@@ -48,7 +58,7 @@ struct ProductEntity: Codable, Identifiable, Equatable {
     case id
     case vendorID = "vendor_id"
     case vendorName, name
-    case pageDescription = "description"
+    case description = "description"
     case thumbnail, currency, price
     case bargainPrice = "bargain_price"
     case discountedPrice = "discounted_price"

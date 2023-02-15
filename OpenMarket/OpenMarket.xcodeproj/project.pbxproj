@@ -26,6 +26,7 @@
 		867C890D299CA74600572EDC /* EditRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C890C299CA74600572EDC /* EditRepository.swift */; };
 		867C890F299CA77F00572EDC /* EditRepositoriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C890E299CA77F00572EDC /* EditRepositoriable.swift */; };
 		867C8911299CA8A300572EDC /* EditUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8910299CA8A300572EDC /* EditUseCase.swift */; };
+		867C8915299CCD8F00572EDC /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8914299CCD8F00572EDC /* UIStackViewExtension.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		867C890C299CA74600572EDC /* EditRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepository.swift; sourceTree = "<group>"; };
 		867C890E299CA77F00572EDC /* EditRepositoriable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRepositoriable.swift; sourceTree = "<group>"; };
 		867C8910299CA8A300572EDC /* EditUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUseCase.swift; sourceTree = "<group>"; };
+		867C8914299CCD8F00572EDC /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +199,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		867C8912299CCCD600572EDC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				867C8913299CCCDD00572EDC /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		867C8913299CCCDD00572EDC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				867C8914299CCD8F00572EDC /* UIStackViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		86CF2F3B299775D500F34529 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +255,7 @@
 		86F048E029979C2100212238 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				867C8912299CCCD600572EDC /* Utils */,
 				86CF2F50299775D700F34529 /* Assets.xcassets */,
 				86CF2F52299775D700F34529 /* LaunchScreen.storyboard */,
 			);
@@ -503,6 +522,7 @@
 				867C88FA299B57DE00572EDC /* RegisterRepository.swift in Sources */,
 				867C88EF299B2A0B00572EDC /* AppDIContainer.swift in Sources */,
 				867C890D299CA74600572EDC /* EditRepository.swift in Sources */,
+				867C8915299CCD8F00572EDC /* UIStackViewExtension.swift in Sources */,
 				867C8909299BBA4B00572EDC /* ProductEntity.swift in Sources */,
 				86F04902299A1C8700212238 /* RequestManager.swift in Sources */,
 				867C88FC299B589F00572EDC /* RegisterRepositoriable.swift in Sources */,
