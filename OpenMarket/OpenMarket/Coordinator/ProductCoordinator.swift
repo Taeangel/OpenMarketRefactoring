@@ -32,6 +32,7 @@ final class ProductViewCoordinator: Coordinator {
   
   func dismiss() {
     navigationController?.popViewController(animated: true)
+    navigationController?.isNavigationBarHidden = false
     parentCoordinator?.removeChild(self)
   }
 }

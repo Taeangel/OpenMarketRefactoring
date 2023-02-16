@@ -50,14 +50,6 @@ class ProductViewModel: ProductViewModelable {
     }
   }
   
-  
-  var images: Observable<[ProductImageEntity]> {
-    return productObservable
-      .map { product in
-        product.arrayImages
-      }
-  }
-  
   private func bind() {
     fetchUseCase.fetchProduct(productID)
       .map { $0.toEneity() }

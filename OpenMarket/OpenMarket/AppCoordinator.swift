@@ -66,7 +66,6 @@ class AppCoordinator: Coordinator {
     
     productListView.tabBarController?.title = "asdf"
     tabBarView.setViewControllers([productListView, productRegisterView, productEditView], animated: true)
-//    navigationController.isNavigationBarHidden = true
     self.navigationController?.pushViewController(tabBarView, animated: true)
   }
 }

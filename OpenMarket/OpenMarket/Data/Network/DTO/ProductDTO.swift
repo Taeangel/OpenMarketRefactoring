@@ -15,7 +15,7 @@ struct ProductDTO: Codable {
   let price, bargainPrice, discountedPrice, stock: Int?
   let createdAt, issuedAt: String?
   let images: [ProductImageDTO]
-  let vendors: Vendors?
+  let vendors: VendorsDTO?
   
   enum CodingKeys: String, CodingKey {
     case id
@@ -41,7 +41,9 @@ struct ProductDTO: Codable {
       price: price,
       discountedPrice: discountedPrice,
       stock: stock,
-      images: images.map{ $0.toEntity() } )
+      images: images.map{ $0.toEntity() },
+      vendors: vendors.map { $0.toEntity() }
+    )
   }
 }
 
@@ -63,7 +65,11 @@ struct ProductImageDTO: Codable, Identifiable {
 }
 
 // MARK: - Vendors
-struct Vendors: Codable {
+struct VendorsDTO: Codable {
   let id: Int?
   let name: String?
+  
+  func toEntity() -> VendorsEntity {
+    VendorsEntity(id: id, name: name)
+  }
 }

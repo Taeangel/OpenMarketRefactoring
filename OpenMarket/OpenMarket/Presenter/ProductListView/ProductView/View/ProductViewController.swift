@@ -59,9 +59,13 @@ class ProductViewController: UIViewController {
   }()
   
   private lazy var imageCollectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionFlowLayout())
+    let collectionView = UICollectionView(
+      frame: .zero,
+      collectionViewLayout: configureCollectionFlowLayout())
     collectionView.translatesAutoresizingMaskIntoConstraints = false
-    collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
+    collectionView.register(
+      ImageCollectionViewCell.self,
+      forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
     collectionView.backgroundColor = .systemGray6
     return collectionView
   }()
@@ -79,6 +83,7 @@ class ProductViewController: UIViewController {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.distribution = .fillProportionally
+    stackView.spacing = 5
     stackView.axis = .vertical
     return stackView
   }()
@@ -141,13 +146,55 @@ class ProductViewController: UIViewController {
   }
   
   func bind() {
-    viewModel.images
+    viewModel.productObservable.map { $0.arrayImages }
       .bind(to: imageCollectionView.rx.items(
-        cellIdentifier: ImageCollectionViewCell.identifier, cellType: ImageCollectionViewCell.self)) { index, item, cell in
-          print(item.imageURL)
+        cellIdentifier: ImageCollectionViewCell.identifier,
+        cellType: ImageCollectionViewCell.self)) { index, item, cell in
           cell.bind(images: item)
         }
         .disposed(by: disposeBag)
+      
+    viewModel.productObservable
+      .catchAndReturn(DetailProductEneity())
+      .observe(on: MainScheduler.instance)
+      .map { $0.vendors?.name }
+      .bind(to: self.registerLabel.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.productObservable
+      .catchAndReturn(DetailProductEneity())
+      .observe(on: MainScheduler.instance)
+      .map { $0.name }
+      .bind(to: self.productLabel.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.productObservable
+      .catchAndReturn(DetailProductEneity())
+      .observe(on: MainScheduler.instance)
+      .map { $0.priceString }
+      .bind(to: self.priceLabel.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.productObservable
+      .catchAndReturn(DetailProductEneity())
+      .observe(on: MainScheduler.instance)
+      .map { $0.discountedPriceString }
+      .bind(to: self.discountedPriceLabel.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.productObservable
+      .catchAndReturn(DetailProductEneity())
+      .observe(on: MainScheduler.instance)
+      .map { $0.stockString }
+      .bind(to: self.stockLabel.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.productObservable
+      .catchAndReturn(DetailProductEneity())
+      .observe(on: MainScheduler.instance)
+      .map { $0.descriptionString }
+      .bind(to: self.descriptionLabel.rx.text)
+      .disposed(by: disposeBag)
   }
   
   private func setup() {
@@ -176,7 +223,6 @@ class ProductViewController: UIViewController {
       topStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
       
       imageCollectionView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
-//      imageCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
 
       imageCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
       imageCollectionView.heightAnchor.constraint(equalTo: view.widthAnchor),

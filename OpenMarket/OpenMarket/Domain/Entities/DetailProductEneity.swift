@@ -13,6 +13,7 @@ struct DetailProductEneity: Codable {
   let currency: String?
   let price, discountedPrice, stock: Int?
   let images: [ProductImageEntity]?
+  let vendors: VendorsEntity?
   
   enum CodingKeys: String, CodingKey {
     case id
@@ -23,6 +24,7 @@ struct DetailProductEneity: Codable {
     case discountedPrice = "discounted_price"
     case stock
     case images
+    case vendors
   }
   
   var arrayImages: [ProductImageEntity] {
@@ -31,8 +33,47 @@ struct DetailProductEneity: Codable {
     }
     return images
   }
+
+  var nameString: String {
+    guard let name = name else { return ""}
+    return name
+  }
   
-  init(id: Int?, vendorID: Int?, name: String?, productDescription: String?, currency: String?, price: Int?, discountedPrice: Int?, stock: Int?, images: [ProductImageEntity]?) {
+  var descriptionString: String {
+    guard let description = productDescription else { return ""}
+    return description
+  }
+  
+  private var moneySign: String {
+    if currency == "USD" {
+      return "$"
+    } else {
+      return "₩"
+    }
+  }
+  
+  var priceString: String {
+    guard let price = price else {
+      return ""
+    }
+    return "\(moneySign)\(price)"
+  }
+  
+  var discountedPriceString: String {
+    guard let discountedPrice = discountedPrice else {
+      return ""
+    }
+    return "\(moneySign)\(discountedPrice)"
+  }
+  
+  var stockString: String {
+    guard let stock = stock else {
+      return ""
+    }
+    return "\(stock)"
+  }
+  
+  init(id: Int?, vendorID: Int?, name: String?, productDescription: String?, currency: String?, price: Int?, discountedPrice: Int?, stock: Int?, images: [ProductImageEntity]?, vendors: VendorsEntity?) {
     self.id = id
     self.vendorID = vendorID
     self.name = name
@@ -42,6 +83,7 @@ struct DetailProductEneity: Codable {
     self.discountedPrice = discountedPrice
     self.stock = stock
     self.images = images
+    self.vendors = vendors
   }
   
   init() {
@@ -54,6 +96,7 @@ struct DetailProductEneity: Codable {
     self.discountedPrice = nil
     self.stock = nil
     self.images = nil
+    self.vendors = nil
   }
 }
 
@@ -74,3 +117,8 @@ struct ProductImageEntity: Codable, Identifiable {
   }
 }
 
+// MARK: - Vendors
+struct VendorsEntity: Codable {
+  let id: Int?
+  let name: String?
+}
