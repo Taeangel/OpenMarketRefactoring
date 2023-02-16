@@ -7,7 +7,7 @@ protocol Coordinator: AnyObject {
 }
 
 extension Coordinator {
-    func removeChild(_ coordinator: Coordinator) {
-        childCoordinators.removeAll(where: { $0 === coordinator })
-    }
+  func removeChild(_ coordinator: Coordinator) {
+    childCoordinators.removeAll(where: { $0 === coordinator })
+  }
 }

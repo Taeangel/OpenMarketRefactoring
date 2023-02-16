@@ -23,10 +23,10 @@ final class ProductViewCoordinator: Coordinator {
     self.childCoordinators = .init()
   }
  
-  func start(_ product: ProductEntity) {
-    let productViewController = dependencyContainer.makeProductViewController(product)
+  func start(_ productID: Int) {
+    let productViewController = dependencyContainer.makeProductViewController(productID)
     productViewController.coordinator = self
-    
+    navigationController?.isNavigationBarHidden = true
     navigationController?.pushViewController(productViewController, animated: true)
   }
   
