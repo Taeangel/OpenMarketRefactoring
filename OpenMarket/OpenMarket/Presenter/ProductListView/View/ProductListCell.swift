@@ -9,9 +9,6 @@ import UIKit
 import Kingfisher
 
 class ProductListCell: UICollectionViewCell {
-  static var identifier: String {
-    return String(describing: self)
-  }
   
   private var imageview: UIImageView = {
     let imageView = UIImageView()
@@ -71,7 +68,7 @@ class ProductListCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func bind(_ product: ProductEntity) {
+  func bind(_ product: BasicProductEntity) {
     self.imageview.kf.setImage(with: product.thumbnailURL)
     self.nameLabel.text = product.nameString
     self.descriptionLabel.text = product.descriptionString

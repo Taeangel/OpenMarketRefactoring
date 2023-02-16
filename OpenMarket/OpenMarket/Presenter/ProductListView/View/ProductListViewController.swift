@@ -20,10 +20,20 @@ class ProductListViewController: UIViewController {
     super.init(nibName: nil, bundle: nil)
   }
   
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  
   lazy var collectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureProductListLayout())
+    let collectionView = UICollectionView(
+      frame: .zero,
+      collectionViewLayout: configureProductListLayout())
     collectionView.translatesAutoresizingMaskIntoConstraints = false
-    collectionView.register(ProductListCell.self, forCellWithReuseIdentifier: ProductListCell.identifier)
+    collectionView.register(
+      ProductListCell.self,
+      forCellWithReuseIdentifier: ProductListCell.identifier
+    )
     return collectionView
   }()
   
@@ -33,9 +43,6 @@ class ProductListViewController: UIViewController {
     bind()
   }
   
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
   
   func bind() {
     viewModel.productListObservable
@@ -45,18 +52,21 @@ class ProductListViewController: UIViewController {
         }
         .disposed(by: disposeBag)
     
-    collectionView.rx.modelSelected(ProductEntity.self)
+    collectionView.rx.modelSelected(BasicProductEntity.self)
       .subscribe(onNext: { [weak self] product in
-        self?.coodinator?.showProductViewController(product)
+        self?.coodinator?.showProductViewController(product.intId)
       })
       .disposed(by: disposeBag)
   }
   
   func setup() {
     view.backgroundColor = .white
+    
+    self.tabBarController?.title = "OpenMarket"
+    
     view.addSubview(collectionView)
     NSLayoutConstraint.activate([
-      collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+      collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
       collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -69,7 +79,7 @@ extension ProductListViewController {
   private func configureProductListLayout() -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout { _, env in
       let width = (env.container.effectiveContentSize.width) * 0.5
-      let height = width * 1.4
+      let height = width * 1.5
       
       let itemSize = NSCollectionLayoutSize(
         widthDimension: .absolute(width),
