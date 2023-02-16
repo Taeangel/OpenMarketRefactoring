@@ -11,7 +11,7 @@ struct PoductListDTO: Codable {
   let pageNo, itemsPerPage, totalCount, offset: Int?
   let limit, lastPage: Int?
   let hasNext, hasPrev: Bool?
-  var product: [ProductEntity]?
+  var product: [BasicProductEntity]?
   
   enum CodingKeys: String, CodingKey {
     case pageNo, itemsPerPage, totalCount, offset, limit, lastPage, hasNext, hasPrev

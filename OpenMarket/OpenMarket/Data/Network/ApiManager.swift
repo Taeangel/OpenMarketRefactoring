@@ -29,6 +29,7 @@ struct ApiManager: OpenMarketProtocol {
     return session.request(request)
   }
 }
+
 extension URLSession: Requestable {
   func request(_ request: OpenMarketRequestManager) -> Observable<Data> {
     return URLSession.shared.rx.response(request: request.urlRequest)

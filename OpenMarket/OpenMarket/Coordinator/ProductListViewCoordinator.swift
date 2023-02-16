@@ -29,7 +29,7 @@ class ProductListViewCoordinator: Coordinator {
     return productListViewController
   }
   
-  func showProductViewController(_ product: ProductEntity) {
+  func showProductViewController(_ productID: Int) {
     guard let navigationController = navigationController else { return }
     let productViewCoordinator =
     openMarketDIContainer.makeProductViewCoordinator(navigationController: navigationController)
@@ -37,7 +37,7 @@ class ProductListViewCoordinator: Coordinator {
     childCoordinators.append(productViewCoordinator)
     productViewCoordinator.parentCoordinator = self
     
-    productViewCoordinator.start(product)
+    productViewCoordinator.start(productID)
   }
   
 }
