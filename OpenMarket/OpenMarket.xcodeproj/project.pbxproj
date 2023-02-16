@@ -151,8 +151,7 @@
 			children = (
 				867C8917299CF77400572EDC /* ProductViewModel.swift */,
 			);
-			name = ViewModel;
-			path = ProductView/ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		867C88DE299A5E5000572EDC /* RepositoryInterface */ = {
@@ -256,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				86355942299DF4C60015B472 /* View */,
+				86355943299DF4C80015B472 /* ViewModel */,
 			);
 			path = ProductView;
 			sourceTree = "<group>";
@@ -350,7 +350,6 @@
 				867C88F3299B54E800572EDC /* View */,
 				867C88F4299B54EF00572EDC /* ViewModel */,
 				867C8916299CF76400572EDC /* ProductView */,
-				86355943299DF4C80015B472 /* ViewModel */,
 			);
 			path = ProductListView;
 			sourceTree = "<group>";

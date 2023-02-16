@@ -37,6 +37,7 @@ class ProductViewController: UIViewController {
     button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
     button.tintColor = .systemRed
     button.backgroundColor = .white
+    button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
     return button
   }()
   
@@ -64,6 +65,7 @@ class ProductViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     setup()
     bind()
   }
@@ -76,7 +78,6 @@ class ProductViewController: UIViewController {
           cell.bind(images: item)
         }
         .disposed(by: disposeBag)
-    
   }
   
   private func setup() {
@@ -95,8 +96,17 @@ class ProductViewController: UIViewController {
       imageCollectionView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
       imageCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
       imageCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-      imageCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+      imageCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+      
     ])
+    
+    viewModel.delegate = self
+    
+    backButton.tag = 100
+  }
+  
+  @objc private func didTapButton(_ sender: UIButton) {
+    viewModel.action(action: .buttonTap(sender.tag))
   }
   
   private func configureCollectionFlowLayout() -> UICollectionViewFlowLayout {
@@ -112,3 +122,10 @@ class ProductViewController: UIViewController {
     return flowLayout
   }
 }
+
+extension ProductViewController: ProductViewModelDelegate {
+  func dismiss() {
+    coordinator?.dismiss()
+  }
+}
+
