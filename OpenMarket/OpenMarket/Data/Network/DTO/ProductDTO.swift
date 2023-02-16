@@ -14,7 +14,7 @@ struct ProductDTO: Codable {
   let currency: String?
   let price, bargainPrice, discountedPrice, stock: Int?
   let createdAt, issuedAt: String?
-  let images: [ProductImage]
+  let images: [ProductImageDTO]
   let vendors: Vendors?
   
   enum CodingKeys: String, CodingKey {
@@ -30,25 +30,35 @@ struct ProductDTO: Codable {
     case issuedAt = "issued_at"
     case images, vendors
   }
+  
+  func toEneity() -> DetailProductEneity {
+    return DetailProductEneity(
+      id: id,
+      vendorID: vendorID,
+      name: name,
+      productDescription: productDescription,
+      currency: currency,
+      price: price,
+      discountedPrice: discountedPrice,
+      stock: stock,
+      images: images.map{ $0.toEntity() } )
+  }
 }
 
 // MARK: - Image
-struct ProductImage: Codable, Identifiable {
+struct ProductImageDTO: Codable, Identifiable {
   let id: Int?
   let url, thumbnailURL: String?
   let issuedAt: String?
-  
-  var imageURL: URL {
-    guard let url = url, let url = URL(string: url) else {
-      return URL(fileURLWithPath: "")
-    }
-    return url
-  }
   
   enum CodingKeys: String, CodingKey {
     case id, url
     case thumbnailURL = "thumbnail_url"
     case issuedAt = "issued_at"
+  }
+  
+  func toEntity() -> ProductImageEntity {
+    ProductImageEntity(id: id, url: url)
   }
 }
 
