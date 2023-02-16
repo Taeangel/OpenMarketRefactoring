@@ -33,31 +33,6 @@ class ProductViewController: UIViewController {
     return stackView
   }()
   
-  private var backButton: UIButton = {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-    button.tintColor = .systemRed
-    button.backgroundColor = .white
-    button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-    return button
-  }()
-  
-  private var titleLabel: UILabel = {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.font = UIFont.boldSystemFont(ofSize: 15)
-    return label
-  }()
-  
-  private var likeButton: UIButton = {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setImage(UIImage(systemName: "heart"), for: .normal)
-    button.backgroundColor = .white
-    return button
-  }()
-  
   private lazy var imageCollectionView: UICollectionView = {
     let collectionView = UICollectionView(
       frame: .zero,
@@ -145,6 +120,10 @@ class ProductViewController: UIViewController {
     bind()
   }
   
+  override func viewDidDisappear(_ animated: Bool) {
+    coordinator?.dismiss()
+  }
+  
   func bind() {
     viewModel.productObservable.map { $0.arrayImages }
       .bind(to: imageCollectionView.rx.items(
@@ -154,6 +133,15 @@ class ProductViewController: UIViewController {
         }
         .disposed(by: disposeBag)
       
+    viewModel.productObservable
+      .catchAndReturn(DetailProductEneity())
+      .observe(on: MainScheduler.instance)
+      .map { $0.name }
+      .subscribe(onNext: { [weak self] productTitle in
+        self?.title = productTitle
+      })
+      .disposed(by: disposeBag)
+    
     viewModel.productObservable
       .catchAndReturn(DetailProductEneity())
       .observe(on: MainScheduler.instance)
@@ -200,12 +188,10 @@ class ProductViewController: UIViewController {
   private func setup() {
     self.view.backgroundColor = .systemGray6
 
-    self.view.addSubview(topStackView)
     self.view.addSubview(imageCollectionView)
     self.view.addSubview(infoStackView)
     self.view.addSubview(descriptionLabel)
     
-    topStackView.addArrangeSubviews(backButton, titleLabel, likeButton)
     infoStackView.addArrangeSubviews(
       
       registerLabel,
@@ -218,11 +204,8 @@ class ProductViewController: UIViewController {
     )
 
     NSLayoutConstraint.activate([
-      topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-      topStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-      topStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
       
-      imageCollectionView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
+      imageCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
 
       imageCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
       imageCollectionView.heightAnchor.constraint(equalTo: view.widthAnchor),
@@ -239,7 +222,6 @@ class ProductViewController: UIViewController {
     ])
     
     viewModel.delegate = self
-    backButton.tag = 100
   }
   
   @objc private func didTapButton(_ sender: UIButton) {

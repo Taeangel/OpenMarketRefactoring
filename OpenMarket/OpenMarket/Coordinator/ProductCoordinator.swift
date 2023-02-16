@@ -26,13 +26,10 @@ final class ProductViewCoordinator: Coordinator {
   func start(_ productID: Int) {
     let productViewController = dependencyContainer.makeProductViewController(productID)
     productViewController.coordinator = self
-    navigationController?.isNavigationBarHidden = true
     navigationController?.pushViewController(productViewController, animated: true)
   }
   
   func dismiss() {
-    navigationController?.popViewController(animated: true)
-    navigationController?.isNavigationBarHidden = false
     parentCoordinator?.removeChild(self)
   }
 }
