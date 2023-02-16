@@ -46,8 +46,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     layer.shadowColor = UIColor.black.cgColor
     layer.shadowOpacity = 0.5
     layer.shadowRadius = 10
-//    contentView.layer.cornerRadius = 20
-//    contentView.layer.masksToBounds = true
     contentView.backgroundColor = .white
   }
 }

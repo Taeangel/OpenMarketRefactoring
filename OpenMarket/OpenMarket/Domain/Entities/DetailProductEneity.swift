@@ -31,6 +31,30 @@ struct DetailProductEneity: Codable {
     }
     return images
   }
+  
+  init(id: Int?, vendorID: Int?, name: String?, productDescription: String?, currency: String?, price: Int?, discountedPrice: Int?, stock: Int?, images: [ProductImageEntity]?) {
+    self.id = id
+    self.vendorID = vendorID
+    self.name = name
+    self.productDescription = productDescription
+    self.currency = currency
+    self.price = price
+    self.discountedPrice = discountedPrice
+    self.stock = stock
+    self.images = images
+  }
+  
+  init() {
+    self.id = nil
+    self.vendorID = nil
+    self.name = nil
+    self.productDescription = nil
+    self.currency = nil
+    self.price = nil
+    self.discountedPrice = nil
+    self.stock = nil
+    self.images = nil
+  }
 }
 
 // MARK: - Image

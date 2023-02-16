@@ -10,12 +10,12 @@ import RxSwift
 import RxRelay
 
 protocol ProductViewModelable {
-  var productObservable: PublishRelay<DetailProductEneity> { get set }
+  var productObservable: BehaviorRelay<DetailProductEneity> { get set }
 }
 
 class ProductViewModel: ProductViewModelable {
   private var disposeBag: DisposeBag
-  var productObservable: PublishRelay<DetailProductEneity>
+  var productObservable: BehaviorRelay<DetailProductEneity>
   let productID: Int
   private let fetchUseCase: FetchUseCaseable
   
@@ -24,22 +24,10 @@ class ProductViewModel: ProductViewModelable {
     fetchUseCase: FetchUseCaseable
   ) {
     
-    let product = DetailProductEneity(
-      id: nil,
-      vendorID: nil,
-      name: nil,
-      productDescription: nil,
-      currency: nil,
-      price: nil,
-      discountedPrice: nil,
-      stock: nil,
-      images: nil
-    )
-    
     self.disposeBag = .init()
     self.productID = productID
     self.fetchUseCase = fetchUseCase
-    self.productObservable = .init()
+    self.productObservable = .init(value: DetailProductEneity())
     
     bind()
   }

@@ -76,6 +76,7 @@ class ProductViewController: UIViewController {
           cell.bind(images: item)
         }
         .disposed(by: disposeBag)
+    
   }
   
   private func setup() {
