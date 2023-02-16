@@ -93,12 +93,12 @@ extension OpenMarketDIContainer {
     )
   }
   
-  private func makeProductViewModel(_ product: ProductEntity) -> ProductViewModel {
-    return ProductViewModel(product: product, fetchUseCase: makefetchUseCase())
+  private func makeProductViewModel(_ productID: Int) -> ProductViewModel {
+    return ProductViewModel(productID: productID, fetchUseCase: makefetchUseCase())
   }
   
-  func makeProductViewController(_ product: ProductEntity) -> ProductViewController {
-    return ProductViewController(viewModel: makeProductViewModel(product))
+  func makeProductViewController(_ productID: Int) -> ProductViewController {
+    return ProductViewController(viewModel: makeProductViewModel(productID))
   }
 
   // MARK: - Repository

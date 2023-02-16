@@ -7,12 +7,19 @@
 
 import Foundation
 
-struct ProductEntity: Codable, Identifiable, Equatable {
+struct BasicProductEntity: Codable, Identifiable, Equatable {
   let id, vendorID: Int?
   let vendorName, name, description: String?
   let thumbnail: String?
   let currency: String?
   let price, bargainPrice, discountedPrice, stock: Int?
+  
+  var intId: Int {
+    guard let id = id  else {
+      return 0
+    }
+    return id
+  }
   
   var thumbnailURL: URL {
     guard let tumbnailString = thumbnail, let url = URL(string: tumbnailString) else {
