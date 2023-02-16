@@ -13,8 +13,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
   private var imageview: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.layer.cornerRadius = 20
-    imageView.layer.masksToBounds = true
     return imageView
   }()
   

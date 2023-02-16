@@ -11,6 +11,7 @@
 		86355945299DF4E30015B472 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86355944299DF4E30015B472 /* ImageCollectionViewCell.swift */; };
 		86355947299DF4FF0015B472 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86355946299DF4FF0015B472 /* UICollectionViewExtension.swift */; };
 		86355949299DFFAF0015B472 /* DetailProductEneity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86355948299DFFAF0015B472 /* DetailProductEneity.swift */; };
+		8635594E299E40CE0015B472 /* DividerLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635594D299E40CE0015B472 /* DividerLineView.swift */; };
 		867C88E4299A5EC900572EDC /* FetchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E3299A5EC900572EDC /* FetchRepository.swift */; };
 		867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E5299A5ED400572EDC /* FetchStorage.swift */; };
 		867C88E8299A5EEB00572EDC /* FetchRepositorible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */; };
@@ -63,6 +64,7 @@
 		86355944299DF4E30015B472 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		86355946299DF4FF0015B472 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		86355948299DFFAF0015B472 /* DetailProductEneity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductEneity.swift; sourceTree = "<group>"; };
+		8635594D299E40CE0015B472 /* DividerLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerLineView.swift; sourceTree = "<group>"; };
 		867C88E3299A5EC900572EDC /* FetchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchRepository.swift; path = OpenMarket/Data/Repository/FetchRepository.swift; sourceTree = SOURCE_ROOT; };
 		867C88E5299A5ED400572EDC /* FetchStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchStorage.swift; path = OpenMarket/Data/Storages/FetchStorage.swift; sourceTree = SOURCE_ROOT; };
 		867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepositorible.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				867C8912299CCCD600572EDC /* Utils */,
 				86CF2F50299775D700F34529 /* Assets.xcassets */,
 				86CF2F52299775D700F34529 /* LaunchScreen.storyboard */,
+				8635594D299E40CE0015B472 /* DividerLineView.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 			files = (
 				867C8925299D19A100572EDC /* ProductEditViewModel.swift in Sources */,
 				86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */,
+				8635594E299E40CE0015B472 /* DividerLineView.swift in Sources */,
 				86F048F429979E7D00212238 /* ProductRegisterViewCoordinator.swift in Sources */,
 				86F04905299A1CD000212238 /* MultipartForm.swift in Sources */,
 				86F04919299A262C00212238 /* ProductDTO.swift in Sources */,
