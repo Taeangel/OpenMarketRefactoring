@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import RxSwift
+import RxRelay
 
 protocol ProductEditViewModelable {
-  
+  func updateList()
+  var myProductListObservable: BehaviorRelay<[BasicProductEntity]> { get set }
 }
 
 final class ProductEditViewModel: ProductEditViewModelable {
+  
+  var myProductListObservable: RxRelay.BehaviorRelay<[BasicProductEntity]>
+  private var disposeBag: DisposeBag
   private let fetchUseCase: FetchUseCaseable
   private let editUseCase: EditUseCaseable
   
@@ -19,8 +25,19 @@ final class ProductEditViewModel: ProductEditViewModelable {
     fetchUseCase: FetchUseCaseable,
     editUseCase: EditUseCaseable
   ) {
+    self.disposeBag = .init()
     self.fetchUseCase = fetchUseCase
     self.editUseCase = editUseCase
+    self.myProductListObservable = .init(value: [])
+    
+    updateList()
+  }
+  
+  func updateList() {
+    fetchUseCase.fetchMyProductList()
+      .compactMap { $0.product }
+      .bind(to: myProductListObservable)
+      .disposed(by: disposeBag)
   }
 }
 

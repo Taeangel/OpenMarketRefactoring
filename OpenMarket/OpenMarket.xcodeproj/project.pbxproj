@@ -39,6 +39,7 @@
 		867C8923299D199300572EDC /* ProductEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8922299D199300572EDC /* ProductEditViewController.swift */; };
 		867C8925299D19A100572EDC /* ProductEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8924299D19A100572EDC /* ProductEditViewModel.swift */; };
 		867C8927299D1A3B00572EDC /* ProductEditViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8926299D1A3B00572EDC /* ProductEditViewCoordinator.swift */; };
+		86AAEA60299F7EB000B00F24 /* MyProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAEA5F299F7EB000B00F24 /* MyProductCollectionViewCell.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
 		86CF2F51299775D700F34529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CF2F50299775D700F34529 /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		867C8922299D199300572EDC /* ProductEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEditViewController.swift; sourceTree = "<group>"; };
 		867C8924299D19A100572EDC /* ProductEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEditViewModel.swift; sourceTree = "<group>"; };
 		867C8926299D1A3B00572EDC /* ProductEditViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEditViewCoordinator.swift; sourceTree = "<group>"; };
+		86AAEA5F299F7EB000B00F24 /* MyProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF2F49299775D500F34529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				867C8922299D199300572EDC /* ProductEditViewController.swift */,
+				86AAEA5F299F7EB000B00F24 /* MyProductCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
 				867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */,
 				867C8907299B934D00572EDC /* ProductListCell.swift in Sources */,
+				86AAEA60299F7EB000B00F24 /* MyProductCollectionViewCell.swift in Sources */,
 				867C890F299CA77F00572EDC /* EditRepositoriable.swift in Sources */,
 				867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */,
 				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,

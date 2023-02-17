@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 
 protocol ProductListViewModelable {
-  func bind()
+  func updateList()
   var productListObservable: BehaviorRelay<[BasicProductEntity]> { get set }
 }
 
@@ -24,11 +24,11 @@ final class ProductListViewModel: ProductListViewModelable {
     self.disposeBag = .init()
     self.productListObservable = .init(value: [])
     
-    bind()
+    updateList()
   }
   
-  func bind() {
-    fetchUseCase.fetchProductList(pageNum: 3)
+  func updateList() {
+    fetchUseCase.fetchProductList(pageNum: 1)
       .compactMap { $0.product }
       .bind(to: productListObservable)
       .disposed(by: disposeBag)

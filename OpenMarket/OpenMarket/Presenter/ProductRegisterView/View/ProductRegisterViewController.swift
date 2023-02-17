@@ -123,7 +123,6 @@ class ProductRegisterViewController: UIViewController {
     button.layer.cornerRadius = 10
     button.setTitle("상품등록", for: .normal)
     button.setTitleColor(.systemGray3, for: .normal)
-    
     return button
   }()
   
@@ -145,6 +144,15 @@ class ProductRegisterViewController: UIViewController {
         }
         .disposed(by: disposeBag)
     
+    viewModel.imageCountObserable
+      .map { "\($0)/5" }
+      .catchAndReturn("")
+      .observe(on: MainScheduler.instance)
+      .subscribe { [weak self] text in
+        self?.addImageButton.imageCountLabel.text = text
+      }
+      .disposed(by: disposeBag)
+    
     addImageButton.rx.tap
       .withUnretained(self)
       .bind { vc, _ in
@@ -152,12 +160,11 @@ class ProductRegisterViewController: UIViewController {
       }
       .disposed(by: disposeBag)
     
-    viewModel.imageCountObserable
-      .map { "\($0)/5" }
-      .catchAndReturn("")
-      .observe(on: MainScheduler.instance)
-      .subscribe { [weak self] text in
-        self?.addImageButton.imageCountLabel.text = text
+    updataButton.rx.tap
+      .withUnretained(self)
+      .bind { _, _ in
+        self.viewModel.didTappostButton(param: self.makeProduct())
+        self.cleanView()
       }
       .disposed(by: disposeBag)
   }
@@ -171,26 +178,26 @@ class ProductRegisterViewController: UIViewController {
   
   func registerProductbuttonBind() {
     let nameTextObserable = nameTextField.rx.text
-      .map { $0 == "" }
-
+      .map { $0 != "" }
+    
     let priceTextObserable = priceTextField.rx.text
       .compactMap { $0 }
       .compactMap { Int($0) }
-      
+    
     let discountedPriceObserable = discountedPriceTextField.rx.text
       .compactMap { $0 }
       .compactMap { Int($0) }
-      
+    
     let priceObserable = BehaviorRelay.combineLatest(priceTextObserable, discountedPriceObserable)
       .map { $0 > $1 }
-
+    
     let stockTextObserable =  stockTextField.rx.text
       .compactMap { $0 }
       .compactMap { Int($0) }
       .map { $0 > 0}
-
+    
     let descriptionTextObserable = descriptionTextField.rx.text
-      .map { $0 == "" }
+      .map { $0 != "" }
     
     Observable.combineLatest(
       nameTextObserable,
@@ -200,6 +207,24 @@ class ProductRegisterViewController: UIViewController {
     ) { $0 && $1 && $2 && $3 }
       .bind(to: updataButton.rx.isEnabled)
       .disposed(by: disposeBag)
+  }
+  
+  private func makeProduct() -> ProductRequestDTO {
+    return ProductRequestDTO(
+      name: nameTextField.text ?? "",
+      description: descriptionTextField.text ?? "",
+      price: Int(priceTextField.text ?? "") ?? 0,
+      currency: "KRW",
+      discountedPrice: Int(discountedPriceTextField.text ?? "") ?? 0,
+      stock: Int(stockTextField.text ?? "") ?? 0)
+  }
+  
+  private func cleanView() {
+    nameTextField.text = ""
+    descriptionTextField.text = ""
+    priceTextField.text = ""
+    discountedPriceTextField.text = ""
+    stockTextField.text = ""
   }
   
   func setup() {

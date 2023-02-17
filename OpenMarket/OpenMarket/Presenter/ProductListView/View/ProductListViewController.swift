@@ -13,6 +13,7 @@ import SnapKit
 class ProductListViewController: UIViewController {
   weak var coodinator: ProductListViewCoordinator?
   var viewModel: ProductListViewModelable
+  
   private var disposeBag = DisposeBag()
   
   init(viewModel: ProductListViewModelable) {
@@ -23,8 +24,7 @@ class ProductListViewController: UIViewController {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-  
+    
   lazy var collectionView: UICollectionView = {
     let collectionView = UICollectionView(
       frame: .zero,
@@ -56,8 +56,6 @@ class ProductListViewController: UIViewController {
         self?.coodinator?.showProductViewController(product.intId)
       })
       .disposed(by: disposeBag)
-    
-   
   }
   
   func setup() {
@@ -66,6 +64,7 @@ class ProductListViewController: UIViewController {
     self.tabBarController?.title = "OpenMarket"
     
     view.addSubview(collectionView)
+    
     NSLayoutConstraint.activate([
       collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -102,4 +101,3 @@ extension ProductListViewController {
     }
   }
 }
-
