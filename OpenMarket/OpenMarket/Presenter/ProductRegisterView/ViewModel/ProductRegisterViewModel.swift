@@ -16,7 +16,7 @@ protocol ProductRegisterViewModelable {
 }
 
 final class ProductRegisterViewModel: ProductRegisterViewModelable {
- var imageCountObserable: BehaviorRelay<Int>
+  var imageCountObserable: BehaviorRelay<Int>
   private let registerUseCase: RegisterUseCaseable
   var imagesObserable: BehaviorRelay<[UIImage]>
   
