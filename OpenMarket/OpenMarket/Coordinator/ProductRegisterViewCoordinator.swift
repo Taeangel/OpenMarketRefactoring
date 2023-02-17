@@ -28,4 +28,12 @@ class ProductRegisterViewCoordinator: Coordinator {
     productRegisterViewController.coordinator = self
     return productRegisterViewController
   }
+  
+  func showPhotoLibrary(to imagePicker: UIImagePickerController) {
+      navigationController?.present(imagePicker, animated: true)
+  }
+  
+  func removePhotoLibrary(to imagePicker: UIImagePickerController) {
+      imagePicker.dismiss(animated: true)
+  }
 }

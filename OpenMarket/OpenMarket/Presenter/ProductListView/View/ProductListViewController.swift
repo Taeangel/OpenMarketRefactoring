@@ -43,7 +43,6 @@ class ProductListViewController: UIViewController {
     bind()
   }
   
-  
   func bind() {
     viewModel.productListObservable
       .bind(to: collectionView.rx.items(
@@ -57,6 +56,8 @@ class ProductListViewController: UIViewController {
         self?.coodinator?.showProductViewController(product.intId)
       })
       .disposed(by: disposeBag)
+    
+   
   }
   
   func setup() {

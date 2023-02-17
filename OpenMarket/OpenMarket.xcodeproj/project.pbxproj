@@ -12,6 +12,8 @@
 		86355947299DF4FF0015B472 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86355946299DF4FF0015B472 /* UICollectionViewExtension.swift */; };
 		86355949299DFFAF0015B472 /* DetailProductEneity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86355948299DFFAF0015B472 /* DetailProductEneity.swift */; };
 		8635594E299E40CE0015B472 /* DividerLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635594D299E40CE0015B472 /* DividerLineView.swift */; };
+		86355950299E677E0015B472 /* AddImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635594F299E677E0015B472 /* AddImageView.swift */; };
+		86355952299E78B50015B472 /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86355951299E78B50015B472 /* AddImageCollectionViewCell.swift */; };
 		867C88E4299A5EC900572EDC /* FetchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E3299A5EC900572EDC /* FetchRepository.swift */; };
 		867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E5299A5ED400572EDC /* FetchStorage.swift */; };
 		867C88E8299A5EEB00572EDC /* FetchRepositorible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */; };
@@ -65,6 +67,8 @@
 		86355946299DF4FF0015B472 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		86355948299DFFAF0015B472 /* DetailProductEneity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductEneity.swift; sourceTree = "<group>"; };
 		8635594D299E40CE0015B472 /* DividerLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerLineView.swift; sourceTree = "<group>"; };
+		8635594F299E677E0015B472 /* AddImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageView.swift; sourceTree = "<group>"; };
+		86355951299E78B50015B472 /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		867C88E3299A5EC900572EDC /* FetchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchRepository.swift; path = OpenMarket/Data/Repository/FetchRepository.swift; sourceTree = SOURCE_ROOT; };
 		867C88E5299A5ED400572EDC /* FetchStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchStorage.swift; path = OpenMarket/Data/Storages/FetchStorage.swift; sourceTree = SOURCE_ROOT; };
 		867C88E7299A5EEB00572EDC /* FetchRepositorible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRepositorible.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				86F048F129979E7100212238 /* ProductRegisterViewController.swift */,
+				86355951299E78B50015B472 /* AddImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				867C8912299CCCD600572EDC /* Utils */,
 				86CF2F50299775D700F34529 /* Assets.xcassets */,
 				86CF2F52299775D700F34529 /* LaunchScreen.storyboard */,
+				8635594F299E677E0015B472 /* AddImageView.swift */,
 				8635594D299E40CE0015B472 /* DividerLineView.swift */,
 			);
 			path = Resource;
@@ -619,7 +625,9 @@
 				867C8911299CA8A300572EDC /* EditUseCase.swift in Sources */,
 				86FA8504299A299D00AEBB80 /* ApiManager.swift in Sources */,
 				867C88F8299B564200572EDC /* RegisterStorage.swift in Sources */,
+				86355952299E78B50015B472 /* AddImageCollectionViewCell.swift in Sources */,
 				86F048E329979C6800212238 /* AppCoordinator.swift in Sources */,
+				86355950299E677E0015B472 /* AddImageView.swift in Sources */,
 				86F048F229979E7100212238 /* ProductRegisterViewController.swift in Sources */,
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
 				867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */,
