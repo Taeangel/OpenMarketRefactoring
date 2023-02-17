@@ -100,6 +100,24 @@ extension OpenMarketDIContainer {
   func makeProductViewController(_ productID: Int) -> ProductViewController {
     return ProductViewController(viewModel: makeProductViewModel(productID))
   }
+  
+  
+  // MARK: - ModifyProduct
+  func makeProductModifyViewCoordinator(
+    navigationController: UINavigationController
+  ) -> ProductModifyCoordinator {
+    return ProductModifyCoordinator(
+      navigationController: navigationController,
+      dependencyContainer: self)
+  }
+  
+  private func makeProductModifyViewModel(_ productID: Int) -> ProductModifyViewModelable {
+    return ProductModifyViewModel(productId: productID)
+  }
+  
+  func makeProductModifyViewController(_ productId: Int) -> ProductModifyViewController {
+    return ProductModifyViewController(viewModel: makeProductModifyViewModel(productId))
+  }
 
   // MARK: - Repository
   private func makeRegisterRepository() -> RegisterRepositoriable {

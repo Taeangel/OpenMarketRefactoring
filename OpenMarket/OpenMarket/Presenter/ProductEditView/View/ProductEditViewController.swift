@@ -41,14 +41,36 @@ class ProductEditViewController: UIViewController {
   }
   
   func bind() {
-    
     viewModel.myProductListObservable
       .bind(to: collectionView.rx.items(
         cellIdentifier: MyProductCollectionViewCell.identifier,
         cellType: MyProductCollectionViewCell.self)) { index, item, cell in
           cell.bind(item)
+          cell.deleteButton.rx.tap
+            .withUnretained(self)
+            .bind { _, _ in
+              self.viewModel.deleteProduct(id: item.intId)
+            }
+            .disposed(by: self.disposeBag)
+          
+          cell.modifyButton.rx.tap
+            .withUnretained(self)
+            .bind { _, _ in
+              self.coordinator?.showProductModifyViewController(item.intId)
+            }
+            .disposed(by: self.disposeBag)
+          
+          
         }
         .disposed(by: disposeBag)
+    
+    
+  }
+  
+  
+  
+  @objc func deleteProduct(id: Int) {
+    viewModel.deleteProduct(id: id)
   }
   
   func setup() {

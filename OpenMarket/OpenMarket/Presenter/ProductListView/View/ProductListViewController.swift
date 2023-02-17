@@ -42,6 +42,9 @@ class ProductListViewController: UIViewController {
     setup()
     bind()
   }
+  override func viewWillAppear(_ animated: Bool) {
+    viewModel.updateList()
+  }
   
   func bind() {
     viewModel.productListObservable

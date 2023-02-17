@@ -39,6 +39,9 @@
 		867C8923299D199300572EDC /* ProductEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8922299D199300572EDC /* ProductEditViewController.swift */; };
 		867C8925299D19A100572EDC /* ProductEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8924299D19A100572EDC /* ProductEditViewModel.swift */; };
 		867C8927299D1A3B00572EDC /* ProductEditViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C8926299D1A3B00572EDC /* ProductEditViewCoordinator.swift */; };
+		8693D43D299FB1FC00682901 /* ProductModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693D43C299FB1FC00682901 /* ProductModifyViewController.swift */; };
+		8693D43F299FB20B00682901 /* ProductModifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693D43E299FB20B00682901 /* ProductModifyViewModel.swift */; };
+		8693D441299FB2A100682901 /* ProductModifyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8693D440299FB2A100682901 /* ProductModifyCoordinator.swift */; };
 		86AAEA60299F7EB000B00F24 /* MyProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAEA5F299F7EB000B00F24 /* MyProductCollectionViewCell.swift */; };
 		86CF2F48299775D500F34529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F47299775D500F34529 /* AppDelegate.swift */; };
 		86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF2F49299775D500F34529 /* SceneDelegate.swift */; };
@@ -95,6 +98,9 @@
 		867C8922299D199300572EDC /* ProductEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEditViewController.swift; sourceTree = "<group>"; };
 		867C8924299D19A100572EDC /* ProductEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEditViewModel.swift; sourceTree = "<group>"; };
 		867C8926299D1A3B00572EDC /* ProductEditViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEditViewCoordinator.swift; sourceTree = "<group>"; };
+		8693D43C299FB1FC00682901 /* ProductModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyViewController.swift; sourceTree = "<group>"; };
+		8693D43E299FB20B00682901 /* ProductModifyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyViewModel.swift; sourceTree = "<group>"; };
+		8693D440299FB2A100682901 /* ProductModifyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModifyCoordinator.swift; sourceTree = "<group>"; };
 		86AAEA5F299F7EB000B00F24 /* MyProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		86CF2F44299775D500F34529 /* OpenMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF2F47299775D500F34529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 			children = (
 				867C8920299D184E00572EDC /* View */,
 				867C8921299D185000572EDC /* ViewModel */,
+				8693D43B299FB1DE00682901 /* ProductModifyView */,
 			);
 			path = ProductEditView;
 			sourceTree = "<group>";
@@ -293,6 +300,15 @@
 				867C8924299D19A100572EDC /* ProductEditViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8693D43B299FB1DE00682901 /* ProductModifyView */ = {
+			isa = PBXGroup;
+			children = (
+				8693D43C299FB1FC00682901 /* ProductModifyViewController.swift */,
+				8693D43E299FB20B00682901 /* ProductModifyViewModel.swift */,
+			);
+			path = ProductModifyView;
 			sourceTree = "<group>";
 		};
 		86CF2F3B299775D500F34529 = {
@@ -352,6 +368,7 @@
 				86F048F329979E7D00212238 /* ProductRegisterViewCoordinator.swift */,
 				867C8926299D1A3B00572EDC /* ProductEditViewCoordinator.swift */,
 				867C891B299D0F1200572EDC /* ProductCoordinator.swift */,
+				8693D440299FB2A100682901 /* ProductModifyCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -633,18 +650,21 @@
 				86355950299E677E0015B472 /* AddImageView.swift in Sources */,
 				86F048F229979E7100212238 /* ProductRegisterViewController.swift in Sources */,
 				86F0490A299A1EA400212238 /* HTTPMethod.swift in Sources */,
+				8693D43F299FB20B00682901 /* ProductModifyViewModel.swift in Sources */,
 				867C88E6299A5ED400572EDC /* FetchStorage.swift in Sources */,
 				867C8907299B934D00572EDC /* ProductListCell.swift in Sources */,
 				86AAEA60299F7EB000B00F24 /* MyProductCollectionViewCell.swift in Sources */,
 				867C890F299CA77F00572EDC /* EditRepositoriable.swift in Sources */,
 				867C88FE299B58DD00572EDC /* RegisterUseCase.swift in Sources */,
 				86F0491B299A263700212238 /* ProductRequestDTO.swift in Sources */,
+				8693D441299FB2A100682901 /* ProductModifyCoordinator.swift in Sources */,
 				86CF2F4A299775D500F34529 /* SceneDelegate.swift in Sources */,
 				86F0490C299A1EB600212238 /* NetworkError.swift in Sources */,
 				867C8902299B608E00572EDC /* ProductRegisterViewModel.swift in Sources */,
 				86F04917299A260A00212238 /* PoductListDTO.swift in Sources */,
 				867C88EC299B278700572EDC /* FetchUseCase.swift in Sources */,
 				867C88F6299B550400572EDC /* ProductListViewModel.swift in Sources */,
+				8693D43D299FB1FC00682901 /* ProductModifyViewController.swift in Sources */,
 				86F0490E299A1EC800212238 /* ContentType.swift in Sources */,
 				86F048EE29979E5B00212238 /* ProductListViewController.swift in Sources */,
 				86F048F029979E6600212238 /* ProductListViewCoordinator.swift in Sources */,

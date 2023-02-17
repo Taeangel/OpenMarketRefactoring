@@ -28,4 +28,15 @@ class ProductEditViewCoordinator: Coordinator {
     productEditViewController.coordinator = self
     return productEditViewController
   }
+  
+  func showProductModifyViewController(_ productID: Int) {
+    guard let navigationController = navigationController else { return }
+    let productViewCoordinator =
+    openMarketDIContainer.makeProductModifyViewCoordinator(navigationController: navigationController)
+    
+    childCoordinators.append(productViewCoordinator)
+    productViewCoordinator.parentCoordinator = self
+    
+    productViewCoordinator.start(productID)
+  }
 }

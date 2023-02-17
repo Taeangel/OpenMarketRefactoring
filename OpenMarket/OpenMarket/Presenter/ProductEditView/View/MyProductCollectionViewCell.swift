@@ -65,7 +65,7 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     return stackView
   }()
   
-  private let deleteButton: UIButton = {
+  let deleteButton: UIButton = {
     let button = UIButton()
     button.backgroundColor = .red
     button.layer.masksToBounds = true
@@ -77,7 +77,7 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     return button
   }()
   
-  private let modifyButton: UIButton = {
+  let modifyButton: UIButton = {
     let button = UIButton()
     button.backgroundColor = .orange
     button.layer.masksToBounds = true
@@ -107,7 +107,6 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     self.discountPriceLabel.text = product.discountedPriceString
   }
   
-
   private func setupLayout() {
     layer.shadowRadius = 10
     contentView.layer.cornerRadius = 20
