@@ -112,7 +112,7 @@ extension OpenMarketDIContainer {
   }
   
   private func makeProductModifyViewModel(_ productID: Int) -> ProductModifyViewModelable {
-    return ProductModifyViewModel(productId: productID)
+    return ProductModifyViewModel(productId: productID, fetchUseCase: makefetchUseCase(), editUseCase: makeEditUseCase())
   }
   
   func makeProductModifyViewController(_ productId: Int) -> ProductModifyViewController {

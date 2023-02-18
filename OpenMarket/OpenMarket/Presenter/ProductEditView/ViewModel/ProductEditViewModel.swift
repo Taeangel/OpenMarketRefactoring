@@ -43,11 +43,11 @@ final class ProductEditViewModel: ProductEditViewModelable {
   
   func deleteProduct(id: Int) {
     editUseCase.deleteProduct(id: id)
-      .flatMap { self.fetchUseCase.fetchMyProductList()
-}
+      .flatMap { self.fetchUseCase.fetchMyProductList() }
       .compactMap { $0.product }
       .bind(to: myProductListObservable)
       .disposed(by: disposeBag)
   }
 }
+
 

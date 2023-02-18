@@ -11,7 +11,7 @@ import RxSwift
 import SnapKit
 
 class ProductListViewController: UIViewController {
-  weak var coodinator: ProductListViewCoordinator?
+  weak var coordinator: ProductListViewCoordinator?
   var viewModel: ProductListViewModelable
   
   private var disposeBag = DisposeBag()
@@ -56,7 +56,7 @@ class ProductListViewController: UIViewController {
     
     collectionView.rx.modelSelected(BasicProductEntity.self)
       .subscribe(onNext: { [weak self] product in
-        self?.coodinator?.showProductViewController(product.intId)
+        self?.coordinator?.showProductViewController(product.intId)
       })
       .disposed(by: disposeBag)
   }

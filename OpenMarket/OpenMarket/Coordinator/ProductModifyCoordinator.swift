@@ -32,6 +32,7 @@ final class ProductModifyCoordinator: Coordinator {
   }
   
   func dismiss() {
+    navigationController?.popViewController(animated: true)
     parentCoordinator?.removeChild(self)
   }
 }

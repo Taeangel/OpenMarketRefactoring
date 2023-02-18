@@ -38,10 +38,10 @@ class ProductViewController: UIViewController {
       frame: .zero,
       collectionViewLayout: configureCollectionFlowLayout())
     collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.backgroundColor = .systemGray6
     collectionView.register(
       ImageCollectionViewCell.self,
       forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
-    collectionView.backgroundColor = .systemGray6
     return collectionView
   }()
   
@@ -113,7 +113,6 @@ class ProductViewController: UIViewController {
     return label
   }()
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
@@ -146,42 +145,42 @@ class ProductViewController: UIViewController {
       .catchAndReturn(DetailProductEneity())
       .observe(on: MainScheduler.instance)
       .map { $0.vendors?.name }
-      .bind(to: self.registerLabel.rx.text)
+      .bind(to: registerLabel.rx.text)
       .disposed(by: disposeBag)
     
     viewModel.productObservable
       .catchAndReturn(DetailProductEneity())
       .observe(on: MainScheduler.instance)
       .map { $0.name }
-      .bind(to: self.productLabel.rx.text)
+      .bind(to: productLabel.rx.text)
       .disposed(by: disposeBag)
     
     viewModel.productObservable
       .catchAndReturn(DetailProductEneity())
       .observe(on: MainScheduler.instance)
       .map { $0.priceString }
-      .bind(to: self.priceLabel.rx.text)
+      .bind(to: priceLabel.rx.text)
       .disposed(by: disposeBag)
     
     viewModel.productObservable
       .catchAndReturn(DetailProductEneity())
       .observe(on: MainScheduler.instance)
       .map { $0.discountedPriceString }
-      .bind(to: self.discountedPriceLabel.rx.text)
+      .bind(to: discountedPriceLabel.rx.text)
       .disposed(by: disposeBag)
     
     viewModel.productObservable
       .catchAndReturn(DetailProductEneity())
       .observe(on: MainScheduler.instance)
       .map { $0.stockString }
-      .bind(to: self.stockLabel.rx.text)
+      .bind(to: stockLabel.rx.text)
       .disposed(by: disposeBag)
     
     viewModel.productObservable
       .catchAndReturn(DetailProductEneity())
       .observe(on: MainScheduler.instance)
       .map { $0.descriptionString }
-      .bind(to: self.descriptionLabel.rx.text)
+      .bind(to: descriptionLabel.rx.text)
       .disposed(by: disposeBag)
   }
   
@@ -204,12 +203,10 @@ class ProductViewController: UIViewController {
     )
 
     NSLayoutConstraint.activate([
-      
       imageCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-
-      imageCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor),
-      imageCollectionView.heightAnchor.constraint(equalTo: view.widthAnchor),
-      
+      imageCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+      imageCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+      imageCollectionView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
       
       infoStackView.topAnchor.constraint(equalTo: imageCollectionView.bottomAnchor ,constant: 10),
       infoStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
@@ -220,31 +217,18 @@ class ProductViewController: UIViewController {
       descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
       descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
     ])
-    
-    viewModel.delegate = self
-  }
-  
-  @objc private func didTapButton(_ sender: UIButton) {
-    viewModel.action(action: .buttonTap(sender.tag))
   }
   
   private func configureCollectionFlowLayout() -> UICollectionViewFlowLayout {
     let flowLayout = UICollectionViewFlowLayout()
     flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     flowLayout.itemSize = CGSize(
-      width: UIScreen.main.bounds.width,
-      height: UIScreen.main.bounds.height * 0.8
+      width: UIScreen.main.bounds.width * 0.7,
+      height: UIScreen.main.bounds.width * 0.7
     )
-    flowLayout.minimumLineSpacing = 0
+    flowLayout.minimumLineSpacing = 16
     flowLayout.scrollDirection = .horizontal
     
     return flowLayout
   }
 }
-
-extension ProductViewController: ProductViewModelDelegate {
-  func dismiss() {
-    coordinator?.dismiss()
-  }
-}
-

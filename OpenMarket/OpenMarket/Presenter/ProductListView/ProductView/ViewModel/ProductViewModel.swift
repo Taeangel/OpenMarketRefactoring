@@ -38,32 +38,10 @@ class ProductViewModel: ProductViewModelable {
     bind()
   }
   
-  func action(action: ViewAction) {
-    switch action {
-    case .buttonTap(let tag):
-      guard let buttonDetail = ButtonDetail(rawValue: tag) else { return }
-      
-      switch buttonDetail {
-      case .back:
-        self.delegate?.dismiss()
-      }
-    }
-  }
-  
   private func bind() {
     fetchUseCase.fetchProduct(productID)
       .map { $0.toEneity() }
       .bind(to: productObservable)
       .disposed(by: disposeBag)
-  }
-}
-
-extension ProductViewModel {
-  enum ViewAction {
-    case buttonTap(Int)
-  }
-  
-  enum ButtonDetail: Int {
-    case back = 100
   }
 }

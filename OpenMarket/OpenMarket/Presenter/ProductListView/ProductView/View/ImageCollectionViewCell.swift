@@ -13,11 +13,12 @@ class ImageCollectionViewCell: UICollectionViewCell {
   private var imageview: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.layer.cornerRadius = 20
+    imageView.layer.masksToBounds = true
     return imageView
   }()
   
   func bind(images: ProductImageEntity) {
-    print(images.imageURL)
     self.imageview.kf.setImage(with: images.imageURL)
   }
   
@@ -32,18 +33,12 @@ class ImageCollectionViewCell: UICollectionViewCell {
   
   private func configure() {
     contentView.addSubview(imageview)
+    
     NSLayoutConstraint.activate([
-      imageview.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-      imageview.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -10),
-      imageview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 10),
-      imageview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+      imageview.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+      imageview.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -20),
+      imageview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 20),
+      imageview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
     ])
-  }
-  
-  private func setupLayout() {
-    layer.shadowColor = UIColor.black.cgColor
-    layer.shadowOpacity = 0.5
-    layer.shadowRadius = 10
-    contentView.backgroundColor = .white
   }
 }

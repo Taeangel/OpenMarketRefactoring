@@ -24,7 +24,9 @@ class ProductEditViewController: UIViewController {
   }
   
   private lazy var collectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureProductListLayout())
+    let collectionView = UICollectionView(
+      frame: .zero,
+      collectionViewLayout: configureProductListLayout())
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.register(
       MyProductCollectionViewCell.self,
@@ -40,37 +42,24 @@ class ProductEditViewController: UIViewController {
     bind()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    viewModel.updateList()
+  }
+  
   func bind() {
     viewModel.myProductListObservable
       .bind(to: collectionView.rx.items(
         cellIdentifier: MyProductCollectionViewCell.identifier,
         cellType: MyProductCollectionViewCell.self)) { index, item, cell in
           cell.bind(item)
-          cell.deleteButton.rx.tap
-            .withUnretained(self)
-            .bind { _, _ in
-              self.viewModel.deleteProduct(id: item.intId)
-            }
-            .disposed(by: self.disposeBag)
-          
-          cell.modifyButton.rx.tap
-            .withUnretained(self)
-            .bind { _, _ in
-              self.coordinator?.showProductModifyViewController(item.intId)
-            }
-            .disposed(by: self.disposeBag)
-          
-          
         }
         .disposed(by: disposeBag)
     
-    
-  }
-  
-  
-  
-  @objc func deleteProduct(id: Int) {
-    viewModel.deleteProduct(id: id)
+    collectionView.rx.modelSelected(BasicProductEntity.self)
+      .subscribe(onNext: { [weak self] product in
+        self?.coordinator?.showProductModifyViewController(product.intId)
+      })
+      .disposed(by: disposeBag)
   }
   
   func setup() {
