@@ -129,11 +129,55 @@ class ProductRegisterViewController: UIViewController {
     super.viewDidLoad()
     setup()
     bind()
-    addImageButtonBind()
-    registerProductbuttonBind()
   }
   
   func bind() {
+    nameTextField.rx.text.orEmpty
+      .bind(to: viewModel.nameObserable)
+      .disposed(by: disposeBag)
+    
+    priceTextField.rx.text.orEmpty
+      .compactMap { Int($0) }
+      .bind(to: viewModel.priceObserable)
+      .disposed(by: disposeBag)
+    
+    discountedPriceTextField.rx.text.orEmpty
+      .compactMap { Int($0) }
+      .bind(to: viewModel.discountPriceObserable)
+      .disposed(by: disposeBag)
+    
+    stockTextField.rx.text.orEmpty
+      .compactMap { Int($0) }
+      .bind(to: viewModel.stockPriceObserable)
+      .disposed(by: disposeBag)
+    
+    descriptionTextField.rx.text.orEmpty
+      .bind(to: viewModel.descriptionObserable)
+      .disposed(by: disposeBag)
+    
+    viewModel.nameObserable
+      .bind(to: nameTextField.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.priceObserable
+      .map { "\($0)" }
+      .bind(to: priceTextField.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.discountPriceObserable
+      .map { "\($0)" }
+      .bind(to: discountedPriceTextField.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.stockPriceObserable
+      .map { "\($0)" }
+      .bind(to: stockTextField.rx.text)
+      .disposed(by: disposeBag)
+    
+    viewModel.descriptionObserable
+      .bind(to: descriptionTextField.rx.text)
+      .disposed(by: disposeBag)
+    
     viewModel.imagesObserable
       .bind(to: imageCollectionView.rx.items(
         cellIdentifier: AddImageCollectionViewCell.identifier,
@@ -142,6 +186,15 @@ class ProductRegisterViewController: UIViewController {
           cell.bind(image: item)
         }
         .disposed(by: disposeBag)
+    
+    viewModel.imageCountObserable
+      .map { $0 < 5 }
+      .bind(to: addImageButton.rx.isEnabled)
+      .disposed(by: disposeBag)
+    
+    viewModel.buttonAble
+      .bind(to: updataButton.rx.isEnabled)
+      .disposed(by: disposeBag)
         
     viewModel.imageCountObserable
       .map { "\($0)/5" }
@@ -162,73 +215,9 @@ class ProductRegisterViewController: UIViewController {
     updataButton.rx.tap
       .withUnretained(self)
       .bind { _, _ in
-        self.viewModel.didTappostButton(param: self.makeProduct())
-        self.cleanView()
+        self.viewModel.didTappostButton()
       }
       .disposed(by: disposeBag)
-  }
-  
-  func addImageButtonBind() {
-    viewModel.imageCountObserable
-      .map { $0 < 5 }
-      .bind(to: addImageButton.rx.isEnabled)
-      .disposed(by: disposeBag)
-  }
-  
-  func registerProductbuttonBind() {
-    let nameTextObserable = nameTextField.rx.text
-      .map { $0 != "" }
-    
-    let priceTextObserable = priceTextField.rx.text
-      .compactMap { $0 }
-      .compactMap { Int($0) }
-    
-    let discountedPriceObserable = discountedPriceTextField.rx.text
-      .compactMap { $0 }
-      .compactMap { Int($0) }
-    
-    let priceObserable = BehaviorRelay.combineLatest(priceTextObserable, discountedPriceObserable)
-      .map { $0 > $1 }
-    
-    let stockTextObserable =  stockTextField.rx.text
-      .compactMap { $0 }
-      .compactMap { Int($0) }
-      .map { $0 > 0}
-    
-    let descriptionTextObserable = descriptionTextField.rx.text
-      .map { $0 != "" }
-    
-    Observable.combineLatest(
-      nameTextObserable,
-      priceObserable,
-      stockTextObserable,
-      descriptionTextObserable
-    ) { $0 && $1 && $2 && $3 }
-      .bind(to: viewModel.buttonAble)
-      .disposed(by: disposeBag)
-    
-    
-    viewModel.buttonAble
-      .bind(to: updataButton.rx.isEnabled)
-      .disposed(by: disposeBag)
-  }
-  
-  private func makeProduct() -> ProductRequestDTO {
-    return ProductRequestDTO(
-      name: nameTextField.text ?? "",
-      description: descriptionTextField.text ?? "",
-      price: Int(priceTextField.text ?? "") ?? 0,
-      currency: "KRW",
-      discountedPrice: Int(discountedPriceTextField.text ?? "") ?? 0,
-      stock: Int(stockTextField.text ?? "") ?? 0)
-  }
-  
-  private func cleanView() {
-    nameTextField.text = ""
-    descriptionTextField.text = ""
-    priceTextField.text = ""
-    discountedPriceTextField.text = ""
-    stockTextField.text = ""
   }
   
   func setup() {
