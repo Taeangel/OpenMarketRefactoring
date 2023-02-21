@@ -58,7 +58,6 @@ class ProductRegisterViewController: UIViewController {
     stackView.axis = .vertical
     stackView.backgroundColor = .white
     stackView.clipsToBounds = true
-    
     return stackView
   }()
   
@@ -143,7 +142,7 @@ class ProductRegisterViewController: UIViewController {
           cell.bind(image: item)
         }
         .disposed(by: disposeBag)
-    
+        
     viewModel.imageCountObserable
       .map { "\($0)/5" }
       .catchAndReturn("")
@@ -205,6 +204,11 @@ class ProductRegisterViewController: UIViewController {
       stockTextObserable,
       descriptionTextObserable
     ) { $0 && $1 && $2 && $3 }
+      .bind(to: viewModel.buttonAble)
+      .disposed(by: disposeBag)
+    
+    
+    viewModel.buttonAble
       .bind(to: updataButton.rx.isEnabled)
       .disposed(by: disposeBag)
   }

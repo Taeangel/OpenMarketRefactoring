@@ -18,5 +18,5 @@ target 'OpenMarket' do
           config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
         end
       end
-    end
+    endr
 end

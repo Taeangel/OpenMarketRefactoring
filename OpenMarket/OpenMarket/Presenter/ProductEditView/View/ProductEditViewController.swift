@@ -52,14 +52,15 @@ class ProductEditViewController: UIViewController {
         cellIdentifier: MyProductCollectionViewCell.identifier,
         cellType: MyProductCollectionViewCell.self)) { index, item, cell in
           cell.bind(item)
+          cell.bindButton(coordinator: self.coordinator, disposeBag: self.disposeBag, productID: item.intId)
         }
         .disposed(by: disposeBag)
     
-    collectionView.rx.modelSelected(BasicProductEntity.self)
-      .subscribe(onNext: { [weak self] product in
-        self?.coordinator?.showProductModifyViewController(product.intId)
-      })
-      .disposed(by: disposeBag)
+//    collectionView.rx.modelSelected(BasicProductEntity.self)
+//      .subscribe(onNext: { [weak self] product in
+//        self?.coordinator?.showProductModifyViewController(product.intId)
+//      })
+//      .disposed(by: disposeBag)
   }
   
   func setup() {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MyProductCollectionViewCell: UICollectionViewCell {
   private let productimageView: UIImageView = {
@@ -98,6 +99,15 @@ class MyProductCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+    
+  func bindButton(coordinator: ProductEditViewCoordinator?, disposeBag: DisposeBag, productID: Int) {
+    modifyButton.rx.tap
+      .withUnretained(self)
+      .bind { _, _ in
+        coordinator?.showProductModifyViewController(productID)
+      }
+      .disposed(by: disposeBag)
+  }
   
   func bind(_ product: BasicProductEntity) {
     self.productimageView.kf.setImage(with: product.thumbnailURL)
@@ -118,9 +128,11 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     contentView.addSubview(productimageView)
     contentView.addSubview(infoStackView)
     contentView.addSubview(priceStackView)
+    contentView.addSubview(buttonStackView)
     
     infoStackView.addArrangeSubviews(nameLabel, descriptionLabel)
     priceStackView.addArrangeSubviews(priceLabel, discountPriceLabel)
+    buttonStackView.addArrangeSubviews(deleteButton, modifyButton)
     
     NSLayoutConstraint.activate([
       productimageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
@@ -135,6 +147,11 @@ class MyProductCollectionViewCell: UICollectionViewCell {
       priceStackView.topAnchor.constraint(equalTo: infoStackView.bottomAnchor, constant: 10),
       priceStackView.leadingAnchor.constraint(equalTo: productimageView.trailingAnchor, constant: 10),
       priceStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+      
+      buttonStackView.topAnchor.constraint(equalTo: infoStackView.bottomAnchor, constant: 10),
+      buttonStackView.leadingAnchor.constraint(equalTo: priceStackView.trailingAnchor, constant: 10),
+      buttonStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+      buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
     ])
   }
 }

@@ -116,6 +116,7 @@ class ProductModifyViewController: UIViewController {
         self.viewModel.modiftProduct(product: self.makeProduct())
         self.coordinator?.dismiss()
       }
+      .disposed(by: disposeBag)
     
     viewModel.productObservable
       .catchAndReturn(DetailProductEneity())

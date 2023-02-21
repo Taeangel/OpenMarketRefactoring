@@ -339,7 +339,6 @@
 				86F048E129979C4C00212238 /* Coordinator */,
 				86F048F52997BB0900212238 /* Presenter */,
 				86F048F62997BB3400212238 /* Domain */,
-				867C88DE299A5E5000572EDC /* RepositoryInterface */,
 				86F048F82997BB4800212238 /* Data */,
 				86FA8505299A3B9400AEBB80 /* Infrastructure */,
 				86F048E029979C2100212238 /* Resource */,
@@ -405,6 +404,7 @@
 		86F048F62997BB3400212238 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				867C88DE299A5E5000572EDC /* RepositoryInterface */,
 				86F04910299A254E00212238 /* UseCase */,
 				86F0490F299A254600212238 /* Entities */,
 			);
