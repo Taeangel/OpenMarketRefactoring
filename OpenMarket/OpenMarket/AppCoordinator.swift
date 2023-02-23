@@ -49,22 +49,21 @@ class AppCoordinator: Coordinator {
     
     productListView.tabBarItem = UITabBarItem(
       title: nil,
-      image: UIImage(systemName: "heart"),
+      image: UIImage(systemName: "house.circle"),
       tag: 0
     )
     productRegisterView.tabBarItem = UITabBarItem(
       title: nil,
-      image: UIImage(systemName: "heart"),
+      image: UIImage(systemName: "plus.app.fill"),
       tag: 1
     )
     
     productEditView.tabBarItem = UITabBarItem(
       title: nil,
-      image: UIImage(systemName: "heart.fill"),
+      image: UIImage(systemName: "person.fill"),
       tag: 2
     )
     
-    productListView.tabBarController?.title = "asdf"
     tabBarView.setViewControllers([productListView, productRegisterView, productEditView], animated: true)
     self.navigationController?.pushViewController(tabBarView, animated: true)
   }
