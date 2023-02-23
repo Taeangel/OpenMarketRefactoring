@@ -13,6 +13,7 @@ class ProductRegisterViewController: UIViewController {
   weak var coordinator: ProductRegisterViewCoordinator?
   private let viewModel: ProductRegisterViewModelable
   private var disposeBag: DisposeBag
+  
   init(viewModel: ProductRegisterViewModelable) {
     self.viewModel = viewModel
     self.disposeBag = .init()
@@ -182,7 +183,6 @@ class ProductRegisterViewController: UIViewController {
       .bind(to: imageCollectionView.rx.items(
         cellIdentifier: AddImageCollectionViewCell.identifier,
         cellType: AddImageCollectionViewCell.self)) { index, item, cell in
-          print(item)
           cell.bind(image: item)
         }
         .disposed(by: disposeBag)

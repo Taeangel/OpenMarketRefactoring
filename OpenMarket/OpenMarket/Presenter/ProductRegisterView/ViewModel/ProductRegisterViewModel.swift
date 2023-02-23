@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxRelay
 
-protocol ProductRegisterViewModelable {
+protocol imagesObserable {
   var imagesObserable: BehaviorRelay<[UIImage]> { get set }
   var imageCountObserable: BehaviorRelay<Int> { get set }
   var buttonAble: BehaviorRelay<Bool> { get set }
@@ -61,7 +61,6 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
   func didTappostButton() {
     registerUseCase.fetchProductList(params: productObserable.value, images: imagesData)
       .observe(on: MainScheduler.instance)
-      .withUnretained(self)
       .subscribe(onDisposed:  {
       })
       .disposed(by: disposeBag)
@@ -70,15 +69,8 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
   
   private func convertToData() {
     imagesObserable
-      .compactMap { $0.map{ $0.jpegData(compressionQuality: 0.1) ?? Data() } }
-      .subscribe { event in
-        switch event {
-        case let .next(datas):
-          self.imagesData = datas
-        default:
-          break
-        }
-      }
+      .compactMap { $0.compactMap { $0.jpegData(compressionQuality: 0.1) } }
+      .subscribe(onNext: { [weak self] in self?.imagesData = $0 })
       .disposed(by: disposeBag)
     
     Observable.combineLatest(
