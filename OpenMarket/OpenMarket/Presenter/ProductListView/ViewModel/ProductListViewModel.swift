@@ -30,6 +30,7 @@ final class ProductListViewModel: ProductListViewModelable {
   func updateList() {
     fetchUseCase.fetchProductList(pageNum: 1)
       .compactMap { $0.product }
+      .map { $0.map { $0.toEneity()} }
       .bind(to: productListObservable)
       .disposed(by: disposeBag)
   }

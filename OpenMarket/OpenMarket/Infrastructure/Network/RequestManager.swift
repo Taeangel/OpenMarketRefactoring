@@ -12,7 +12,7 @@ enum OpenMarketRequestManager {
   case getProductList(page_no: Int = 1, items_per_page: Int = 20)
   case getProduct(_ id: Int)
   case postProduct(params: ProductRequestDTO, images: [Data])
-  case getMyProductList(page_no: Int = 1, items_per_page: Int = 1, search_value: String = "red")
+  case getMyProductList(page_no: Int = 1, items_per_page: Int = 5, search_value: String = "red")
   case getSearchProductList(page_no: Int = 1, items_per_page: Int = 10, search_value: String = "")
   case productDeletionURISearch(id: Int)
   case deleteProduct(endpoint: String)

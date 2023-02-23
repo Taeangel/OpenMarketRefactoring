@@ -69,7 +69,7 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
   
   private func convertToData() {
     imagesObserable
-      .compactMap { $0.compactMap { $0.jpegData(compressionQuality: 0.1) } }
+      .compactMap { $0.compactMap { $0.jpegData(compressionQuality: 0.3) } }
       .subscribe(onNext: { [weak self] in self?.imagesData = $0 })
       .disposed(by: disposeBag)
     

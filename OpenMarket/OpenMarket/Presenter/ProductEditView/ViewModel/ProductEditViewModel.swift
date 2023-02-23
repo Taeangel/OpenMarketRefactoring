@@ -37,6 +37,7 @@ final class ProductEditViewModel: ProductEditViewModelable {
   func updateList() {
     fetchUseCase.fetchMyProductList()
       .compactMap { $0.product }
+      .map { $0.map { $0.toEneity()} }
       .bind(to: myProductListObservable)
       .disposed(by: disposeBag)
   }
@@ -45,6 +46,7 @@ final class ProductEditViewModel: ProductEditViewModelable {
     editUseCase.deleteProduct(id: id)
       .flatMap { self.fetchUseCase.fetchMyProductList() }
       .compactMap { $0.product }
+      .map { $0.map { $0.toEneity()} }
       .bind(to: myProductListObservable)
       .disposed(by: disposeBag)
   }

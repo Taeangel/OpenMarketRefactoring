@@ -71,3 +71,4 @@ struct BasicProductEntity: Codable, Identifiable, Equatable {
     case stock
   }
 }
+
