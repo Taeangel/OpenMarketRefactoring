@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxRelay
 
-protocol imagesObserable {
+protocol ProductRegisterViewModelable {
   var imagesObserable: BehaviorRelay<[UIImage]> { get set }
   var imageCountObserable: BehaviorRelay<Int> { get set }
   var buttonAble: BehaviorRelay<Bool> { get set }

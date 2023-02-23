@@ -9,6 +9,9 @@ import UIKit
 import RxSwift
 
 class MyProductCollectionViewCell: UICollectionViewCell {
+  
+  private var disposeBag: DisposeBag
+  
   private let productimageView: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +76,7 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     button.layer.cornerRadius = 10.0
     button.setTitle(" 삭제 ", for: .normal)
     button.setTitleColor(.white, for: .normal)
-    button.setTitle("수정", for: .highlighted)
+    button.setTitle("삭제", for: .highlighted)
     button.setTitleColor(.black, for: .highlighted)
     return button
   }()
@@ -91,6 +94,7 @@ class MyProductCollectionViewCell: UICollectionViewCell {
   }()
   
   override init(frame: CGRect) {
+    self.disposeBag = .init()
     super.init(frame: frame)
     setup()
     setupLayout()
@@ -99,12 +103,24 @@ class MyProductCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  override func prepareForReuse() {
+    disposeBag = DisposeBag()
+  }
     
-  func bindButton(coordinator: ProductEditViewCoordinator?, disposeBag: DisposeBag, productID: Int) {
+  func bindButton(coordinator: ProductEditViewCoordinator?,productID: Int, viewModle: ProductEditViewModelable) {
+    
     modifyButton.rx.tap
       .withUnretained(self)
       .bind { _, _ in
         coordinator?.showProductModifyViewController(productID)
+      }
+      .disposed(by: disposeBag)
+    
+    deleteButton.rx.tap
+      .withUnretained(self)
+      .bind { _, _ in
+        viewModle.deleteProduct(id: productID)
       }
       .disposed(by: disposeBag)
   }
