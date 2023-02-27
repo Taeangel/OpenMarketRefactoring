@@ -55,7 +55,7 @@ class ProductEditViewController: UIViewController {
           cell.bind(item)
           cell.bindButton(
             modifyButtontap: {
-              self.viewModel.action(action: .ModifyProductButtonTap(item.intId))
+              self.viewModel.action(action: .modifyProductButtonTap(item.intId))
             },
             deleteButtontap: {
               self.viewModel.action(action: .deleteProductButtonTap(item.intId))
@@ -73,7 +73,6 @@ extension ProductEditViewController: ProductEditViewModelDelegate {
   }
 }
 
-
 // MARK: - layout
 
 extension ProductEditViewController {
@@ -89,7 +88,6 @@ extension ProductEditViewController {
     ])
   }
 }
-
 
 // MARK: - CollectionViewLayout
 extension ProductEditViewController {

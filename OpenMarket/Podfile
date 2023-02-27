@@ -19,3 +19,7 @@ end
 target 'ProductRegistTest' do
   pods
 end
+
+target 'ProductEditTest' do
+  pods
+end

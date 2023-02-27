@@ -20,7 +20,7 @@ protocol ProductEditViewModelDelegate: AnyObject {
   func coordinatorShowModifyView(_ productID: Int)
 }
 
-final class ProductEditViewModel: ProductEditViewModelable {
+class ProductEditViewModel: ProductEditViewModelable {
   weak var delegate: ProductEditViewModelDelegate?
   var myProductListObservable: BehaviorRelay<[BasicProductEntity]>
   private var disposeBag: DisposeBag
@@ -41,7 +41,7 @@ final class ProductEditViewModel: ProductEditViewModelable {
   
   func action(action: ViewAction) {
     switch action {
-    case let .ModifyProductButtonTap(productID):
+    case let .modifyProductButtonTap(productID):
       delegate?.coordinatorShowModifyView(productID)
     case let .deleteProductButtonTap(productID):
       deleteProduct(id: productID)
@@ -71,7 +71,7 @@ final class ProductEditViewModel: ProductEditViewModelable {
 extension ProductEditViewModel {
   enum ViewAction {
     case deleteProductButtonTap(Int)
-    case ModifyProductButtonTap(Int)
+    case modifyProductButtonTap(Int)
     case updateList
   }
 }
