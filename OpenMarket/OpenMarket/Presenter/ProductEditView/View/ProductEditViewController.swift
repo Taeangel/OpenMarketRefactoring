@@ -12,7 +12,7 @@ import RxSwift
 class ProductEditViewController: UIViewController {
   private var disposeBag: DisposeBag
   weak var coordinator: ProductEditViewCoordinator?
-  private let viewModel: ProductEditViewModelable
+  private var viewModel: ProductEditViewModelable
   init(viewModel: ProductEditViewModelable) {
     self.viewModel = viewModel
     self.disposeBag = .init()
@@ -38,29 +38,41 @@ class ProductEditViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    viewModel.delegate = self
     setup()
     bind()
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    viewModel.updateList()
+    viewModel.action(action: .updateList)
   }
   
-  func bind() {
+  private func bind() {
     viewModel.myProductListObservable
       .bind(to: collectionView.rx.items(
         cellIdentifier: MyProductCollectionViewCell.identifier,
         cellType: MyProductCollectionViewCell.self)) { index, item, cell in
           cell.bind(item)
           cell.bindButton(
-            coordinator: self.coordinator,
-            productID: item.intId,
-            viewModle: self.viewModel
+            modifyButtontap: {
+              self.viewModel.action(action: .ModifyProductButtonTap(item.intId))
+            },
+            deleteButtontap: {
+              self.viewModel.action(action: .deleteProductButtonTap(item.intId))
+            }
           )
         }
         .disposed(by: disposeBag)
   }
 }
+
+// MARK: - Delegate
+extension ProductEditViewController: ProductEditViewModelDelegate {
+  func coordinatorShowModifyView(_ productID: Int) {
+    coordinator?.showProductModifyViewController(productID)
+  }
+}
+
 
 // MARK: - layout
 
