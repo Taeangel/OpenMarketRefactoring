@@ -52,12 +52,20 @@ class ProductEditViewController: UIViewController {
         cellIdentifier: MyProductCollectionViewCell.identifier,
         cellType: MyProductCollectionViewCell.self)) { index, item, cell in
           cell.bind(item)
-          cell.bindButton(coordinator: self.coordinator, productID: item.intId, viewModle: self.viewModel)
+          cell.bindButton(
+            coordinator: self.coordinator,
+            productID: item.intId,
+            viewModle: self.viewModel
+          )
         }
         .disposed(by: disposeBag)
   }
-  
-  func setup() {
+}
+
+// MARK: - layout
+
+extension ProductEditViewController {
+  private func setup() {
     view.backgroundColor = .systemGray6
     
     view.addSubview(collectionView)
@@ -68,7 +76,11 @@ class ProductEditViewController: UIViewController {
       collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
     ])
   }
-  
+}
+
+
+// MARK: - CollectionViewLayout
+extension ProductEditViewController {
   private func configureProductListLayout() -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout { _, env in
       let width = (env.container.effectiveContentSize.width)
