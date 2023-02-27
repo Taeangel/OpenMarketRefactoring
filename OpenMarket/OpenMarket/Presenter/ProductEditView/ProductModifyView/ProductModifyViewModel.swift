@@ -16,11 +16,16 @@ protocol ProductModifyViewModelable {
   var stockPriceObserable: BehaviorRelay<Int> { get set }
   var descriptionObserable: BehaviorRelay<String> { get set }
   var productObservable: BehaviorRelay<DetailProductEneity> { get set }
-  func modiftProduct()
+  var delegate: ProductModifyViewModelDelegate? { get set }
+  func action(action: ProductModifyViewModel.ViewAction)
+}
+
+protocol ProductModifyViewModelDelegate: AnyObject {
+  func coordinatorDismiss()
 }
 
 class ProductModifyViewModel: ProductModifyViewModelable {
-  
+  weak var delegate: ProductModifyViewModelDelegate?
   var nameObserable: BehaviorRelay<String>
   var priceObserable: BehaviorRelay<Int>
   var discountPriceObserable: BehaviorRelay<Int>
@@ -45,7 +50,7 @@ class ProductModifyViewModel: ProductModifyViewModelable {
     self.productObservable = .init(value: DetailProductEneity())
     self.disposeBag = .init()
     self.productObserableDTO = .init(value: ProductRequestDTO())
-        
+    
     self.nameObserable = .init(value: "")
     self.priceObserable = .init(value: 0)
     self.discountPriceObserable = .init(value: 0)
@@ -56,6 +61,43 @@ class ProductModifyViewModel: ProductModifyViewModelable {
     convertDataBinding()
   }
   
+  func action(action: ViewAction) {
+    switch action {
+    case .buttonTap(let tag):
+      guard let buttonDetail = ButtonDetail(rawValue: tag) else { return }
+      switch buttonDetail {
+      case .modifyProduct:
+        editUseCase.modifyProduct(id: productId, product: productObserableDTO.value)
+          .subscribe { _ in }
+          .disposed(by: disposeBag)
+        delegate?.coordinatorDismiss()
+      }
+    }
+  }
+  
+  func modiftProduct() {
+    editUseCase.modifyProduct(id: productId, product: productObserableDTO.value)
+      .subscribe { _ in }
+      .disposed(by: disposeBag)
+  }
+}
+
+// MARK: - Action
+
+extension ProductModifyViewModel {
+  enum ViewAction {
+    case buttonTap(Int)
+    
+  }
+  
+  enum ButtonDetail: Int {
+    case modifyProduct = 100
+  }
+}
+
+// MARK: - Binding
+
+extension ProductModifyViewModel {
   private func convertDataBinding() {
     Observable.combineLatest(
       nameObserable,
@@ -81,12 +123,6 @@ class ProductModifyViewModel: ProductModifyViewModelable {
     fetchUseCase.fetchProduct(productId)
       .map { $0.toEneity() }
       .bind(to: productObservable)
-      .disposed(by: disposeBag)
-  }
-  
-  func modiftProduct() {
-    editUseCase.modifyProduct(id: productId, product: productObserableDTO.value)
-      .subscribe { _ in }
       .disposed(by: disposeBag)
   }
 }

@@ -136,7 +136,7 @@ class ProductRegisterViewController: UIViewController {
   
   func bind() {
     
-    // MARK: - ProductInfoinput
+    // MARK: - ProductInfoOutput
     
     nameTextField.rx.text.orEmpty
       .bind(to: viewModel.nameObserable)
@@ -168,7 +168,7 @@ class ProductRegisterViewController: UIViewController {
       }
       .disposed(by: disposeBag)
     
-    // MARK: - ProductInfoOutput
+    // MARK: - ProductInfoInput
     
     viewModel.nameObserable
       .bind(to: nameTextField.rx.text)

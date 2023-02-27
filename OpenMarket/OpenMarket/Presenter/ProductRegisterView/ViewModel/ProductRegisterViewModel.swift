@@ -10,14 +10,17 @@ import RxSwift
 import RxRelay
 
 protocol ProductRegisterViewModelable {
-  var imagesObserable: BehaviorRelay<[UIImage]> { get set }
-  var imageCountObserable: BehaviorRelay<Int> { get set }
-  var isProductUpdatebutton: BehaviorRelay<Bool> { get set }
+  
   var nameObserable: BehaviorRelay<String> { get set }
   var priceObserable: BehaviorRelay<Int> { get set }
   var discountPriceObserable: BehaviorRelay<Int> { get set }
   var stockPriceObserable: BehaviorRelay<Int> { get set }
   var descriptionObserable: BehaviorRelay<String> { get set }
+  
+  var imagesObserable: BehaviorRelay<[UIImage]> { get set }
+  var imageCountObserable: BehaviorRelay<Int> { get set }
+  var isProductUpdatebutton: BehaviorRelay<Bool> { get set }
+  
   func action(action: ProductRegisterViewModel.ViewAction)
   var delegate: RegistetViewModelDelegate? { get set }
 }
@@ -33,6 +36,7 @@ class ProductRegisterViewModel: ProductRegisterViewModelable {
   var discountPriceObserable: BehaviorRelay<Int>
   var stockPriceObserable: BehaviorRelay<Int>
   var descriptionObserable: BehaviorRelay<String>
+  
   var productObserable: BehaviorRelay<ProductRequestDTO>
   private var disposeBag: DisposeBag
   var imageCountObserable: BehaviorRelay<Int>
@@ -79,7 +83,7 @@ class ProductRegisterViewModel: ProductRegisterViewModelable {
     }
   }
 }
-  
+
 // MARK: - Action
 
 extension ProductRegisterViewModel {
@@ -88,7 +92,7 @@ extension ProductRegisterViewModel {
     case saveImage(UIImage)
     case addImageButtonTap
   }
-
+  
   enum ButtonDetail: Int {
     case updateProduct = 100
   }
@@ -118,8 +122,9 @@ extension ProductRegisterViewModel {
         discountedPrice: discount,
         stock: stockPrice
       )
-    }.bind(to: productObserable)
-      .disposed(by: disposeBag)
+    }
+    .bind(to: productObserable)
+    .disposed(by: disposeBag)
   }
   
   private func postButtonAbleObserable() {
