@@ -11,7 +11,7 @@ import RxSwift
 
 class ProductRegisterViewController: UIViewController {
   weak var coordinator: ProductRegisterViewCoordinator?
-  private let viewModel: ProductRegisterViewModelable
+  private var viewModel: ProductRegisterViewModelable
   private var disposeBag: DisposeBag
   
   init(viewModel: ProductRegisterViewModelable) {
@@ -121,6 +121,7 @@ class ProductRegisterViewController: UIViewController {
     button.backgroundColor = .white
     button.layer.masksToBounds = true
     button.layer.cornerRadius = 10
+    button.tag = 100
     button.setTitle("상품등록", for: .normal)
     button.setTitleColor(.systemGray3, for: .normal)
     return button
@@ -128,11 +129,15 @@ class ProductRegisterViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    viewModel.delegate = self
     setup()
     bind()
   }
   
   func bind() {
+    
+    // MARK: - ProductInfoinput
+    
     nameTextField.rx.text.orEmpty
       .bind(to: viewModel.nameObserable)
       .disposed(by: disposeBag)
@@ -155,6 +160,15 @@ class ProductRegisterViewController: UIViewController {
     descriptionTextField.rx.text.orEmpty
       .bind(to: viewModel.descriptionObserable)
       .disposed(by: disposeBag)
+    
+    updataButton.rx.tap
+      .withUnretained(self)
+      .bind { _, _ in
+        self.viewModel.action(action: .buttonTap(ButtonTag.updateProduct))
+      }
+      .disposed(by: disposeBag)
+    
+    // MARK: - ProductInfoOutput
     
     viewModel.nameObserable
       .bind(to: nameTextField.rx.text)
@@ -179,6 +193,12 @@ class ProductRegisterViewController: UIViewController {
       .bind(to: descriptionTextField.rx.text)
       .disposed(by: disposeBag)
     
+    viewModel.isProductUpdatebutton
+      .bind(to: updataButton.rx.isEnabled)
+      .disposed(by: disposeBag)
+    
+    // MARK: - CollectionView
+    
     viewModel.imagesObserable
       .bind(to: imageCollectionView.rx.items(
         cellIdentifier: AddImageCollectionViewCell.identifier,
@@ -187,15 +207,22 @@ class ProductRegisterViewController: UIViewController {
         }
         .disposed(by: disposeBag)
     
+    // MARK: - AddImageButtonInput
+    
+    addImageButton.rx.tap
+      .withUnretained(self)
+      .bind { _, _ in
+        self.viewModel.action(action: .addImageButtonTap)
+      }
+      .disposed(by: disposeBag)
+    
+    // MARK: - AddImageButtonOutput
+    
     viewModel.imageCountObserable
       .map { $0 < 5 }
       .bind(to: addImageButton.rx.isEnabled)
       .disposed(by: disposeBag)
-    
-    viewModel.buttonAble
-      .bind(to: updataButton.rx.isEnabled)
-      .disposed(by: disposeBag)
-        
+            
     viewModel.imageCountObserable
       .map { "\($0)/5" }
       .catchAndReturn("")
@@ -204,23 +231,29 @@ class ProductRegisterViewController: UIViewController {
         self?.addImageButton.imageCountLabel.text = text
       }
       .disposed(by: disposeBag)
-    
-    addImageButton.rx.tap
-      .withUnretained(self)
-      .bind { vc, _ in
-        vc.coordinator?.showPhotoLibrary(to: self.imagePicker)
-      }
-      .disposed(by: disposeBag)
-    
-    updataButton.rx.tap
-      .withUnretained(self)
-      .bind { _, _ in
-        self.viewModel.didTappostButton()
-      }
-      .disposed(by: disposeBag)
   }
-  
-  func setup() {
+}
+
+// MARK: - ButtonTap
+
+extension ProductRegisterViewController {
+  enum ButtonTag {
+    static let updateProduct = 100
+  }
+}
+
+// MARK: - Delegate
+
+extension ProductRegisterViewController: RegistetViewModelDelegate {
+  func addImageButtonTap() {
+    self.coordinator?.showPhotoLibrary(to: self.imagePicker)
+  }
+}
+
+// MARK: - Layout
+
+extension ProductRegisterViewController {
+  private func setup() {
     view.backgroundColor = .systemGray6
     view.addSubview(addImageButton)
     view.addSubview(imageCollectionView)
@@ -236,7 +269,6 @@ class ProductRegisterViewController: UIViewController {
     )
     
     NSLayoutConstraint.activate([
-      
       addImageButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
       addImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
       addImageButton.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
@@ -256,7 +288,11 @@ class ProductRegisterViewController: UIViewController {
       updataButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
     ])
   }
-  
+}
+
+
+// MARK: - CollectionViewLayout
+extension ProductRegisterViewController {
   private func setupImageViewLayout() -> UICollectionViewFlowLayout {
     let flowLayout = UICollectionViewFlowLayout()
     flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -271,6 +307,8 @@ class ProductRegisterViewController: UIViewController {
   }
 }
 
+// MARK: - UIImagePicker
+
 extension ProductRegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   func imagePickerController(
@@ -282,7 +320,7 @@ extension ProductRegisterViewController: UIImagePickerControllerDelegate, UINavi
       guard let resizedPickerImage = resize(image: image, newWidth: 300) else {
         return
       }
-      viewModel.appendImage(image: resizedPickerImage)
+      viewModel.action(action: .ImagePicker(resizedPickerImage))
     }
     self.dismiss(animated: true, completion: nil)
   }

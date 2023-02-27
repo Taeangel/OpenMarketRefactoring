@@ -12,17 +12,22 @@ import RxRelay
 protocol ProductRegisterViewModelable {
   var imagesObserable: BehaviorRelay<[UIImage]> { get set }
   var imageCountObserable: BehaviorRelay<Int> { get set }
-  var buttonAble: BehaviorRelay<Bool> { get set }
+  var isProductUpdatebutton: BehaviorRelay<Bool> { get set }
   var nameObserable: BehaviorRelay<String> { get set }
   var priceObserable: BehaviorRelay<Int> { get set }
   var discountPriceObserable: BehaviorRelay<Int> { get set }
   var stockPriceObserable: BehaviorRelay<Int> { get set }
   var descriptionObserable: BehaviorRelay<String> { get set }
-  func appendImage(image: UIImage)
-  func didTappostButton()
+  func action(action: ProductRegisterViewModel.ViewAction)
+  var delegate: RegistetViewModelDelegate? { get set }
+}
+
+protocol RegistetViewModelDelegate: AnyObject {
+  func addImageButtonTap()
 }
 
 final class ProductRegisterViewModel: ProductRegisterViewModelable {
+  weak var delegate: RegistetViewModelDelegate?
   var nameObserable: BehaviorRelay<String>
   var priceObserable: BehaviorRelay<Int>
   var discountPriceObserable: BehaviorRelay<Int>
@@ -33,11 +38,11 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
   var imageCountObserable: BehaviorRelay<Int>
   private let registerUseCase: RegisterUseCaseable
   var imagesObserable: BehaviorRelay<[UIImage]>
-  var buttonAble: BehaviorRelay<Bool>
+  var isProductUpdatebutton: BehaviorRelay<Bool>
   var imagesData: [Data]
   
   init(registerUseCase: RegisterUseCaseable) {
-    self.buttonAble = .init(value: false)
+    self.isProductUpdatebutton = .init(value: false)
     self.registerUseCase = registerUseCase
     self.disposeBag = .init()
     self.imagesObserable = .init(value: [])
@@ -52,21 +57,46 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
     convertToData()
     postButtonAbleObserable()
   }
+  
+  func action(action: ViewAction) {
+    switch action {
+    case .buttonTap(let tag):
+      guard let buttonDetail = ButtonDetail(rawValue: tag) else { return }
+      switch buttonDetail {
+      case .updateProduct:
+        registerUseCase.fetchProductList(params: productObserable.value, images: imagesData)
+          .observe(on: MainScheduler.instance)
+          .subscribe(onDisposed:  {
+          })
+          .disposed(by: disposeBag)
+        resetView()
+      }
+    case .ImagePicker(let image):
+      imagesObserable.accept(imagesObserable.value + [image])
+      imageCountObserable.accept(imageCountObserable.value + 1)
+    case .addImageButtonTap:
+      self.delegate?.addImageButtonTap()
+    }
+  }
+}
+  
+// MARK: - Action
 
-  func appendImage(image: UIImage) {
-    imagesObserable.accept(imagesObserable.value + [image])
-    imageCountObserable.accept(imageCountObserable.value + 1)
+extension ProductRegisterViewModel {
+  enum ViewAction {
+    case buttonTap(Int)
+    case ImagePicker(UIImage)
+    case addImageButtonTap
   }
-  
-  func didTappostButton() {
-    registerUseCase.fetchProductList(params: productObserable.value, images: imagesData)
-      .observe(on: MainScheduler.instance)
-      .subscribe(onDisposed:  {
-      })
-      .disposed(by: disposeBag)
-    resetView()
+
+  enum ButtonDetail: Int {
+    case updateProduct = 100
   }
-  
+}
+
+// MARK: - Binding Method
+
+extension ProductRegisterViewModel {
   private func convertToData() {
     imagesObserable
       .compactMap { $0.compactMap { $0.jpegData(compressionQuality: 0.3) } }
@@ -125,14 +155,14 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
       descriptionTextObserable,
       imageCountObserable
     ) { $0 && $1 && $2 && $3 && $4 }
-      .bind(to: buttonAble)
+      .bind(to: isProductUpdatebutton)
       .disposed(by: disposeBag)
   }
   
   private func resetView() {
     imagesObserable.accept([])
     imageCountObserable.accept(0)
-    buttonAble.accept(false)
+    isProductUpdatebutton.accept(false)
     nameObserable.accept("")
     priceObserable.accept(0)
     discountPriceObserable.accept(0)
@@ -140,6 +170,5 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
     descriptionObserable.accept("")
   }
 }
-
 
 
