@@ -115,12 +115,13 @@ class ProductViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    viewModel.delegate = self
     setup()
     bind()
   }
   
   override func viewDidDisappear(_ animated: Bool) {
-    coordinator?.dismiss()
+    viewModel.action(action: .dismissTap)
   }
   
   func bind() {
@@ -183,7 +184,18 @@ class ProductViewController: UIViewController {
       .bind(to: descriptionLabel.rx.text)
       .disposed(by: disposeBag)
   }
-  
+}
+
+// MARK: - Delegate
+extension ProductViewController: ProductViewModelDelegate {
+  func dismiss() {
+    coordinator?.dismiss()
+  }
+}
+
+// MARK: - Layout
+
+extension ProductViewController {
   private func setup() {
     self.view.backgroundColor = .systemGray6
 
@@ -218,7 +230,12 @@ class ProductViewController: UIViewController {
       descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
     ])
   }
-  
+}
+
+
+// MARK: - CollectionViewLayout
+
+extension ProductViewController {
   private func configureCollectionFlowLayout() -> UICollectionViewFlowLayout {
     let flowLayout = UICollectionViewFlowLayout()
     flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
