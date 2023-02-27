@@ -27,6 +27,7 @@ final class ProductEditTest: XCTestCase {
     editUsecase = EditUsecaseStub()
     delegate = ProductEditViewModelDelegateStub()
     viewModel = ProductEditViewModelStub(fetchUseCase: fetchUsecase, editUseCase: editUsecase)
+    viewModel.delegate = delegate
   }
   
   func test_삭제버튼_눌림() {
@@ -78,6 +79,7 @@ final class ProductEditTest: XCTestCase {
     viewModel.action(action: .modifyProductButtonTap(targetID))
     //then
     XCTAssertEqual(viewModel.buttonActionExcutions.count, 1)
+    XCTAssertEqual(delegate.coordinatorModifyViewExcutions.count, 1)
   }
 }
 
