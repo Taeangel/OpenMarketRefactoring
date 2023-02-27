@@ -10,15 +10,27 @@ import RxSwift
 import RxRelay
 
 protocol ProductModifyViewModelable {
-  var productId: Int { get }
+  var nameObserable: BehaviorRelay<String> { get set }
+  var priceObserable: BehaviorRelay<Int> { get set }
+  var discountPriceObserable: BehaviorRelay<Int> { get set }
+  var stockPriceObserable: BehaviorRelay<Int> { get set }
+  var descriptionObserable: BehaviorRelay<String> { get set }
   var productObservable: BehaviorRelay<DetailProductEneity> { get set }
-  func modiftProduct(product: ProductRequestDTO)
+  func modiftProduct()
 }
 
 class ProductModifyViewModel: ProductModifyViewModelable {
-  var productId: Int
-  private var disposeBag: DisposeBag
+  
+  var nameObserable: BehaviorRelay<String>
+  var priceObserable: BehaviorRelay<Int>
+  var discountPriceObserable: BehaviorRelay<Int>
+  var stockPriceObserable: BehaviorRelay<Int>
+  var descriptionObserable: BehaviorRelay<String>
   var productObservable: BehaviorRelay<DetailProductEneity>
+  
+  private var productObserableDTO: BehaviorRelay<ProductRequestDTO>
+  private var productId: Int
+  private var disposeBag: DisposeBag
   private let fetchUseCase: FetchUseCaseable
   private let editUseCase: EditUseCaseable
   
@@ -32,8 +44,37 @@ class ProductModifyViewModel: ProductModifyViewModelable {
     self.editUseCase = editUseCase
     self.productObservable = .init(value: DetailProductEneity())
     self.disposeBag = .init()
+    self.productObserableDTO = .init(value: ProductRequestDTO())
+        
+    self.nameObserable = .init(value: "")
+    self.priceObserable = .init(value: 0)
+    self.discountPriceObserable = .init(value: 0)
+    self.stockPriceObserable = .init(value: 0)
+    self.descriptionObserable = .init(value: "")
     
     bind()
+    convertDataBinding()
+  }
+  
+  private func convertDataBinding() {
+    Observable.combineLatest(
+      nameObserable,
+      priceObserable,
+      discountPriceObserable,
+      stockPriceObserable,
+      descriptionObserable
+    ).map { name, price, discount, stockPrice, description in
+      ProductRequestDTO(
+        name: name,
+        description: description,
+        price: price,
+        currency: "KRW",
+        discountedPrice: discount,
+        stock: stockPrice
+      )
+    }
+    .bind(to: productObserableDTO)
+    .disposed(by: disposeBag)
   }
   
   private func bind() {
@@ -43,11 +84,9 @@ class ProductModifyViewModel: ProductModifyViewModelable {
       .disposed(by: disposeBag)
   }
   
-  func modiftProduct(product: ProductRequestDTO) {
-    editUseCase.modifyProduct(id: productId, product: product)
-      .subscribe { _ in
-        
-      }
+  func modiftProduct() {
+    editUseCase.modifyProduct(id: productId, product: productObserableDTO.value)
+      .subscribe { _ in }
       .disposed(by: disposeBag)
   }
 }
