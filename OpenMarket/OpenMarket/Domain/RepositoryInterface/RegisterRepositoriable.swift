@@ -9,5 +9,5 @@ import RxSwift
 import Foundation
 
 protocol RegisterRepositoriable {
-  func fetchProductList(params: ProductRequestDTO, images: [Data]) -> Observable<Void>
+  func postProduct(params: ProductRequestDTO, images: [Data]) -> Observable<Void>
 }

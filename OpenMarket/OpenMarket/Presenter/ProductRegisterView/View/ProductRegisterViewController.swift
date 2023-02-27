@@ -245,7 +245,7 @@ extension ProductRegisterViewController {
 // MARK: - Delegate
 
 extension ProductRegisterViewController: RegistetViewModelDelegate {
-  func addImageButtonTap() {
+  func coordinatorImagePicker() {
     self.coordinator?.showPhotoLibrary(to: self.imagePicker)
   }
 }
@@ -320,7 +320,7 @@ extension ProductRegisterViewController: UIImagePickerControllerDelegate, UINavi
       guard let resizedPickerImage = resize(image: image, newWidth: 300) else {
         return
       }
-      viewModel.action(action: .ImagePicker(resizedPickerImage))
+      viewModel.action(action: .saveImage(resizedPickerImage))
     }
     self.dismiss(animated: true, completion: nil)
   }

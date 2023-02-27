@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol RegisterUseCaseable {
-  func fetchProductList(params: ProductRequestDTO, images: [Data]) -> Observable<Void>
+  func postProduct(params: ProductRequestDTO, images: [Data]) -> Observable<Void>
 }
 
 final class RegisterUseCase {
@@ -21,7 +21,7 @@ final class RegisterUseCase {
 }
 
 extension RegisterUseCase: RegisterUseCaseable {
-  func fetchProductList(params: ProductRequestDTO, images: [Data]) -> RxSwift.Observable<Void> {
-    registerRepository.fetchProductList(params: params, images: images)
+  func postProduct(params: ProductRequestDTO, images: [Data]) -> RxSwift.Observable<Void> {
+    registerRepository.postProduct(params: params, images: images)
   }
 }

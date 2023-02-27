@@ -23,10 +23,10 @@ protocol ProductRegisterViewModelable {
 }
 
 protocol RegistetViewModelDelegate: AnyObject {
-  func addImageButtonTap()
+  func coordinatorImagePicker()
 }
 
-final class ProductRegisterViewModel: ProductRegisterViewModelable {
+class ProductRegisterViewModel: ProductRegisterViewModelable {
   weak var delegate: RegistetViewModelDelegate?
   var nameObserable: BehaviorRelay<String>
   var priceObserable: BehaviorRelay<Int>
@@ -64,18 +64,18 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
       guard let buttonDetail = ButtonDetail(rawValue: tag) else { return }
       switch buttonDetail {
       case .updateProduct:
-        registerUseCase.fetchProductList(params: productObserable.value, images: imagesData)
+        registerUseCase.postProduct(params: productObserable.value, images: imagesData)
           .observe(on: MainScheduler.instance)
           .subscribe(onDisposed:  {
           })
           .disposed(by: disposeBag)
         resetView()
       }
-    case .ImagePicker(let image):
+    case .saveImage(let image):
       imagesObserable.accept(imagesObserable.value + [image])
       imageCountObserable.accept(imageCountObserable.value + 1)
     case .addImageButtonTap:
-      self.delegate?.addImageButtonTap()
+      self.delegate?.coordinatorImagePicker()
     }
   }
 }
@@ -85,7 +85,7 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
 extension ProductRegisterViewModel {
   enum ViewAction {
     case buttonTap(Int)
-    case ImagePicker(UIImage)
+    case saveImage(UIImage)
     case addImageButtonTap
   }
 

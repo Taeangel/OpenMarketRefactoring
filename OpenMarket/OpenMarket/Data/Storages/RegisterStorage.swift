@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol RegisterStorageable: AnyObject {
-  func fetchProductList(params: ProductRequestDTO, images: [Data]) -> Observable<Void>
+  func postProduct(params: ProductRequestDTO, images: [Data]) -> Observable<Void>
 }
 
 final class RegisterStorage {
@@ -21,7 +21,7 @@ final class RegisterStorage {
 }
 
 extension RegisterStorage: RegisterStorageable {
-  func fetchProductList(params: ProductRequestDTO, images: [Data]) -> RxSwift.Observable<Void> {
+  func postProduct(params: ProductRequestDTO, images: [Data]) -> RxSwift.Observable<Void> {
     return openMarketApiManager
       .requestObservable(OpenMarketRequestManager.postProduct(params: params, images: images))
       .map { _ in }

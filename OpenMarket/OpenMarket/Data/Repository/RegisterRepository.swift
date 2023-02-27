@@ -17,8 +17,8 @@ final class RegisterRepository {
 }
 
 extension RegisterRepository: RegisterRepositoriable {
-  func fetchProductList(params: ProductRequestDTO, images: [Data]) -> RxSwift.Observable<Void> {
-    registerStorageable.fetchProductList(params: params, images: images)
+  func postProduct(params: ProductRequestDTO, images: [Data]) -> RxSwift.Observable<Void> {
+    registerStorageable.postProduct(params: params, images: images)
   }
 }
 
