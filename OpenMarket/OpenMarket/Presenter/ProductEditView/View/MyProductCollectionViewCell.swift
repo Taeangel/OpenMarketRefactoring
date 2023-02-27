@@ -107,20 +107,19 @@ class MyProductCollectionViewCell: UICollectionViewCell {
   override func prepareForReuse() {
     disposeBag = DisposeBag()
   }
-    
-  func bindButton(coordinator: ProductEditViewCoordinator?,productID: Int, viewModle: ProductEditViewModelable) {
-    
+  
+  func bindButton(modifyButtontap: @escaping() -> (), deleteButtontap: @escaping() -> ()) {
     modifyButton.rx.tap
       .withUnretained(self)
       .bind { _, _ in
-        coordinator?.showProductModifyViewController(productID)
+        modifyButtontap()
       }
       .disposed(by: disposeBag)
     
     deleteButton.rx.tap
       .withUnretained(self)
       .bind { _, _ in
-        viewModle.deleteProduct(id: productID)
+        deleteButtontap()
       }
       .disposed(by: disposeBag)
   }
@@ -132,14 +131,11 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     self.priceLabel.text = product.priceString
     self.discountPriceLabel.text = product.discountedPriceString
   }
-  
-  private func setupLayout() {
-    layer.shadowRadius = 10
-    contentView.layer.cornerRadius = 20
-    contentView.layer.masksToBounds = true
-    contentView.backgroundColor = .white
-  }
-  
+}
+
+// MARK: - Layout
+
+extension MyProductCollectionViewCell {
   private func setup() {
     contentView.addSubview(productimageView)
     contentView.addSubview(infoStackView)
@@ -169,5 +165,12 @@ class MyProductCollectionViewCell: UICollectionViewCell {
       buttonStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
       buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
     ])
+  }
+  
+  private func setupLayout() {
+    layer.shadowRadius = 10
+    contentView.layer.cornerRadius = 20
+    contentView.layer.masksToBounds = true
+    contentView.backgroundColor = .white
   }
 }
