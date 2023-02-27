@@ -10,7 +10,9 @@ import RxSwift
 import RxRelay
 
 protocol ProductViewModelable {
+  func action(action: ProductViewModel.ViewAction)
   var productObservable: BehaviorRelay<DetailProductEneity> { get set }
+  var delegate: ProductViewModelDelegate? { get set }
 }
 
 protocol ProductViewModelDelegate: AnyObject {
@@ -38,6 +40,27 @@ class ProductViewModel: ProductViewModelable {
     bind()
   }
   
+  func action(action: ViewAction) {
+    switch action {
+    case .dismissTap:
+      delegate?.dismiss()
+    }
+  }
+}
+
+
+// MARK: - ViewAction
+
+extension ProductViewModel {
+  enum ViewAction {
+    case dismissTap
+  }
+}
+
+
+// MARK: - Binding
+
+extension ProductViewModel {
   private func bind() {
     fetchUseCase.fetchProduct(productID)
       .map { $0.toEneity() }
@@ -45,3 +68,5 @@ class ProductViewModel: ProductViewModelable {
       .disposed(by: disposeBag)
   }
 }
+
+
