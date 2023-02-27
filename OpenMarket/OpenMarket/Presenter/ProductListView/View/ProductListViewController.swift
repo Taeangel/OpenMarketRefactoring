@@ -42,10 +42,10 @@ class ProductListViewController: UIViewController {
     bind()
   }
   override func viewWillAppear(_ animated: Bool) {
-    viewModel.updateList()
+    viewModel.action(action: .updataList)
   }
   
-  func bind() {
+  private func bind() {
     viewModel.productListObservable
       .bind(to: collectionView.rx.items(
         cellIdentifier: ProductListCell.identifier,
@@ -56,12 +56,24 @@ class ProductListViewController: UIViewController {
     
     collectionView.rx.modelSelected(BasicProductEntity.self)
       .subscribe(onNext: { [weak self] product in
-        self?.coordinator?.showProductViewController(product.intId)
+        self?.viewModel.action(action: .productTap(product.intId))
       })
       .disposed(by: disposeBag)
   }
-  
-  func setup() {
+}
+
+// MARK: - Delegate
+
+extension ProductListViewController: ProductListViewModelDelegate {
+  func coordinatorShowProductView(productID: Int) {
+    coordinator?.showProductViewController(productID)
+  }
+}
+
+// MARK: - Layout
+
+extension ProductListViewController {
+  private func setup() {
     view.backgroundColor = .white
     
     self.tabBarController?.title = "OpenMarket"
