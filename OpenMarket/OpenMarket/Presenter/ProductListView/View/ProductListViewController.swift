@@ -12,8 +12,7 @@ import SnapKit
 
 class ProductListViewController: UIViewController {
   weak var coordinator: ProductListViewCoordinator?
-  var viewModel: ProductListViewModelable
-  
+  private let viewModel: ProductListViewModelable
   private var disposeBag = DisposeBag()
   
   init(viewModel: ProductListViewModelable) {
@@ -25,7 +24,7 @@ class ProductListViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
     
-  lazy var collectionView: UICollectionView = {
+  private lazy var collectionView: UICollectionView = {
     let collectionView = UICollectionView(
       frame: .zero,
       collectionViewLayout: configureProductListLayout())
@@ -49,7 +48,8 @@ class ProductListViewController: UIViewController {
   func bind() {
     viewModel.productListObservable
       .bind(to: collectionView.rx.items(
-        cellIdentifier: ProductListCell.identifier, cellType: ProductListCell.self)) { index, item, cell in
+        cellIdentifier: ProductListCell.identifier,
+        cellType: ProductListCell.self)) { index, item, cell in
           cell.bind(item)
         }
         .disposed(by: disposeBag)

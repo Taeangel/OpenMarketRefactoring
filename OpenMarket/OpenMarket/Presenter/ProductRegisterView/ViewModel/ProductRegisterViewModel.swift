@@ -13,21 +13,21 @@ protocol ProductRegisterViewModelable {
   var imagesObserable: BehaviorRelay<[UIImage]> { get set }
   var imageCountObserable: BehaviorRelay<Int> { get set }
   var buttonAble: BehaviorRelay<Bool> { get set }
-  var nameObserable: BehaviorSubject<String> { get set }
-  var priceObserable: BehaviorSubject<Int> { get set }
-  var discountPriceObserable: BehaviorSubject<Int> { get set }
-  var stockPriceObserable: BehaviorSubject<Int> { get set }
-  var descriptionObserable: BehaviorSubject<String> { get set }
+  var nameObserable: BehaviorRelay<String> { get set }
+  var priceObserable: BehaviorRelay<Int> { get set }
+  var discountPriceObserable: BehaviorRelay<Int> { get set }
+  var stockPriceObserable: BehaviorRelay<Int> { get set }
+  var descriptionObserable: BehaviorRelay<String> { get set }
   func appendImage(image: UIImage)
   func didTappostButton()
 }
 
 final class ProductRegisterViewModel: ProductRegisterViewModelable {
-  var nameObserable: BehaviorSubject<String>
-  var priceObserable: BehaviorSubject<Int>
-  var discountPriceObserable: BehaviorSubject<Int>
-  var stockPriceObserable: BehaviorSubject<Int>
-  var descriptionObserable: BehaviorSubject<String>
+  var nameObserable: BehaviorRelay<String>
+  var priceObserable: BehaviorRelay<Int>
+  var discountPriceObserable: BehaviorRelay<Int>
+  var stockPriceObserable: BehaviorRelay<Int>
+  var descriptionObserable: BehaviorRelay<String>
   var productObserable: BehaviorRelay<ProductRequestDTO>
   private var disposeBag: DisposeBag
   var imageCountObserable: BehaviorRelay<Int>
@@ -133,11 +133,11 @@ final class ProductRegisterViewModel: ProductRegisterViewModelable {
     imagesObserable.accept([])
     imageCountObserable.accept(0)
     buttonAble.accept(false)
-    nameObserable.onNext("")
-    priceObserable.onNext(0)
-    discountPriceObserable.onNext(0)
-    stockPriceObserable.onNext(0)
-    descriptionObserable.onNext("")
+    nameObserable.accept("")
+    priceObserable.accept(0)
+    discountPriceObserable.accept(0)
+    stockPriceObserable.accept(0)
+    descriptionObserable.accept("")
   }
 }
 
