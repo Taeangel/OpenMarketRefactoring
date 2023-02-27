@@ -27,6 +27,35 @@ struct DetailProductEneity: Codable {
     case vendors
   }
   
+  init(id: Int?, vendorID: Int?, name: String?, productDescription: String?, currency: String?, price: Int?, discountedPrice: Int?, stock: Int?, images: [ProductImageEntity]?, vendors: VendorsEntity?) {
+    self.id = id
+    self.vendorID = vendorID
+    self.name = name
+    self.productDescription = productDescription
+    self.currency = currency
+    self.price = price
+    self.discountedPrice = discountedPrice
+    self.stock = stock
+    self.images = images
+    self.vendors = vendors
+  }
+  
+  init() {
+    self.id = nil
+    self.vendorID = nil
+    self.name = nil
+    self.productDescription = nil
+    self.currency = nil
+    self.price = nil
+    self.discountedPrice = nil
+    self.stock = nil
+    self.images = nil
+    self.vendors = nil
+  }
+}
+
+extension DetailProductEneity {
+  
   var arrayImages: [ProductImageEntity] {
     guard let images = images else {
       return []
@@ -73,52 +102,36 @@ struct DetailProductEneity: Codable {
     return "\(stock)"
   }
   
-  init(id: Int?, vendorID: Int?, name: String?, productDescription: String?, currency: String?, price: Int?, discountedPrice: Int?, stock: Int?, images: [ProductImageEntity]?, vendors: VendorsEntity?) {
-    self.id = id
-    self.vendorID = vendorID
-    self.name = name
-    self.productDescription = productDescription
-    self.currency = currency
-    self.price = price
-    self.discountedPrice = discountedPrice
-    self.stock = stock
-    self.images = images
-    self.vendors = vendors
+  var priceInt: Int {
+    guard let price = price else {
+       return 0
+    }
+    return price
   }
   
-  init() {
-    self.id = nil
-    self.vendorID = nil
-    self.name = nil
-    self.productDescription = nil
-    self.currency = nil
-    self.price = nil
-    self.discountedPrice = nil
-    self.stock = nil
-    self.images = nil
-    self.vendors = nil
+  var currencyString: String {
+    guard let currency = currency else  {
+      return ""
+    }
+    return currency
+  }
+  
+  var stockInt: Int {
+    guard let stock = stock else {
+      return 0
+    }
+    return stock
+  }
+  
+  var discountedInt: Int {
+    guard let discountedPrice = discountedPrice else {
+      return 0
+    }
+    return discountedPrice
   }
 }
+
 
 // MARK: - Image
-struct ProductImageEntity: Codable, Identifiable {
-  let id: Int?
-  let url: String?
-  
-  var imageURL: URL {
-    guard let url = url, let url = URL(string: url) else {
-      return URL(fileURLWithPath: "")
-    }
-    return url
-  }
-  
-  enum CodingKeys: String, CodingKey {
-    case id, url
-  }
-}
 
 // MARK: - Vendors
-struct VendorsEntity: Codable {
-  let id: Int?
-  let name: String?
-}
