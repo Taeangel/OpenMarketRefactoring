@@ -186,29 +186,6 @@ class ProductModifyViewController: UIViewController {
         }
         .disposed(by: disposeBag)
   }
-  
-  private func makeProduct() -> ProductRequestDTO {
-    return ProductRequestDTO(
-      name: nameTextField.text ?? "",
-      description: descriptionTextField.text ?? "",
-      price: Int(priceTextField.text ?? "") ?? 0,
-      currency: "KRW",
-      discountedPrice: Int(discountedPriceTextField.text ?? "") ?? 0,
-      stock: Int(stockTextField.text ?? "") ?? 0)
-  }
-  
-  private func setupImageViewLayout() -> UICollectionViewFlowLayout {
-    let flowLayout = UICollectionViewFlowLayout()
-    flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    flowLayout.itemSize = CGSize(
-      width: UIScreen.main.bounds.width * 0.6,
-      height: UIScreen.main.bounds.width * 0.6
-    )
-    flowLayout.minimumLineSpacing = 16
-    flowLayout.scrollDirection = .horizontal
-    
-    return flowLayout
-  }
 }
 
 // MARK: - Layout
