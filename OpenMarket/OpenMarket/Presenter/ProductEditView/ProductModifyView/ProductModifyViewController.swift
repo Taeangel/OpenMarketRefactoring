@@ -100,6 +100,7 @@ class ProductModifyViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    viewModel.delegate = self
     setup()
     bind()
   }
@@ -137,8 +138,7 @@ class ProductModifyViewController: UIViewController {
     updataButton.rx.tap
       .withUnretained(self)
       .bind { _, _ in
-        self.viewModel.modiftProduct()
-        self.coordinator?.dismiss()
+        self.viewModel.action(action: .buttonTap(ButtonTag.modifyProduct))
       }
       .disposed(by: disposeBag)
     
@@ -185,6 +185,22 @@ class ProductModifyViewController: UIViewController {
           cell.bind(images: item)
         }
         .disposed(by: disposeBag)
+  }
+}
+
+// MARK: - ButtonTag
+
+extension ProductModifyViewController {
+  enum ButtonTag {
+    static let modifyProduct = 100
+  }
+}
+
+// MARK: - Delegate
+
+extension ProductModifyViewController: ProductModifyViewModelDelegate {
+  func coordinatorDismiss() {
+    self.coordinator?.dismiss()
   }
 }
 
