@@ -110,10 +110,34 @@ class ProductModifyViewController: UIViewController {
   
   private func bind() {
     
+    // MARK: - Output
+    nameTextField.rx.text.orEmpty
+      .bind(to: viewModel.nameObserable)
+      .disposed(by: disposeBag)
+    
+    priceTextField.rx.text.orEmpty
+      .compactMap { Int($0) }
+      .bind(to: viewModel.priceObserable)
+      .disposed(by: disposeBag)
+    
+    discountedPriceTextField.rx.text.orEmpty
+      .compactMap { Int($0) }
+      .bind(to: viewModel.discountPriceObserable)
+      .disposed(by: disposeBag)
+    
+    stockTextField.rx.text.orEmpty
+      .compactMap { Int($0) }
+      .bind(to: viewModel.stockPriceObserable)
+      .disposed(by: disposeBag)
+    
+    descriptionTextField.rx.text.orEmpty
+      .bind(to: viewModel.descriptionObserable)
+      .disposed(by: disposeBag)
+    
     updataButton.rx.tap
       .withUnretained(self)
       .bind { _, _ in
-        self.viewModel.modiftProduct(product: self.makeProduct())
+        self.viewModel.modiftProduct()
         self.coordinator?.dismiss()
       }
       .disposed(by: disposeBag)
@@ -185,9 +209,11 @@ class ProductModifyViewController: UIViewController {
     
     return flowLayout
   }
-  
-  
-  func setup() {
+}
+
+// MARK: - Layout
+extension ProductModifyViewController {
+  private func setup() {
     view.backgroundColor = .systemGray6
     view.addSubview(imageCollectionView)
     view.addSubview(productInfoStackView)
@@ -219,3 +245,19 @@ class ProductModifyViewController: UIViewController {
   }
 }
 
+// MARK: - CollectionViewLayout
+
+extension ProductModifyViewController {
+  private func setupImageViewLayout() -> UICollectionViewFlowLayout {
+    let flowLayout = UICollectionViewFlowLayout()
+    flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    flowLayout.itemSize = CGSize(
+      width: UIScreen.main.bounds.width * 0.6,
+      height: UIScreen.main.bounds.width * 0.6
+    )
+    flowLayout.minimumLineSpacing = 16
+    flowLayout.scrollDirection = .horizontal
+    
+    return flowLayout
+  }
+}
