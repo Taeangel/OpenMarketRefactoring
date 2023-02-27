@@ -10,13 +10,18 @@ import RxSwift
 import RxRelay
 
 protocol ProductEditViewModelable {
-  func updateList()
-  func deleteProduct(id: Int)
   var myProductListObservable: BehaviorRelay<[BasicProductEntity]> { get set }
+  var delegate: ProductEditViewModelDelegate? { get set }
+  
+  func action(action: ProductEditViewModel.ViewAction)
+}
+
+protocol ProductEditViewModelDelegate: AnyObject {
+  func coordinatorShowModifyView(_ productID: Int)
 }
 
 final class ProductEditViewModel: ProductEditViewModelable {
-  
+  weak var delegate: ProductEditViewModelDelegate?
   var myProductListObservable: BehaviorRelay<[BasicProductEntity]>
   private var disposeBag: DisposeBag
   private let fetchUseCase: FetchUseCaseable
@@ -34,7 +39,18 @@ final class ProductEditViewModel: ProductEditViewModelable {
     updateList()
   }
   
-  func updateList() {
+  func action(action: ViewAction) {
+    switch action {
+    case let .ModifyProductButtonTap(productID):
+      delegate?.coordinatorShowModifyView(productID)
+    case let .deleteProductButtonTap(productID):
+      deleteProduct(id: productID)
+    case .updateList:
+      updateList()
+    }
+  }
+  
+  private func updateList() {
     fetchUseCase.fetchMyProductList()
       .compactMap { $0.product }
       .map { $0.map { $0.toEneity()} }
@@ -42,7 +58,7 @@ final class ProductEditViewModel: ProductEditViewModelable {
       .disposed(by: disposeBag)
   }
   
-  func deleteProduct(id: Int) {
+  private func deleteProduct(id: Int) {
     editUseCase.deleteProduct(id: id)
       .flatMap { self.fetchUseCase.fetchMyProductList() }
       .compactMap { $0.product }
@@ -52,4 +68,10 @@ final class ProductEditViewModel: ProductEditViewModelable {
   }
 }
 
-
+extension ProductEditViewModel {
+  enum ViewAction {
+    case deleteProductButtonTap(Int)
+    case ModifyProductButtonTap(Int)
+    case updateList
+  }
+}
