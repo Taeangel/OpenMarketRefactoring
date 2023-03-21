@@ -12,7 +12,7 @@ import SnapKit
 
 class ProductListViewController: UIViewController {
   weak var coordinator: ProductListViewCoordinator?
-  private let viewModel: ProductListViewModelable
+  private var viewModel: ProductListViewModelable
   private var disposeBag = DisposeBag()
   
   init(viewModel: ProductListViewModelable) {
@@ -38,6 +38,7 @@ class ProductListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    viewModel.delegate = self
     setup()
     bind()
   }
@@ -69,7 +70,6 @@ extension ProductListViewController: ProductListViewModelDelegate {
     coordinator?.showProductViewController(productID)
   }
 }
-
 // MARK: - Layout
 
 extension ProductListViewController {
